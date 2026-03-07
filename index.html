@@ -1779,11 +1779,14 @@
 
                 .srv-card {
                     position: relative;
-                    border-radius: 16px;
+                    border-radius: 20px;
                     overflow: hidden;
-                    background: white;
-                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-                    transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s ease;
+                    background: rgba(255, 255, 255, 0.03);
+                    /* Glass base */
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                     text-decoration: none !important;
                     display: block;
                     cursor: pointer;
@@ -1791,9 +1794,27 @@
                 }
 
                 .srv-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 20px rgba(13, 187, 201, 0.25);
-                    border-color: rgba(13, 187, 201, 0.3);
+                    transform: translateY(-12px) scale(1.02);
+                    background: rgba(255, 255, 255, 0.08);
+                    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(109, 22, 223, 0.3);
+                    border-color: rgba(109, 22, 223, 0.4);
+                }
+
+                .srv-label {
+                    background: rgba(255, 255, 255, 0.05);
+                    /* Match glass theme */
+                    text-align: center;
+                    padding: 20px 15px;
+                    position: relative;
+                    border-top: 1px solid rgba(255, 255, 255, 0.05);
+                }
+
+                .srv-label h5 {
+                    color: white;
+                    /* Contrast for dark bg */
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    margin: 0 0 6px;
                 }
 
                 .srv-card-img {
@@ -1805,12 +1826,12 @@
                 }
 
                 .srv-card:hover .srv-card-img {
-                    transform: scale(1.06);
+                    transform: scale(1.08);
                 }
 
                 .srv-icon-box {
                     position: absolute;
-                    bottom: 78px;
+                    bottom: 85px;
                     left: 50%;
                     transform: translateX(-50%);
                     width: 62px;
@@ -1826,23 +1847,8 @@
                 }
 
                 .srv-card:hover .srv-icon-box {
-                    transform: translateX(-50%) translateY(-4px) scale(1.1);
-                    box-shadow: 0 14px 35px rgba(109, 22, 223, 0.4);
-                }
-
-                .srv-label {
-                    background: white;
-                    text-align: center;
-                    padding: 16px 12px 18px;
-                    position: relative;
-                }
-
-                .srv-label h5 {
-                    color: #322e2f;
-                    font-weight: 700;
-                    font-size: 1rem;
-                    margin: 0 0 4px;
-                    line-height: 1.3;
+                    transform: translateX(-50%) translateY(-5px) scale(1.1);
+                    box-shadow: 0 15px 40px rgba(109, 22, 223, 0.4);
                 }
 
                 .srv-label span {
@@ -2335,6 +2341,103 @@
                 </div>
             </div>
         </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             OUR PROFESSIONAL PROCESS
+        ============================================= -->
+        <section class="process-section section-padding" style="background: #0a0010; padding: 100px 0;">
+            <div class="container">
+                <div class="row mb-5" data-anim="fade-up">
+                    <div class="col-12 text-center">
+                        <h2 style="color: white; font-weight: 900; font-size: 3rem; margin-bottom: 20px;">
+                            Our <span class="animated-gradient-text">Professional Journey</span>
+                        </h2>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                            We follow a structured and disciplined approach to ensure every stroke is perfect and every
+                            client is satisfied.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                    <!-- Step 1 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6" data-anim="bounce-up" data-delay="0">
+                        <div class="process-card"
+                            style="text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 35px 20px; transition: all 0.4s ease; height: 100%; cursor: default;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #6d16df, #0dbbc9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white; font-weight: 800;">
+                                1</div>
+                            <h5 style="color: white; font-weight: 700; margin-bottom: 12px;">Free Estimate</h5>
+                            <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin: 0;">Quick onsite
+                                evaluation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6" data-anim="bounce-up" data-delay="150">
+                        <div class="process-card"
+                            style="text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 35px 20px; transition: all 0.4s ease; height: 100%; cursor: default;">
+                            <div
+                                style="width: 60px; height: 60px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white; border: 1px solid rgba(255,255,255,0.2); font-weight: 800;">
+                                2</div>
+                            <h5 style="color: white; font-weight: 700; margin-bottom: 12px;">Color Choice</h5>
+                            <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin: 0;">Expert palette
+                                advice.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6" data-anim="bounce-up" data-delay="300">
+                        <div class="process-card"
+                            style="text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 35px 20px; transition: all 0.4s ease; height: 100%; cursor: default;">
+                            <div
+                                style="width: 60px; height: 60px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white; border: 1px solid rgba(255,255,255,0.2); font-weight: 800;">
+                                3</div>
+                            <h5 style="color: white; font-weight: 700; margin-bottom: 12px;">Prep Work</h5>
+                            <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin: 0;">Precise cleaning &
+                                priming.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6" data-anim="bounce-up" data-delay="450">
+                        <div class="process-card"
+                            style="text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 35px 20px; transition: all 0.4s ease; height: 100%; cursor: default;">
+                            <div
+                                style="width: 60px; height: 60px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white; border: 1px solid rgba(255,255,255,0.2); font-weight: 800;">
+                                4</div>
+                            <h5 style="color: white; font-weight: 700; margin-bottom: 12px;">The Paint Job</h5>
+                            <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin: 0;">Flawless execution.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="col-lg-2 col-md-4 col-sm-6" data-anim="bounce-up" data-delay="600">
+                        <div class="process-card"
+                            style="text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 35px 20px; transition: all 0.4s ease; height: 100%; cursor: default;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #0dbbc9, #6d16df); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white; font-weight: 800;">
+                                5</div>
+                            <h5 style="color: white; font-weight: 700; margin-bottom: 12px;">Inspection</h5>
+                            <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin: 0;">100% Satisfaction
+                                check.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .process-card:hover {
+                background: rgba(255, 255, 255, 0.08) !important;
+                transform: translateY(-10px);
+                border-color: #6d16df !important;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+        </style>
 
         <div class="section-divider"></div>
 
@@ -3553,6 +3656,38 @@
 
     </script>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/15619063823" class="whatsapp-float btn-ripple" target="_blank"
+        style="position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 9999; transition: all 0.3s ease; text-decoration: none;">
+        <i class="bi bi-whatsapp"></i>
+        <span
+            style="position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; background: #ff3b30; border-radius: 50%; border: 2px solid white; animation: pulseNotification 2s infinite;"></span>
+    </a>
+
+    <style>
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+            color: white;
+        }
+
+        @keyframes pulseNotification {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+            }
+        }
+    </style>
 </body>
 
 </html>
