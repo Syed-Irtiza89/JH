@@ -1538,12 +1538,244 @@
 
         @media (max-width: 768px) {
             .gallery-h-item {
-                width: 280px;
-                height: 200px;
+                width: 260px;
+                height: 190px;
             }
 
             .gallery-horizontal-row {
                 margin-bottom: 20px;
+            }
+        }
+
+        /* =============================================
+           COMPREHENSIVE MOBILE RESPONSIVE FIXES
+        ============================================= */
+        @media (max-width: 767px) {
+
+            /* === GLOBAL === */
+            body {
+                padding-top: 65px;
+            }
+
+            h1 {
+                font-size: 1.9rem !important;
+                line-height: 1.25 !important;
+            }
+
+            h2 {
+                font-size: 1.6rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .section-padding {
+                padding: 50px 0 !important;
+            }
+
+            /* === NAVBAR === */
+            .navbar {
+                padding: 8px 0;
+            }
+
+            .navbar-brand img {
+                max-width: 70px !important;
+            }
+
+            /* === HERO SECTION === */
+            .hero-section {
+                min-height: 100svh;
+                padding: 30px 0 !important;
+            }
+
+            .hero-content {
+                text-align: center;
+                padding: 20px 16px !important;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem !important;
+                line-height: 1.25 !important;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem !important;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem !important;
+                padding: 6px 14px !important;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                width: 100%;
+                text-align: center;
+                padding: 13px 20px !important;
+                font-size: 0.95rem !important;
+                margin-bottom: 10px;
+            }
+
+            /* === ABOUT SECTION === */
+            .about-section {
+                padding: 50px 0 !important;
+            }
+
+            .about-text-block::before {
+                display: none;
+            }
+
+            .member-block {
+                max-width: 260px !important;
+                margin: 0 auto !important;
+            }
+
+            .stat-counter {
+                font-size: 1.8rem !important;
+            }
+
+            /* === SERVICES SECTION === */
+            .srv-card {
+                margin-bottom: 16px;
+            }
+
+            .srv-card-img-wrap {
+                height: 180px !important;
+            }
+
+            .srv-content {
+                padding: 20px !important;
+            }
+
+            .srv-content h5 {
+                font-size: 1.1rem !important;
+            }
+
+            .srv-cta-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-srv-primary,
+            .btn-srv-secondary {
+                text-align: center;
+                width: 100%;
+            }
+
+            /* === QUOTE SECTION (CTA) === */
+            .quote-section-wrapper,
+            [style*="padding: 100px"] {
+                padding: 50px 16px !important;
+            }
+
+            /* === TESTIMONIALS (SWIPER) === */
+            .testimonial-swiper {
+                padding: 0 10px !important;
+            }
+
+            .testimonial-card {
+                padding: 20px !important;
+            }
+
+            /* === CONTACT SECTION === */
+            .contact-section {
+                padding: 50px 0 !important;
+            }
+
+            .contact-section .col-lg-8 {
+                padding: 0 12px !important;
+            }
+
+            .contact-section h2 {
+                font-size: 1.6rem !important;
+            }
+
+            .contact-section p {
+                font-size: 0.9rem !important;
+            }
+
+            /* Contact info cards stack on mobile */
+            .contact-section .col-md-5 {
+                margin-bottom: 12px;
+            }
+
+            .contact-section .d-flex.align-items-center.justify-content-center {
+                justify-content: flex-start !important;
+                gap: 12px !important;
+                padding: 14px 16px !important;
+            }
+
+            /* === SERVICE AREAS === */
+            .service-areas-section .col-lg-7 iframe {
+                height: 220px !important;
+            }
+
+            .service-areas-section .col-lg-5>div {
+                padding: 24px 18px !important;
+            }
+
+            /* === FOOTER === */
+            .site-footer .col-lg-4,
+            .site-footer .col-lg-2,
+            .site-footer .col-lg-3 {
+                margin-bottom: 30px;
+            }
+
+            .site-footer h5 {
+                font-size: 1rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* === WHATSAPP FLOATING BUTTON === */
+            .whatsapp-float {
+                bottom: 16px !important;
+                right: 16px !important;
+            }
+
+            /* === SECTION TITLE LINE === */
+            .section-title-line {
+                margin: 10px auto 0 !important;
+            }
+
+            /* === ANIMATED GRADIENT TEXT === */
+            .animated-gradient-text {
+                font-size: inherit !important;
+            }
+
+            /* === STAT CARDS in TESTIMONIAL SECTION === */
+            .col-lg-3>div[style*="padding:25px"] {
+                padding: 18px !important;
+            }
+
+            /* === TRUST / LOGO SLIDER === */
+            .logo-slider-wrapper {
+                padding: 30px 0 !important;
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hero-content h1 {
+                font-size: 2.4rem !important;
+            }
+
+            .srv-cta-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .btn-srv-primary,
+            .btn-srv-secondary {
+                text-align: center;
+            }
+
+            .about-text-block::before {
+                display: none;
             }
         }
     </style>
