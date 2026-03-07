@@ -1,0 +1,9 @@
+{
+  "name": "j-h-painting-services",
+  "version": 2,
+  "public": true,
+  "github": {
+    "enabled": true,
+    "silent": false
+  }
+}

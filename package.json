@@ -1,0 +1,12 @@
+{
+    "name": "j-h-painting-services",
+    "version": "1.0.0",
+    "description": "Professional Painting Services Landing Page- J&H Painting Services Inc.",
+    "scripts": {
+        "start": "serve .",
+        "deploy": "vercel --prod"
+    },
+    "dependencies": {
+        "serve": "^14.2.0"
+    }
+}
