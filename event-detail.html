@@ -473,10 +473,10 @@ https://templatemo.com/tm-587-tiya-golf-club
             }
 
             @media (max-width: 991px) {
-                .navbar-brand {
-                    position: absolute !important;
-                    left: 50% !important;
-                    transform: translateX(-50%) !important;
+                .navbar .navbar-brand {
+                    position: relative !important;
+                    left: 0 !important;
+                    transform: none !important;
                     margin: 0 !important;
                     z-index: 10;
                 }
@@ -512,7 +512,13 @@ https://templatemo.com/tm-587-tiya-golf-club
                 }
 
                 .site-footer .navbar-brand {
+                    position: relative !important;
+                    left: 0 !important;
+                    transform: none !important;
                     justify-content: center !important;
+                    display: flex !important;
+                    margin: 0 0 20px 0 !important;
+                    width: 100%;
                 }
 
                 .site-footer .d-flex.gap-3 {
