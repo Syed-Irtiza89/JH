@@ -1,0 +1,4066 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>J & H Painting - Professional Painting Services Florida</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* =============================================
+           BASE RESET
+        ============================================= */
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+
+        body {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            padding-top: 80px;
+        }
+
+        main {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .site-footer {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .click-scroll {
+            scroll-margin-top: 80px;
+        }
+
+        /* =============================================
+           PAGE LOADER
+        ============================================= */
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0010;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-logo {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 4px;
+            animation: loaderPulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-logo span:first-child {
+            color: #6d16df;
+        }
+
+        .loader-logo span:last-child {
+            color: #0dbbc9;
+        }
+
+        .loader-bar-wrap {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loader-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 2px;
+            animation: loadBar 1.8s ease-in-out forwards;
+        }
+
+        @keyframes loadBar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes loaderPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(0.97);
+            }
+        }
+
+        /* =============================================
+           SCROLL PROGRESS BAR
+        ============================================= */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            z-index: 99997;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(109, 22, 223, 0.6);
+        }
+
+        /* =============================================
+           NAVBAR
+        ============================================= */
+        .navbar {
+            background-color: rgba(47, 39, 39, 0.4) !important;
+            backdrop-filter: blur(5px) saturate(120%) !important;
+            -webkit-backdrop-filter: blur(5px) saturate(120%) !important;
+            border-bottom: 1px solid rgba(26, 13, 13, 0.3);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(10, 0, 16, 0.95) !important;
+            backdrop-filter: blur(8px) !important;
+            box-shadow: 0 4px 30px rgba(109, 22, 223, 0.3);
+        }
+
+        .nav-link {
+            color: #0dbbc9 !important;
+            font-weight: 700;
+            padding: 8px 16px !important;
+            margin: 0 2px;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: #6d16df !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 1px;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+            left: 20%;
+        }
+
+        .nav-link.active {
+            background-color: rgba(109, 22, 223, 0.1) !important;
+            color: #6d16df !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: rgba(10, 0, 22, 0.97);
+                border-radius: 20px;
+                padding: 20px;
+                margin-top: 15px;
+                border: 1px solid rgba(109, 22, 223, 0.4);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            }
+
+            .navbar-collapse .nav-link {
+                color: #ffffff !important;
+                font-weight: 700;
+            }
+
+            .navbar-collapse .nav-link:hover {
+                color: #0dbbc9 !important;
+            }
+
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .nav-link {
+                padding: 12px !important;
+            }
+
+
+            .navbar-toggler-icon {
+                width: 30px;
+                height: 30px;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+
+            .navbar-brand img {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-brand img {
+                margin-left: 0;
+            }
+        }
+
+        /* =============================================
+           HERO SECTION
+        ============================================= */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-20vh) scale(1.5);
+            }
+        }
+
+        .hero-content {
+            animation: heroReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title-jh {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title-jh::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 2px;
+            animation: lineExpand 1s 1.5s ease forwards;
+        }
+
+        @keyframes lineExpand {
+            to {
+                width: 100%;
+            }
+        }
+
+        .hero-badge {
+            animation: badgeFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, #6d16df, #9b4dea);
+            border: none;
+            color: white;
+            padding: 14px 35px;
+            font-weight: 700;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(109, 22, 223, 0.4);
+        }
+
+        .btn-hero-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-hero-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(109, 22, 223, 0.6);
+            color: white;
+        }
+
+
+        /* =============================================
+           ADVANCED MULTI-EFFECT SCROLL ANIMATIONS
+        ============================================= */
+        /* will-change removed globally — applying to all elements wastes GPU memory */
+
+
+        [data-anim="fade-up"] {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="fade-up"].anim-done {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-anim="fade-down"] {
+            opacity: 0;
+            transform: translateY(-60px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="fade-down"].anim-done {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-anim="slide-left"] {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="slide-left"].anim-done {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-anim="slide-right"] {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="slide-right"].anim-done {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-anim="zoom-in"] {
+            opacity: 0;
+            transform: scale(0.75);
+            transition: opacity 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-anim="zoom-in"].anim-done {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-anim="zoom-out"] {
+            opacity: 0;
+            transform: scale(1.2);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="zoom-out"].anim-done {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-anim="flip-y"] {
+            opacity: 0;
+            transform: rotateY(60deg) translateX(30px);
+            transform-origin: left center;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="flip-y"].anim-done {
+            opacity: 1;
+            transform: rotateY(0deg) translateX(0);
+        }
+
+        [data-anim="flip-x"] {
+            opacity: 0;
+            transform: perspective(600px) rotateX(30deg) translateY(20px);
+            transform-origin: center bottom;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="flip-x"].anim-done {
+            opacity: 1;
+            transform: perspective(600px) rotateX(0deg) translateY(0);
+        }
+
+
+        [data-anim="blur-in"] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="blur-in"].anim-done {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-anim="skew-left"] {
+            opacity: 0;
+            transform: skewX(-15deg) translateX(-40px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="skew-left"].anim-done {
+            opacity: 1;
+            transform: skewX(0deg) translateX(0);
+        }
+
+        [data-anim="skew-right"] {
+            opacity: 0;
+            transform: skewX(15deg) translateX(40px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="skew-right"].anim-done {
+            opacity: 1;
+            transform: skewX(0deg) translateX(0);
+        }
+
+        [data-anim="rotate-in"] {
+            opacity: 0;
+            transform: rotate(-12deg) scale(0.85);
+            transform-origin: bottom left;
+            transition: opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-anim="rotate-in"].anim-done {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        [data-anim="clip-left"] {
+            opacity: 1;
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="clip-left"].anim-done {
+            clip-path: inset(0 0% 0 0);
+        }
+
+        [data-anim="clip-up"] {
+            opacity: 1;
+            clip-path: inset(100% 0 0 0);
+            transition: clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="clip-up"].anim-done {
+            clip-path: inset(0% 0 0 0);
+        }
+
+        [data-anim="bounce-up"] {
+            opacity: 0;
+            transform: translateY(80px) scale(0.9);
+            transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-anim="bounce-up"].anim-done {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        [data-anim="swing"] {
+            opacity: 0;
+            transform: rotate(-20deg) translateY(30px);
+            transform-origin: top center;
+            transition: opacity 0.8s cubic-bezier(0.34, 1.2, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        [data-anim="swing"].anim-done {
+            opacity: 1;
+            transform: rotate(0deg) translateY(0);
+        }
+
+        [data-delay="100"] {
+            transition-delay: 0.1s;
+        }
+
+        [data-delay="200"] {
+            transition-delay: 0.2s;
+        }
+
+        [data-delay="300"] {
+            transition-delay: 0.3s;
+        }
+
+        [data-delay="400"] {
+            transition-delay: 0.4s;
+        }
+
+        [data-delay="500"] {
+            transition-delay: 0.5s;
+        }
+
+        [data-delay="600"] {
+            transition-delay: 0.6s;
+        }
+
+        [data-delay="700"] {
+            transition-delay: 0.7s;
+        }
+
+        [data-delay="800"] {
+            transition-delay: 0.8s;
+        }
+
+        [data-speed="fast"] {
+            transition-duration: 0.5s !important;
+        }
+
+        [data-speed="slow"] {
+            transition-duration: 1.3s !important;
+        }
+
+        [data-speed="xslow"] {
+            transition-duration: 1.8s !important;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        /* =============================================
+           SECTION TRANSITION OVERLAYS
+        ============================================= */
+        .section-sweep {
+            position: relative;
+        }
+
+        .section-sweep::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(109, 22, 223, 0.08), rgba(13, 187, 201, 0.05));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .section-sweep.sweep-done::before {
+            transform: scaleX(1);
+        }
+
+        /* =============================================
+           TYPEWRITER EFFECT
+        ============================================= */
+        .typewriter-wrap {
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            transition: width 1.2s steps(30, end);
+        }
+
+        .typewriter.anim-done {
+            width: 100%;
+        }
+
+        /* =============================================
+           WORD-BY-WORD REVEAL
+        ============================================= */
+        .word-reveal .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px) rotateX(40deg);
+            transform-origin: bottom;
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .word-reveal.anim-done .word {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        /* =============================================
+           ABOUT SECTION
+        ============================================= */
+        .about-section {
+            padding: 50px 0 !important;
+        }
+
+        @media (min-width: 992px) {
+            .about-section {
+                padding-top: 150px !important;
+            }
+        }
+
+        .about-heading-gradient {
+            background: linear-gradient(135deg, #6d16df, #0dbbc9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text-block {
+            position: relative;
+        }
+
+        .about-text-block::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 10px;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #6d16df, #0dbbc9);
+            border-radius: 2px;
+            transition: height 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+        }
+
+        .about-text-block.revealed::before {
+            height: 90%;
+        }
+
+        .member-block-image-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(109, 22, 223, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .member-block-image-wrap:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 40px 80px rgba(109, 22, 223, 0.4);
+        }
+
+        .member-block-image-wrap::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(135deg, transparent 30%, rgba(109, 22, 223, 0.15) 50%, transparent 70%);
+            transition: top 0.6s ease, left 0.6s ease;
+            z-index: 1;
+        }
+
+        .member-block-image-wrap:hover::before {
+            top: -50%;
+            left: -50%;
+        }
+
+        .member-block-image-wrap img {
+            transition: transform 0.6s ease;
+        }
+
+        .member-block-image-wrap:hover img {
+            transform: scale(1.05);
+        }
+
+        /* =============================================
+           SERVICES SECTION
+        ============================================= */
+        .services-dropdown {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .service-row {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-row::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(109, 22, 223, 0.04), rgba(13, 187, 201, 0.06));
+            transition: left 0.4s ease;
+        }
+
+        .service-row:hover::before {
+            left: 0;
+        }
+
+        .service-row:hover {
+            padding-left: 2rem;
+        }
+
+        .service-icon-wrap {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-row:hover .service-icon-wrap {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(109, 22, 223, 0.3);
+        }
+
+        .service-arrow {
+            margin-left: auto;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            color: #6d16df;
+            font-weight: bold;
+        }
+
+        .service-row:hover .service-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* QUOTE FORM */
+        .membership-form {
+            background-color: #6d16df !important;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 30px 60px rgba(109, 22, 223, 0.35);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .membership-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 40px 80px rgba(109, 22, 223, 0.5);
+        }
+
+        .form-floating input,
+        .form-floating textarea {
+            transition: all 0.3s ease;
+        }
+
+        .form-floating input:focus,
+        .form-floating textarea:focus {
+            box-shadow: 0 0 0 3px rgba(109, 22, 223, 0.2);
+        }
+
+        /* =============================================
+           GALLERY SECTION
+        ============================================= */
+        .gallery-img-wrap {
+            overflow: hidden;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .gallery-img-wrap img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-img-wrap:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-img-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(109, 22, 223, 0) 0%, rgba(109, 22, 223, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-img-wrap:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-img-wrap .overlay-text {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 100%;
+            padding: 12px 15px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+            color: white;
+            font-weight: 600;
+            transition: bottom 0.4s ease;
+            z-index: 5;
+        }
+
+        .gallery-img-wrap:hover .overlay-text {
+            bottom: 0;
+        }
+
+        /* =============================================
+           SECTION TITLE ANIMATION
+        ============================================= */
+        .section-title-line {
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 2px;
+            margin: 12px auto 0;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+        }
+
+        .section-title-line.revealed {
+            width: 80px;
+        }
+
+        h2.section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* =============================================
+           LOGO SLIDER
+        ============================================= */
+        .logo-slider-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            padding: 30px 0;
+            border-top: 2px solid rgba(109, 22, 223, 0.4);
+            border-bottom: 2px solid rgba(13, 187, 201, 0.4);
+            margin: 20px 0;
+        }
+
+        .logo-track {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            width: max-content;
+            animation: logoScroll 60s linear infinite;
+        }
+
+        .logo-track:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            flex-shrink: 0;
+            width: 150px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 12px 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .logo-item:hover {
+            box-shadow: 0 8px 25px rgba(109, 22, 223, 0.2);
+            transform: translateY(-4px) scale(1.05);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes logoScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-item {
+                width: 110px;
+                height: 70px;
+                padding: 8px 10px;
+            }
+        }
+
+        /* =============================================
+           CAROUSEL CONTROLS
+        ============================================= */
+        .carousel-control-prev,
+        .carousel-control-next {
+            opacity: 1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #6d16df;
+            padding: 20px;
+            border-radius: 50%;
+            background-size: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            background-color: #0dbbc9;
+            transform: scale(1.1);
+        }
+
+        /* =============================================
+           GOOGLE REVIEWS SECTION
+        ============================================= */
+        .google-badge {
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .google-badge:hover {
+            transform: scale(1.03);
+        }
+
+        .star-rating span {
+            display: inline-block;
+            animation: starPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+        }
+
+        @keyframes starPop {
+            from {
+                opacity: 0;
+                transform: scale(0) rotate(-30deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* =============================================
+           CONTACT SECTION
+        ============================================= */
+        .contact-info {
+            background-color: #6d16df !important;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 300px;
+            height: 300px;
+            background: rgba(13, 187, 201, 0.15);
+            border-radius: 50%;
+            animation: contactOrb 6s ease-in-out infinite;
+        }
+
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: contactOrb 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes contactOrb {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, -20px);
+            }
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-form button[type="submit"] {
+            background: linear-gradient(135deg, #6d16df, #9b4dea) !important;
+            border: none !important;
+            color: white !important;
+            font-weight: 700 !important;
+            border-radius: 10px;
+            transition: all 0.4s ease !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(109, 22, 223, 0.5) !important;
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        .site-footer {
+            margin-top: 0;
+            padding-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: #6d16df !important;
+            transform: translateX(4px);
+        }
+
+        .footer-social-icon {
+            color: white;
+            background-color: #6d16df;
+            padding: 10px 13px;
+            border-radius: 50%;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-icon:hover {
+            background-color: #0dbbc9;
+            transform: translateY(-4px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(13, 187, 201, 0.4);
+        }
+
+        /* =============================================
+           FLOATING STATS / COUNTERS
+        ============================================= */
+        .stat-counter {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #6d16df;
+            line-height: 1;
+        }
+
+        /* =============================================
+           SECTION PADDING & DIVIDERS
+        ============================================= */
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6d16df, #0dbbc9, transparent);
+            margin: 0;
+            opacity: 0.3;
+        }
+
+        /* =============================================
+           GLOW EFFECTS
+        ============================================= */
+        .glow-purple {
+            box-shadow: 0 0 30px rgba(109, 22, 223, 0.3);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 30px rgba(13, 187, 201, 0.3);
+        }
+
+        /* =============================================
+           MOBILE RESPONSIVE
+        ============================================= */
+        @media (max-width: 991px) {
+            .navbar .navbar-brand {
+                position: relative !important;
+                left: 0 !important;
+                transform: none !important;
+                margin-right: auto !important;
+                z-index: 10;
+            }
+
+            .navbar .d-lg-none.ms-auto.me-3 {
+                position: relative !important;
+                z-index: 11;
+                margin-left: auto !important;
+            }
+
+            .navbar-toggler {
+                position: relative !important;
+                z-index: 11;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            h2 {
+                font-size: 1.8rem !important;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+            }
+
+            .btn {
+                padding: 8px 16px !important;
+                font-size: 0.9rem !important;
+            }
+
+            .site-footer .col-lg-4,
+            .site-footer .col-md-6:first-child {
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+
+            .site-footer .col-lg-2,
+            .site-footer .col-lg-3,
+            .site-footer .col-md-6:not(:first-child),
+            .site-footer .col-12:not(:first-child) {
+                text-align: left !important;
+            }
+
+            .site-footer .navbar-brand {
+                position: relative !important;
+                left: 0 !important;
+                transform: none !important;
+                justify-content: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                margin: 0 0 25px 0 !important;
+                width: 100%;
+                gap: 10px !important;
+            }
+
+            .site-footer .navbar-brand span {
+                text-align: center !important;
+            }
+
+            .site-footer .d-flex.gap-3 {
+                justify-content: center !important;
+            }
+
+            .site-footer h5 {
+                text-align: left !important;
+            }
+
+            .site-footer ul {
+                align-items: flex-start !important;
+                text-align: left !important;
+            }
+
+            .site-footer li {
+                text-align: left !important;
+            }
+        }
+
+        /* =============================================
+           SECTION BACKGROUND EFFECTS
+        ============================================= */
+        .about-section {
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(109, 22, 223, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .membership-section {
+            position: relative;
+            overflow: visible;
+        }
+
+        .membership-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(13, 187, 201, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* =============================================
+           RIPPLE EFFECT ON BUTTONS
+        ============================================= */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-ripple .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* =============================================
+           TEXT GRADIENT ANIMATION
+        ============================================= */
+        .animated-gradient-text {
+            background: linear-gradient(270deg, #6d16df, #0dbbc9, #6d16df);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* =============================================
+           OFFCANVAS FORM
+        ============================================= */
+        .offcanvas .form-control {
+            transition: all 0.3s ease;
+        }
+
+        .offcanvas .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(109, 22, 223, 0.2);
+            border-color: #6d16df;
+        }
+
+        /* =============================================
+           NAVBAR GET QUOTE BUTTON
+        ============================================= */
+        .navbar-get-quote {
+            background-color: white;
+            border-color: white;
+            color: #6d16df !important;
+            font-weight: 800;
+            padding: 10px 25px;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-get-quote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(109, 22, 223, 0.1), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .navbar-get-quote:hover::before {
+            left: 100%;
+        }
+
+        .navbar-get-quote:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Reviews slider styles are inline in section */
+
+        /* =============================================
+           HORIZONTAL 2-ROW GALLERY SLIDER
+        ============================================= */
+        .gallery-horizontal-outer {
+            position: relative;
+            width: 100%;
+            background: transparent;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .gallery-horizontal-row {
+            display: flex;
+            width: max-content;
+            margin-bottom: 30px;
+        }
+
+        .gallery-horizontal-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .gallery-track-h {
+            display: flex;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .gallery-track-h.left-to-right {
+            animation: scrollHorizontalLeftToRight 60s linear infinite;
+        }
+
+        .gallery-track-h.right-to-left {
+            animation: scrollHorizontalRightToLeft 70s linear infinite;
+        }
+
+        .gallery-horizontal-outer:hover .gallery-track-h {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollHorizontalLeftToRight {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scrollHorizontalRightToLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .gallery-h-item {
+            width: 350px;
+            height: 250px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .gallery-h-item:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 25px 60px rgba(109, 22, 223, 0.25);
+            z-index: 10;
+        }
+
+        .gallery-h-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-h-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-h-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 0, 16, 0.8) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-h-item:hover .gallery-h-overlay {
+            opacity: 1;
+        }
+
+        .gallery-h-overlay span {
+            font-weight: 700;
+            font-size: 1.1rem;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-h-item:hover .gallery-h-overlay span {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-h-item {
+                width: 260px;
+                height: 190px;
+            }
+
+            .gallery-horizontal-row {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* =============================================
+           COMPREHENSIVE MOBILE RESPONSIVE FIXES
+        ============================================= */
+        @media (max-width: 767px) {
+
+            /* === GLOBAL === */
+            body {
+                padding-top: 65px;
+            }
+
+            h1 {
+                font-size: 1.9rem !important;
+                line-height: 1.25 !important;
+            }
+
+            h2 {
+                font-size: 1.6rem !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .section-padding {
+                padding: 50px 0 !important;
+            }
+
+            /* === NAVBAR === */
+            .navbar {
+                padding: 8px 0;
+            }
+
+            .navbar-brand img {
+                max-width: 70px !important;
+            }
+
+            /* === HERO SECTION === */
+            .hero-section {
+                min-height: 100svh;
+                padding: 30px 0 !important;
+            }
+
+            .hero-content {
+                text-align: center;
+                padding: 20px 16px !important;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem !important;
+                line-height: 1.25 !important;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem !important;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem !important;
+                padding: 6px 14px !important;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                width: 100%;
+                text-align: center;
+                padding: 13px 20px !important;
+                font-size: 0.95rem !important;
+                margin-bottom: 10px;
+            }
+
+            /* === ABOUT SECTION === */
+            .about-section {
+                padding: 50px 0 !important;
+            }
+
+            .about-text-block::before {
+                display: none;
+            }
+
+            .member-block {
+                max-width: 260px !important;
+                margin: 0 auto !important;
+            }
+
+            .stat-counter {
+                font-size: 1.8rem !important;
+            }
+
+            /* === SERVICES SECTION === */
+            .srv-card {
+                margin-bottom: 16px;
+            }
+
+            .srv-card-img-wrap {
+                height: 180px !important;
+            }
+
+            .srv-content {
+                padding: 20px !important;
+            }
+
+            .srv-content h5 {
+                font-size: 1.1rem !important;
+            }
+
+            .srv-cta-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-srv-primary,
+            .btn-srv-secondary {
+                text-align: center;
+                width: 100%;
+            }
+
+            /* === QUOTE SECTION (CTA) === */
+            .quote-section-wrapper,
+            [style*="padding: 100px"] {
+                padding: 50px 16px !important;
+            }
+
+            /* === TESTIMONIALS (SWIPER) === */
+            .testimonial-swiper {
+                padding: 0 10px !important;
+            }
+
+            .testimonial-card {
+                padding: 20px !important;
+            }
+
+            /* === CONTACT SECTION === */
+            .contact-section {
+                padding: 50px 0 !important;
+            }
+
+            .contact-section .col-lg-8 {
+                padding: 0 12px !important;
+            }
+
+            .contact-section h2 {
+                font-size: 1.6rem !important;
+            }
+
+            .contact-section p {
+                font-size: 0.9rem !important;
+            }
+
+            /* Contact info cards stack on mobile */
+            .contact-section .col-md-5 {
+                margin-bottom: 12px;
+            }
+
+            .contact-section .d-flex.align-items-center.justify-content-center {
+                justify-content: flex-start !important;
+                gap: 12px !important;
+                padding: 14px 16px !important;
+            }
+
+            /* === SERVICE AREAS === */
+            .service-areas-section .col-lg-7 iframe {
+                height: 220px !important;
+            }
+
+            .service-areas-section .col-lg-5>div {
+                padding: 24px 18px !important;
+            }
+
+            /* === FOOTER === */
+            .site-footer .col-lg-4,
+            .site-footer .col-lg-2,
+            .site-footer .col-lg-3 {
+                margin-bottom: 30px;
+            }
+
+            .site-footer h5 {
+                font-size: 1rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* === WHATSAPP FLOATING BUTTON === */
+            .whatsapp-float {
+                bottom: 16px !important;
+                right: 16px !important;
+            }
+
+            /* === SECTION TITLE LINE === */
+            .section-title-line {
+                margin: 10px auto 0 !important;
+            }
+
+            /* === ANIMATED GRADIENT TEXT === */
+            .animated-gradient-text {
+                font-size: inherit !important;
+            }
+
+            /* === STAT CARDS in TESTIMONIAL SECTION === */
+            .col-lg-3>div[style*="padding:25px"] {
+                padding: 18px !important;
+            }
+
+            /* === TRUST / LOGO SLIDER === */
+            .logo-slider-wrapper {
+                padding: 30px 0 !important;
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .hero-content h1 {
+                font-size: 2.4rem !important;
+            }
+
+            .srv-cta-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .btn-srv-primary,
+            .btn-srv-secondary {
+                text-align: center;
+            }
+
+            .about-text-block::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo"><span>J</span>&amp;<span>H</span></div>
+        <div
+            style="color: rgba(255,255,255,0.5); font-size: 0.85rem; letter-spacing: 3px; margin-top: 10px; text-transform: uppercase;">
+            Painting Services</div>
+        <div class="loader-bar-wrap">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/logo.png" class="navbar-brand-image img-fluid me-2" alt="J & H Painting"
+                        style="max-width: 100px; height: auto; width: auto; filter: none !important;">
+                </a>
+                <div class="d-lg-none ms-auto me-3">
+                    <a class="btn custom-btn custom-border-btn btn-ripple" data-bs-toggle="offcanvas"
+                        href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
+                        style="background-color: white; border-color: white; color: #6d16df; backdrop-filter: blur(5px); font-weight: 600; padding: 8px 20px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">Free
+                        Quote</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    style="background: transparent; border: none; padding: 6px 8px; outline: none; box-shadow: none;">
+                    <span style="display: flex; flex-direction: column; gap: 5px; width: 26px;">
+                        <span
+                            style="display:block; height:2.5px; background: linear-gradient(90deg,#6d16df,#0dbbc9); border-radius:2px; transition: all 0.3s;"></span>
+                        <span
+                            style="display:block; height:2.5px; background: linear-gradient(90deg,#6d16df,#0dbbc9); border-radius:2px; width:70%; transition: all 0.3s;"></span>
+                        <span
+                            style="display:block; height:2.5px; background: linear-gradient(90deg,#6d16df,#0dbbc9); border-radius:2px; transition: all 0.3s;"></span>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-auto">
+                        <li class="nav-item"><a class="nav-link click-scroll" href="#section_1">Home</a></li>
+                        <li class="nav-item"><a class="nav-link click-scroll" href="#section_2">About</a></li>
+                        <li class="nav-item"><a class="nav-link click-scroll" href="#section_3">Services</a></li>
+                        <li class="nav-item"><a class="nav-link click-scroll" href="#section_4">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link click-scroll" href="#section_5">Contact Us</a></li>
+                    </ul>
+                    <div class="d-none d-lg-block ms-lg-3">
+                        <a class="btn navbar-get-quote btn-ripple" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                            role="button" aria-controls="offcanvasExample">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Offcanvas -->
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color: #322e2f;">Get a Free Quote</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column">
+                <form class="custom-form member-login-form" action="#" method="post" role="form">
+                    <div class="member-login-form-body">
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="full-name-oc" style="color: #322e2f;">Full Name</label>
+                            <input type="text" name="full-name" id="full-name-oc" class="form-control"
+                                placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="email-oc" style="color: #322e2f;">Email</label>
+                            <input type="email" name="email" id="email-oc" pattern="[^ @]*@[^ @]*" class="form-control"
+                                placeholder="Your Email" required="">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="phone-oc" style="color: #322e2f;">Phone</label>
+                            <input type="tel" name="phone" id="phone-oc" class="form-control"
+                                placeholder="Your Phone Number">
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-10 mx-auto">
+                            <button type="submit" class="form-control btn-ripple"
+                                style="background-color: #6d16df; border-color: #6d16df; color: white;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-auto mb-5">
+                    <p><strong class="me-3" style="color: #322e2f;">Any Questions?</strong><a href="tel:+15619063823"
+                            class="contact-link" style="color: #6d16df;">+1 (561) 906-3823</a></p>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#dcb78a" fill-opacity="1"
+                    d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+
+        <!-- =============================================
+             HERO SECTION
+        ============================================= -->
+        <section class="hero-section d-flex justify-content-center align-items-center" id="section_1"
+            style="position: relative; overflow: hidden; min-height: 80vh;">
+            <div class="hero-slider-wrap"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+                <div class="hero-slide"
+                    style="position: absolute; inset: 0; background: url('images/img7.png') center/cover no-repeat; opacity: 1;">
+                </div>
+            </div>
+            <style>
+                @keyframes heroSlideLoop {
+                    0% {
+                        opacity: 0;
+                        transform: scale(1);
+                    }
+
+                    5% {
+                        opacity: 1;
+                    }
+
+                    33.33% {
+                        opacity: 1;
+                    }
+
+                    38.33% {
+                        opacity: 0;
+                        transform: scale(1.1);
+                    }
+
+                    100% {
+                        opacity: 0;
+                    }
+                }
+            </style>
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.5) 100%); z-index: 1;">
+            </div>
+            <canvas id="heroCanvas"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;"></canvas>
+            <div class="container" style="position: relative; z-index: 3; padding-top: 180px;">
+                <div class="row">
+                    <div class="col-lg-12 col-12 text-start hero-content">
+                        <h1 class="text-white"
+                            style="font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px;">
+                            <span class="animated-gradient-text">J&H PAINTING</span>
+                        </h1>
+                        <h2 class="text-white mb-4"
+                            style="font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 500; line-height: 1.6; max-width: 650px; opacity: 0.9; animation: heroReveal 1.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0;">
+                            Commercial & Residential specialists delivering 5-star quality workmanship on schedule.
+                            Fully licensed, insured, and trusted nationwide.
+                        </h2>
+                        <div class="custom-btn-group mb-4"
+                            style="animation: heroReveal 1.2s 0.6s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0; display: flex; gap: 20px; flex-wrap: wrap;">
+                            <a href="#section_5" class="btn-hero-primary btn-ripple smoothscroll"
+                                style="display:inline-flex; align-items: center; justify-content: center; text-decoration:none; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white !important; font-weight: 800; padding: 18px 42px; border-radius: 50px; border: none; box-shadow: 0 15px 35px rgba(109,22,223,0.45); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; letter-spacing: 1px; font-size: 1.1rem; text-transform: uppercase;">
+                                <i class="bi bi-calendar-check-fill me-2"></i>GET FREE ESTIMATE
+                            </a>
+                            <a href="tel:+15619063823" class="btn-hero-secondary btn-ripple smoothscroll"
+                                style="display:inline-flex; align-items: center; justify-content: center; text-decoration:none; background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); color: white !important; font-weight: 700; padding: 18px 42px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.25); transition: all 0.4s ease; position: relative; overflow: hidden; letter-spacing: 1px; font-size: 1.1rem; text-transform: uppercase;">
+                                <i class="bi bi-telephone-fill me-2"></i>CALL NOW
+                            </a>
+                        </div>
+
+                        <style>
+                            .btn-hero-primary {
+                                position: relative;
+                                overflow: hidden;
+                            }
+
+                            .btn-hero-primary::before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: -100%;
+                                width: 100%;
+                                height: 100%;
+                                background: linear-gradient(120deg,
+                                        transparent,
+                                        rgba(255, 255, 255, 0.3),
+                                        transparent);
+                                transition: all 0.6s;
+                            }
+
+                            .btn-hero-primary:hover::before {
+                                left: 100%;
+                            }
+
+                            .btn-hero-primary:hover {
+                                transform: translateY(-5px) scale(1.02);
+                                box-shadow: 0 20px 45px rgba(109, 22, 223, 0.6);
+                                filter: brightness(1.1);
+                            }
+
+                            .btn-hero-secondary:hover {
+                                background: rgba(255, 255, 255, 0.15) !important;
+                                border-color: #0dbbc9 !important;
+                                transform: translateY(-5px);
+                                box-shadow: 0 15px 30px rgba(13, 187, 201, 0.3);
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- =============================================
+             ABOUT SECTION
+        ============================================= -->
+        <section class="about-section section-padding section-sweep" id="section_2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 col-12 text-center mb-3" data-anim="blur-in">
+                        <h2 style="color: #322e2f; display:inline-block;">About <span class="animated-gradient-text">J&H
+                                Painting</span></h2>
+                        <div class="section-title-line reveal"></div>
+                    </div>
+                    <div class="col-lg-6 col-12 me-auto mb-4 mb-lg-0 about-text-block" data-anim="slide-left">
+                        <h3 class="mb-3" style="color: #322e2f;">Nationwide Painting Contractor <br><span
+                                style="color: #0dbbc9;">Based in Florida</span></h3>
+                        <p style="color: #322e2f;"><span
+                                style="font-size: 1.5rem; font-weight: 700; color: #6d16df;">J</span><span
+                                style="font-size: 1.3rem;"> &amp; </span><span
+                                style="font-size: 1.5rem; font-weight: 700; color: #0dbbc9;">H</span><span
+                                style="font-size: 1.3rem;"> Painting</span>, we deliver high-quality commercial and
+                            residential painting services for projects across Florida and nationwide. With experienced
+                            crews, structured project management, and a commitment to precision, we support builders,
+                            general contractors, and property owners on projects of all sizes.</p>
+                        <p style="color: #322e2f;">We specialize in large-scale painting, surface preparation, and
+                            coatings, focusing on durability, clean workmanship, and dependable timelines. From
+                            commercial facilities and new construction to high-end residential projects, our team is
+                            equipped to execute efficiently and professionally.</p>
+                        <div class="row mt-4 g-3">
+                            <div class="col-4 text-center" data-anim="bounce-up" data-delay="100">
+                                <div class="stat-counter" data-target="200">0+</div>
+                                <div style="color: #666; font-size: 0.85rem; font-weight: 500;">Projects Done</div>
+                            </div>
+                            <div class="col-4 text-center" data-anim="bounce-up" data-delay="300">
+                                <div class="stat-counter" data-target="50">0+</div>
+                                <div style="color: #666; font-size: 0.85rem; font-weight: 500;">Brand Partners</div>
+                            </div>
+                            <div class="col-4 text-center" data-anim="bounce-up" data-delay="500">
+                                <div class="stat-counter" data-target="5">0</div>
+                                <div style="color: #666; font-size: 0.85rem; font-weight: 500;">Stars Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-12 offset-lg-1 text-center" data-anim="flip-y">
+                        <div class="member-block d-inline-block" style="max-width: 320px; margin: 0 auto;">
+                            <div class="member-block-image-wrap">
+                                <img src="images/founder-image.jpg" class="member-block-image img-fluid"
+                                    alt="Mike Scollo - Founder & Operations Director"
+                                    style="width: 100%; height: auto; border-radius: 0;">
+
+                            </div>
+                            <div class="member-block-info text-center mt-3">
+                                <h4 style="color: #322e2f; font-size: 1.8rem; font-weight: 700; margin-bottom: 5px;">
+                                    Mike Scollo</h4>
+                                <p style="color: #6d16df; font-size: 1.2rem; font-weight: 500;">Founder &amp; Operations
+                                    Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             SERVICES SECTION
+        ============================================= -->
+        <section class="section-sweep" id="section_3"
+            style="position:relative; overflow:visible; padding: 80px 0 80px;">
+
+            <!-- Single unified background — no break -->
+            <div
+                style="position:absolute;inset:0;background:linear-gradient(135deg,#6d16df 0%,#4a0fa0 40%,#0a004a 100%);z-index:0;overflow:hidden;border-radius:0;">
+                <!-- Animated orbs clipped inside bg div -->
+                <div
+                    style="position:absolute;top:-80px;left:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(13,187,201,0.18) 0%,transparent 70%);border-radius:50%;pointer-events:none;animation:srvOrb1 10s ease-in-out infinite;">
+                </div>
+                <div
+                    style="position:absolute;bottom:-60px;right:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none;animation:srvOrb2 13s ease-in-out infinite;">
+                </div>
+                <div
+                    style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(109,22,223,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;">
+                </div>
+            </div>
+
+            <!-- Dash lines decoration -->
+            <div style="position:absolute;top:30px;left:8%;display:flex;gap:6px;pointer-events:none;z-index:2;">
+                <div style="width:30px;height:3px;background:rgba(13,187,201,0.5);border-radius:2px;"></div>
+                <div style="width:30px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+            </div>
+            <div style="position:absolute;top:30px;right:8%;display:flex;gap:6px;pointer-events:none;z-index:2;">
+                <div style="width:30px;height:3px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+                <div style="width:30px;height:3px;background:rgba(13,187,201,0.5);border-radius:2px;"></div>
+            </div>
+
+            <style>
+                @keyframes srvOrb1 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0);
+                    }
+
+                    50% {
+                        transform: translate(30px, -20px);
+                    }
+                }
+
+                @keyframes srvOrb2 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0);
+                    }
+
+                    50% {
+                        transform: translate(-25px, 18px);
+                    }
+                }
+
+                .srv-card {
+                    position: relative;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    background: #ffffff;
+                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+                    text-decoration: none !important;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    cursor: default;
+                    border: 1px solid rgba(0, 0, 0, 0.05);
+                }
+
+                .srv-card:hover {
+                    transform: translateY(-12px);
+                    background: #f8f9fa;
+                    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 0 30px rgba(109, 22, 223, 0.1);
+                    border-color: rgba(109, 22, 223, 0.2);
+                }
+
+                .srv-card-img-wrap {
+                    position: relative;
+                    overflow: hidden;
+                    height: 200px;
+                }
+
+                .srv-card-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.6s ease;
+                }
+
+                .srv-card:hover .srv-card-img {
+                    transform: scale(1.1);
+                }
+
+                .srv-content {
+                    padding: 30px;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .srv-content h5 {
+                    color: #000000;
+                    font-weight: 800;
+                    font-size: 1.35rem;
+                    margin-bottom: 12px;
+                }
+
+                .srv-benefit {
+                    color: #00008b;
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 15px;
+                    display: block;
+                }
+
+                .srv-text {
+                    color: #1a1a4b;
+                    font-size: 0.95rem;
+                    line-height: 1.6;
+                    margin-bottom: 20px;
+                }
+
+                .srv-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0 0 25px 0;
+                }
+
+                .srv-list li {
+                    color: #1a1a4b;
+                    font-size: 0.9rem;
+                    margin-bottom: 8px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .srv-list li i {
+                    color: #6d16df;
+                    margin-right: 10px;
+                    font-size: 1rem;
+                }
+
+                .srv-cta-group {
+                    margin-top: auto;
+                    display: flex;
+                    gap: 12px;
+                }
+
+                .btn-srv-primary {
+                    background: linear-gradient(135deg, #6d16df, #0dbbc9);
+                    color: white !important;
+                    padding: 10px 20px;
+                    border-radius: 50px;
+                    font-weight: 700;
+                    font-size: 0.85rem;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    text-align: center;
+                    flex-grow: 1;
+                }
+
+                .btn-srv-primary:hover {
+                    box-shadow: 0 5px 15px rgba(109, 22, 223, 0.4);
+                    transform: translateY(-2px);
+                }
+
+                .btn-srv-secondary {
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    color: #000000 !important;
+                    padding: 10px 20px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    font-size: 0.85rem;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    text-align: center;
+                }
+
+                .btn-srv-secondary:hover {
+                    background: rgba(0, 0, 0, 0.05);
+                    border-color: rgba(0, 0, 0, 0.4);
+                }
+
+                .srv-icon-badge {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    width: 45px;
+                    height: 45px;
+                    background: rgba(10, 0, 16, 0.6);
+                    backdrop-filter: blur(10px);
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.2rem;
+                    z-index: 5;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+            </style>
+
+            <div class="container" style="position:relative;z-index:2;">
+
+                <!-- Header text -->
+                <div class="row mb-5" data-anim="fade-up">
+                    <div class="col-12 text-center">
+                        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
+                            <div style="width:35px;height:2px;background:rgba(13,187,201,0.7);border-radius:1px;"></div>
+                            <span
+                                style="color:rgba(255,255,255,0.8);font-size:0.82rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;">What
+                                We Offer</span>
+                            <div style="width:35px;height:2px;background:rgba(13,187,201,0.7);border-radius:1px;"></div>
+                        </div>
+                        <h2
+                            style="color:white;font-weight:900;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0;line-height:1.2;">
+                            We Help You Achieve Your<br><span style="color:#0dbbc9;">Dream Painting Project</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Row 1: 3 cards -->
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="0">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/commercial-ihop.jpeg" alt="Commercial Painting" class="srv-card-img">
+                                <div class="srv-icon-badge"><i class="bi bi-building"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Efficiency & Durability</span>
+                                <h5>Commercial Painting</h5>
+                                <p class="srv-text">Minimal business disruption with maximum curb appeal.
+                                    High-durability coatings designed for high-traffic assets.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Office Repaints</li>
+                                    <li><i class="bi bi-check2-circle"></i>Retail & Shopping Centers</li>
+                                    <li><i class="bi bi-check2-circle"></i>Industrial Coatings</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/commercial-painting.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="150">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/img2.jpeg" alt="Interior Painting" class="srv-card-img">
+                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
+                                        class="bi bi-house-door"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Precision & Style</span>
+                                <h5>Interior Painting</h5>
+                                <p class="srv-text">Expert color matching and a precision finish. We treat your home or
+                                    office with the care it deserves.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Custom Color Schemes</li>
+                                    <li><i class="bi bi-check2-circle"></i>Trim & Molding Finish</li>
+                                    <li><i class="bi bi-check2-circle"></i>Cabinet Refinishing</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/interior-painting.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="300">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/img3.jpeg" alt="Exterior Painting" class="srv-card-img">
+                                <div class="srv-icon-badge"><i class="bi bi-tree"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Weather Protection</span>
+                                <h5>Exterior Painting</h5>
+                                <p class="srv-text">Advanced weather-resistant coatings to protect your property from
+                                    the harsh Florida elements.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Stucco & Brick Paint</li>
+                                    <li><i class="bi bi-check2-circle"></i>Wood & Deck Stain</li>
+                                    <li><i class="bi bi-check2-circle"></i>Protective Sealants</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/exterior-painting.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Row 2: 3 more cards -->
+                <div class="row g-4 justify-content-center mt-2">
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="100">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/img5.jpeg" alt="New Construction" class="srv-card-img">
+                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
+                                        class="bi bi-house-gear"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Scale & Schedule</span>
+                                <h5>New Construction</h5>
+                                <p class="srv-text">Professional project management for builders. Scalable crews that
+                                    keep your timelines on track.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Builder Partnerships</li>
+                                    <li><i class="bi bi-check2-circle"></i>Unified Finishes</li>
+                                    <li><i class="bi bi-check2-circle"></i>Fast Turnarounds</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/new-construction.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="250">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/interior-surface-prep.png" alt="Surface Prep" class="srv-card-img">
+                                <div class="srv-icon-badge"><i class="bi bi-tools"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Flawless Foundation</span>
+                                <h5>Surface Preparation</h5>
+                                <p class="srv-text">The secret to a lasting finish is the prep. Professional drywall
+                                    repair and surface cleaning.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Drywall Patch & Texture</li>
+                                    <li><i class="bi bi-check2-circle"></i>Pressure Washing</li>
+                                    <li><i class="bi bi-check2-circle"></i>Epoxy Prep</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/surface-preparation.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="400">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/bg3.png" alt="Specialty" class="srv-card-img">
+                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
+                                        class="bi bi-droplet"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Technical Experts</span>
+                                <h5>Specialty Coatings</h5>
+                                <p class="srv-text">Specialized solutions for unique challenges, from anti-microbial to
+                                    high-heat resistant coatings.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Epoxy Flooring</li>
+                                    <li><i class="bi bi-check2-circle"></i>Industrial Sealers</li>
+                                    <li><i class="bi bi-check2-circle"></i>Fire-Retardant Paint</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/specialty-coatings.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Row 3: 2 remaining -->
+                <div class="row g-4 justify-content-center mt-2">
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="100">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/interior-3.png" alt="Wallcovering" class="srv-card-img">
+                                <div class="srv-icon-badge"><i class="bi bi-wallpaper"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit">Textured Elegance</span>
+                                <h5>Wallcoverings</h5>
+                                <p class="srv-text">Professional installation and removal. Flawless application of
+                                    high-end wallpaper and murals.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Commercial Vinyl</li>
+                                    <li><i class="bi bi-check2-circle"></i>Luxury Fabrics</li>
+                                    <li><i class="bi bi-check2-circle"></i>Mural Application</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/wallcovering.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="250">
+                        <div class="srv-card">
+                            <div class="srv-card-img-wrap">
+                                <img src="images/exterior-hero.jpg" alt="Nationwide" class="srv-card-img">
+                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
+                                        class="bi bi-globe2"></i></div>
+                            </div>
+                            <div class="srv-content">
+                                <span class="srv-benefit" style="color: #6d16df;">National Reach</span>
+                                <h5>Nationwide Projects</h5>
+                                <p class="srv-text">Coordinating large-scale rollouts across Florida and nationwide.
+                                    Consistent quality, everywhere.</p>
+                                <ul class="srv-list">
+                                    <li><i class="bi bi-check2-circle"></i>Multi-Site Rollouts</li>
+                                    <li><i class="bi bi-check2-circle"></i>Franchise Management</li>
+                                    <li><i class="bi bi-check2-circle"></i>Centralized Operations</li>
+                                </ul>
+                                <div class="srv-cta-group">
+                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
+                                    <a href="services/nationwide-services.html" class="btn-srv-secondary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             GALLERY SECTION
+        ============================================= -->
+        <section class="gallery-section section-padding" id="section_4" style="background: #fdfdfd;">
+            <div class="container">
+                <div class="row mb-5" data-anim="fade-down">
+                    <div class="col-lg-12 col-12 text-center">
+                        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
+                            <div style="width:35px;height:2px;background:#6d16df;border-radius:1px;"></div>
+                            <span
+                                style="color:#666;font-size:0.82rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;">Visual
+                                Proof</span>
+                            <div style="width:35px;height:2px;background:#6d16df;border-radius:1px;"></div>
+                        </div>
+                        <h2 class="mb-3" style="color: #322e2f; font-weight: 900; font-size: 3rem;">Recent <span
+                                class="animated-gradient-text">Transformations</span></h2>
+                        <p class="fs-5 text-muted">Don't just take our word for it—see the J&H difference in action.</p>
+                    </div>
+                </div>
+
+                <div data-anim="zoom-in">
+                    <div class="gallery-horizontal-outer">
+                        <!-- Row 1: Left to Right -->
+                        <div class="gallery-horizontal-row">
+                            <div class="gallery-track-h left-to-right">
+                                <div class="gallery-h-item"><img src="images/commercial-painting-alt.jpg"
+                                        alt="Commercial">
+                                    <div class="gallery-h-overlay"><span>Commercial Project</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/restaurant-finish-alt.jpg"
+                                        alt="Restaurant">
+                                    <div class="gallery-h-overlay"><span>Restaurant Finish</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/retail-finish-alt.jpg" alt="Retail">
+                                    <div class="gallery-h-overlay"><span>Retail Space</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/interior-1.png" alt="Interior">
+                                    <div class="gallery-h-overlay"><span>Interior Coating</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/commercial-3.jpeg" alt="Supermarket">
+                                    <div class="gallery-h-overlay"><span>Supermarket Finish</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/Commercial-hero.jpg" alt="Build">
+                                    <div class="gallery-h-overlay"><span>Commercial Build</span></div>
+                                </div>
+                                <!-- Duplicate for seamless loop -->
+                                <div class="gallery-h-item"><img src="images/commercial-painting-alt.jpg"
+                                        alt="Commercial">
+                                    <div class="gallery-h-overlay"><span>Commercial Project</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/restaurant-finish-alt.jpg"
+                                        alt="Restaurant">
+                                    <div class="gallery-h-overlay"><span>Restaurant Finish</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/retail-finish-alt.jpg" alt="Retail">
+                                    <div class="gallery-h-overlay"><span>Retail Space</span></div>
+                                </div>
+                                <div class="gallery-h-item"><img src="images/interior-1.png" alt="Interior">
+                                    <div class="gallery-h-overlay)<span>Interior Coating</span></div>
+                                </div>
+                                <div class=" gallery-h-item"><img src="images/commercial-3.jpeg" alt="Supermarket">
+                                        <div class="gallery-h-overlay"><span>Supermarket Finish</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/Commercial-hero.jpg" alt="Build">
+                                        <div class="gallery-h-overlay"><span>Commercial Build</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Right to Left -->
+                            <div class="gallery-horizontal-row">
+                                <div class="gallery-track-h right-to-left">
+                                    <div class="gallery-h-item"><img src="images/nationwide-1.jpeg" alt="Premium">
+                                        <div class="gallery-h-overlay"><span>Premium Finish</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/nationwide-2.jpeg" alt="Commercial">
+                                        <div class="gallery-h-overlay"><span>Commercial Build</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/wallcovering-scope.png"
+                                            alt="Wallcovering">
+                                        <div class="gallery-h-overlay"><span>Wallcovering</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/ext-1.jpeg" alt="Exterior">
+                                        <div class="gallery-h-overlay"><span>Exterior Work</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/interior-3.png" alt="Foyer">
+                                        <div class="gallery-h-overlay"><span>Lobby Finish</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/interior-prep-roller.jpg" alt="Paint">
+                                        <div class="gallery-h-overlay"><span>Professional Paint</span></div>
+                                    </div>
+                                    <!-- Duplicate for seamless loop -->
+                                    <div class="gallery-h-item"><img src="images/nationwide-1.jpeg" alt="Premium">
+                                        <div class="gallery-h-overlay"><span>Premium Finish</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/nationwide-2.jpeg" alt="Commercial">
+                                        <div class="gallery-h-overlay"><span>Commercial Build</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/wallcovering-scope.png"
+                                            alt="Wallcovering">
+                                        <div class="gallery-h-overlay"><span>Wallcovering</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/ext-1.jpeg" alt="Exterior">
+                                        <div class="gallery-h-overlay"><span>Exterior Work</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/interior-3.png" alt="Foyer">
+                                        <div class="gallery-h-overlay"><span>Lobby Finish</span></div>
+                                    </div>
+                                    <div class="gallery-h-item"><img src="images/interior-prep-roller.jpg" alt="Paint">
+                                        <div class="gallery-h-overlay"><span>Professional Paint</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4" data-anim="bounce-up" data-delay="200">
+                        <button type="button" class="btn custom-btn btn-ripple" data-bs-toggle="modal"
+                            data-bs-target="#projectsModal"
+                            style="background: linear-gradient(135deg, #6d16df, #9b4dea); border: none; color: white; padding: 14px 45px; font-weight: 700; border-radius: 50px; box-shadow: 0 8px 25px rgba(109,22,223,0.4); transition: all 0.4s ease;"
+                            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(109,22,223,0.6)'"
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(109,22,223,0.4)'">
+                            View Full Gallery
+                        </button>
+                    </div>
+                </div>
+        </section>
+
+        <div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectsModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content" style="background-color: #f8f9fa;">
+                    <div class="modal-header" style="background-color: #6d16df; color: white;">
+                        <h5 class="modal-title" id="projectsModalLabel">Complete Project Gallery</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <div class="row g-4"></div>
+                    </div>
+                    <div class="modal-footer"><button type="button" class="btn"
+                            style="background-color: #6d16df; color: white;" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================
+             NEW QUOTE / CTA SECTION
+        ============================================= -->
+        <section class="cta-quote-section"
+            style="position: relative; overflow: hidden; padding: 120px 0; background: #000;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+                <img src="images/cta-bg.png" alt="Luxury Interior"
+                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
+            </div>
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); z-index: 1;">
+            </div>
+
+            <div class="container" style="position: relative; z-index: 5;">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-12 mb-5 mb-lg-0" data-anim="slide-left">
+                        <h2
+                            style="color: white; font-weight: 900; font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px;">
+                            Transform Your <br><span class="animated-gradient-text" style="font-size: 4rem;">Property
+                                Today</span>
+                        </h2>
+                        <p
+                            style="color: rgba(255,255,255,0.8); font-size: 1.25rem; line-height: 1.8; max-width: 500px;">
+                            Experience the highest standard of professional painting services in Florida. From luxury
+                            residentials to large-scale commercial builds.
+                        </p>
+                        <div class="d-flex align-items-center mt-5 gap-3">
+                            <div
+                                style="width: 60px; height: 60px; border-radius: 50%; background: #6d16df; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: white; margin: 0; font-weight: 700;">5-Star Rated Service</h5>
+                                <p style="color: rgba(255,255,255,0.6); margin: 0;">Quality you can trust, guaranteed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-12 offset-lg-1" data-anim="zoom-in">
+                        <div
+                            style="background: #1a0033; border: 2px solid rgba(109,22,223,0.3); border-radius: 30px; padding: 50px 45px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); position: relative; overflow: hidden;">
+                            <!-- Subtle glow effect inside -->
+                            <div
+                                style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(13,187,201,0.15) 0%, transparent 70%); pointer-events: none;">
+                            </div>
+
+                            <h3 style="color: white; font-weight: 800; margin-bottom: 10px; font-size: 2.2rem;">Get a
+                                Free Quote</h3>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 35px;">Tell us about
+                                your project and we'll get back to you fast.</p>
+
+                            <form action="#" method="post" role="form">
+                                <div class="mb-4">
+                                    <label
+                                        style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Full
+                                        Name</label>
+                                    <input type="text" name="full-name" class="form-control dark-quote-input"
+                                        placeholder="Enter your name" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label
+                                        style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Email
+                                        Address</label>
+                                    <input type="email" name="email" class="form-control dark-quote-input"
+                                        placeholder="example@email.com" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label
+                                        style="color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; display: block;">Project
+                                        Details</label>
+                                    <textarea name="message" class="form-control dark-quote-input"
+                                        placeholder="Briefly describe what you need..." rows="4"
+                                        style="resize: none;"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-ripple w-100"
+                                    style="height: 65px; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white; font-weight: 800; font-size: 1.25rem; border-radius: 12px; border: none; transition: all 0.4s ease; box-shadow: 0 15px 35px rgba(109,22,223,0.4); text-transform: uppercase; letter-spacing: 1px;">
+                                    Request Your Quote →
+                                </button>
+                                <div class="mt-4 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-shield-lock" style="color: #0dbbc9;"></i>
+                                    <p class="mb-0" style="color: rgba(255,255,255,0.4); font-size: 0.8rem;">Your data
+                                        is secure and private.</p>
+                                </div>
+                            </form>
+                            <style>
+                                .dark-quote-input {
+                                    border-radius: 12px;
+                                    background: rgba(13, 187, 201, 0.1) !important;
+                                    border: 1px solid rgba(13, 187, 201, 0.3) !important;
+                                    color: white !important;
+                                    padding: 15px 20px;
+                                    font-weight: 500;
+                                }
+
+                                .dark-quote-input:focus {
+                                    background: rgba(13, 187, 201, 0.15) !important;
+                                    border-color: #0dbbc9 !important;
+                                    box-shadow: 0 0 0 3px rgba(13, 187, 201, 0.25) !important;
+                                    color: white !important;
+                                }
+
+                                .dark-quote-input::placeholder {
+                                    color: rgba(255, 255, 255, 0.7) !important;
+                                    opacity: 1;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             LOGO SLIDER
+        ============================================= -->
+        <section class="clients-section section-padding" style="background-color: #f8f9fa; padding: 60px 0;">
+            <div class="container">
+                <div class="row" data-anim="fade-up">
+                    <div class="col-lg-12 col-12 text-center">
+                        <h2 class="mb-3" style="color: #322e2f; display:inline-block;">Trusted By <span
+                                class="animated-gradient-text">Leading Brands</span></h2>
+                        <div class="section-title-line reveal"></div>
+                        <p class="fs-5 mb-5 mt-3" style="color: #322e2f;">We've partnered with amazing companies across
+                            Florida</p>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-slider-wrapper">
+                <div class="logo-track">
+                    <div class="logo-item"><img src="images/Logos/Vuori.JPG" alt="Vuori"></div>
+                    <div class="logo-item"><img src="images/Logos/FC Animal Hospital.WEBP" alt="FC Animal Hospital">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/Brunello Cucinelli.PNG" alt="Brunello Cucinelli">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/Herman Miller.JPG" alt="Herman Miller"></div>
+                    <div class="logo-item"><img src="images/Logos/Gorjana.PNG" alt="Gorjana"></div>
+                    <div class="logo-item"><img src="images/Logos/Ulta.JPG" alt="Ulta"></div>
+                    <div class="logo-item"><img src="images/Logos/Saks Fifth Avenue.PNG" alt="Saks Fifth Avenue"></div>
+                    <div class="logo-item"><img src="images/Logos/Macys.PNG" alt="Macys"></div>
+                    <div class="logo-item"><img src="images/Logos/CMAX.PNG" alt="CMAX"></div>
+                    <div class="logo-item"><img src="images/Logos/AMC.WEBP" alt="AMC"></div>
+                    <div class="logo-item"><img src="images/Logos/PBSC.JPG" alt="PBSC"></div>
+                    <div class="logo-item"><img src="images/Logos/rdc.JPG" alt="RDC"></div>
+                    <div class="logo-item"><img src="images/Logos/Lafayette 148.WEBP" alt="Lafayette 148"></div>
+                    <div class="logo-item"><img src="images/Logos/Mavis Tire.JPG" alt="Mavis Tire"></div>
+                    <div class="logo-item"><img src="images/Logos/Burlington.PNG" alt="Burlington"></div>
+                    <div class="logo-item"><img src="images/Logos/Kolter.PNG" alt="Kolter"></div>
+                    <div class="logo-item"><img src="images/Logos/Crumbl cookie.WEBP" alt="Crumbl Cookie"></div>
+                    <div class="logo-item"><img src="images/Logos/Nothing bundt Cakes.PNG" alt="Nothing Bundt Cakes">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/D&G.WEBP" alt="D&G"></div>
+                    <div class="logo-item"><img src="images/Logos/fIVE Below.PNG" alt="Five Below"></div>
+                    <div class="logo-item"><img src="images/Logos/Nordstrom.PNG" alt="Nordstrom"></div>
+                    <div class="logo-item"><img src="images/Logos/ST Andrews School.JPG" alt="ST Andrews School"></div>
+                    <div class="logo-item"><img src="images/Logos/Visual Comfort.WEBP" alt="Visual Comfort"></div>
+                    <div class="logo-item"><img src="images/Logos/Lilly Pulitzer.PNG" alt="Lilly Pulitzer"></div>
+                    <div class="logo-item"><img src="images/Logos/Sunbelt Rentals.png" alt="Sunbelt Rentals"></div>
+                    <div class="logo-item"><img src="images/Logos/Arkest Projects.png" alt="Arkest Projects"></div>
+                    <div class="logo-item"><img src="images/Logos/Commercial Contractors.png"
+                            alt="Commercial Contractors"></div>
+                    <div class="logo-item"><img src="images/Logos/Retail Contractors.png" alt="Retail Contractors">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/IHOP.jpeg" alt="IHOP"></div>
+                    <div class="logo-item"><img src="images/Logos/Retcom Construction.png" alt="Retcom Construction">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/Riken Construction.png" alt="Riken Construction">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/5_3 bank.PNG" alt="5/3 Bank"></div>
+                    <div class="logo-item"><img src="images/Logos/Retcom.JPG" alt="Retcom"></div>
+                    <div class="logo-item"><img src="images/Logos/Kaneco Construction.png" alt="Kaneco Construction">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/RCC Associates.png" alt="RCC Associates"></div>
+                    <div class="logo-item"><img src="images/Logos/Sullivan Construction Company.png"
+                            alt="Sullivan Construction"></div>
+                    <div class="logo-item"><img src="images/Logos/Hardesty & Associates.png"
+                            alt="Hardesty & Associates"></div>
+                    <div class="logo-item"><img src="images/Logos/St Lucie County Fire District.png"
+                            alt="St Lucie Fire District"></div>
+                    <div class="logo-item"><img src="images/Logos/Kolter Homes.png" alt="Kolter Homes"></div>
+                    <div class="logo-item"><img src="images/Logos/PSI.png" alt="PSI"></div>
+                    <div class="logo-item"><img src="images/Logos/Portillo_s.png" alt="Portillo's"></div>
+                    <div class="logo-item"><img src="images/Logos/LEBOLO.JPG" alt="LEBOLO"></div>
+                    <div class="logo-item"><img src="images/Logos/Buch Construction.png" alt="Buch Construction"></div>
+                    <div class="logo-item"><img src="images/Logos/Vericon.JPG" alt="Vericon"></div>
+                    <div class="logo-item"><img src="images/Logos/Balmain.WEBP" alt="Balmain"></div>
+                    <div class="logo-item"><img src="images/Logos/Shake Shack.PNG" alt="Shake Shack"></div>
+                    <div class="logo-item"><img src="images/Logos/Whole Foods.PNG" alt="Whole Foods"></div>
+                    <div class="logo-item"><img src="images/Logos/TD Bank.PNG" alt="TD Bank"></div>
+                    <!-- Duplicates -->
+                    <div class="logo-item"><img src="images/Logos/Vuori.JPG" alt="Vuori"></div>
+                    <div class="logo-item"><img src="images/Logos/FC Animal Hospital.WEBP" alt="FC Animal Hospital">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/Brunello Cucinelli.PNG" alt="Brunello Cucinelli">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/Herman Miller.JPG" alt="Herman Miller"></div>
+                    <div class="logo-item"><img src="images/Logos/Gorjana.PNG" alt="Gorjana"></div>
+                    <div class="logo-item"><img src="images/Logos/Ulta.JPG" alt="Ulta"></div>
+                    <div class="logo-item"><img src="images/Logos/Saks Fifth Avenue.PNG" alt="Saks Fifth Avenue"></div>
+                    <div class="logo-item"><img src="images/Logos/Macys.PNG" alt="Macys"></div>
+                    <div class="logo-item"><img src="images/Logos/CMAX.PNG" alt="CMAX"></div>
+                    <div class="logo-item"><img src="images/Logos/AMC.WEBP" alt="AMC"></div>
+                    <div class="logo-item"><img src="images/Logos/PBSC.JPG" alt="PBSC"></div>
+                    <div class="logo-item"><img src="images/Logos/rdc.JPG" alt="RDC"></div>
+                    <div class="logo-item"><img src="images/Logos/Lafayette 148.WEBP" alt="Lafayette 148"></div>
+                    <div class="logo-item"><img src="images/Logos/Mavis Tire.JPG" alt="Mavis Tire"></div>
+                    <div class="logo-item"><img src="images/Logos/Burlington.PNG" alt="Burlington"></div>
+                    <div class="logo-item"><img src="images/Logos/Kolter.PNG" alt="Kolter"></div>
+                    <div class="logo-item"><img src="images/Logos/Crumbl cookie.WEBP" alt="Crumbl Cookie"></div>
+                    <div class="logo-item"><img src="images/Logos/Nothing bundt Cakes.PNG" alt="Nothing Bundt Cakes">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/D&G.WEBP" alt="D&G"></div>
+                    <div class="logo-item"><img src="images/Logos/fIVE Below.PNG" alt="Five Below"></div>
+                    <div class="logo-item"><img src="images/Logos/Nordstrom.PNG" alt="Nordstrom"></div>
+                    <div class="logo-item"><img src="images/Logos/ST Andrews School.JPG" alt="ST Andrews School"></div>
+                    <div class="logo-item"><img src="images/Logos/Visual Comfort.WEBP" alt="Visual Comfort"></div>
+                    <div class="logo-item"><img src="images/Logos/Lilly Pulitzer.PNG" alt="Lilly Pulitzer"></div>
+                    <div class="logo-item"><img src="images/Logos/Sunbelt Rentals.png" alt="Sunbelt Rentals"></div>
+                    <div class="logo-item"><img src="images/Logos/Arkest Projects.png" alt="Arkest Projects"></div>
+                    <div class="logo-item"><img src="images/Logos/Commercial Contractors.png"
+                            alt="Commercial Contractors"></div>
+                    <div class="logo-item"><img src="images/Logos/Retail Contractors.png" alt="Retail Contractors">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/IHOP.jpeg" alt="IHOP"></div>
+                    <div class="logo-item"><img src="images/Logos/Retcom Construction.png" alt="Retcom Construction">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/Riken Construction.png" alt="Riken Construction">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/5_3 bank.PNG" alt="5/3 Bank"></div>
+                    <div class="logo-item"><img src="images/Logos/Retcom.JPG" alt="Retcom"></div>
+                    <div class="logo-item"><img src="images/Logos/Kaneco Construction.png" alt="Kaneco Construction">
+                    </div>
+                    <div class="logo-item"><img src="images/Logos/RCC Associates.png" alt="RCC Associates"></div>
+                    <div class="logo-item"><img src="images/Logos/Sullivan Construction Company.png"
+                            alt="Sullivan Construction"></div>
+                    <div class="logo-item"><img src="images/Logos/Hardesty & Associates.png"
+                            alt="Hardesty & Associates"></div>
+                    <div class="logo-item"><img src="images/Logos/St Lucie County Fire District.png"
+                            alt="St Lucie Fire District"></div>
+                    <div class="logo-item"><img src="images/Logos/Kolter Homes.png" alt="Kolter Homes"></div>
+                    <div class="logo-item"><img src="images/Logos/PSI.png" alt="PSI"></div>
+                    <div class="logo-item"><img src="images/Logos/Portillo_s.png" alt="Portillo's"></div>
+                    <div class="logo-item"><img src="images/Logos/LEBOLO.JPG" alt="LEBOLO"></div>
+                    <div class="logo-item"><img src="images/Logos/Buch Construction.png" alt="Buch Construction"></div>
+                    <div class="logo-item"><img src="images/Logos/Vericon.JPG" alt="Vericon"></div>
+                    <div class="logo-item"><img src="images/Logos/Balmain.WEBP" alt="Balmain"></div>
+                    <div class="logo-item"><img src="images/Logos/Shake Shack.PNG" alt="Shake Shack"></div>
+                    <div class="logo-item"><img src="images/Logos/Whole Foods.PNG" alt="Whole Foods"></div>
+                    <div class="logo-item"><img src="images/Logos/TD Bank.PNG" alt="TD Bank"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             GOOGLE REVIEWS
+        ============================================= -->
+        <section class="google-reviews-section section-padding"
+            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-12 text-center text-lg-start mb-5 mb-lg-0" data-anim="rotate-in">
+                        <div class="google-badge"
+                            style="background-color: white; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); display: inline-block;">
+                            <img src="images/review.png" alt="Google Reviews" style="max-width: 100%; height: auto;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 offset-lg-1" data-anim="slide-right">
+                        <h2 class="mb-4" style="color: #322e2f; font-size: 2.5rem; font-weight: 700;"><span
+                                class="animated-gradient-text">5-Star</span> Rated on Google</h2>
+                        <p class="mb-4" style="color: #322e2f; font-size: 1.2rem; line-height: 1.8; opacity: 0.9;">We're
+                            honored to be rated 5 stars on Google by our valued customers. From interior makeovers to
+                            complete exterior transformations, our painting services are known for quality, reliability,
+                            and professionalism.</p>
+                        <p class="mb-4" style="color: #322e2f; font-size: 1.2rem; line-height: 1.8; opacity: 0.9;">When
+                            you choose J &amp; H Painting, you're choosing a team that shows up on time, works with
+                            precision, and leaves your space looking better than ever.</p>
+                        <a href="https://www.google.com/search?q=J%26H+Painting+Reviews" target="_blank"
+                            class="btn btn-lg mt-3 btn-ripple"
+                            style="background: linear-gradient(135deg, #6d16df, #9b4dea); border: none; color: white; padding: 15px 40px; font-weight: 600; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(109,22,223,0.4); transition: all 0.4s ease;"
+                            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(109,22,223,0.6)'"
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(109,22,223,0.4)'">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm1-10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm6 10h-2v-4c0-.55-.45-1-1-1h-2v5h-2V8h2v2c.62-1.08 2.07-1.04 2.81-.15.34.4.5.94.5 1.47V16z" />
+                            </svg>
+                            See Our Google Reviews
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             CUSTOMER REVIEWS - SPEECH BUBBLE STYLE
+        ============================================= -->
+        <section class="section-padding section-sweep"
+            style="background: linear-gradient(160deg, #faf7ff 0%, #f0f8ff 50%, #fff9f0 100%); position: relative; overflow: hidden;">
+
+            <!-- Animated BG blobs matching site style -->
+            <div
+                style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(109,22,223,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;animation:rvBlob1 10s ease-in-out infinite;">
+            </div>
+            <div
+                style="position:absolute;bottom:-60px;left:-60px;width:350px;height:350px;background:radial-gradient(circle,rgba(13,187,201,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;animation:rvBlob2 12s ease-in-out infinite;">
+            </div>
+            <!-- Diamond decorators -->
+            <div
+                style="position:absolute;top:40px;left:6%;width:13px;height:13px;border:2px solid #6d16df;transform:rotate(45deg);opacity:0.3;pointer-events:none;">
+            </div>
+            <div
+                style="position:absolute;top:70px;right:9%;width:10px;height:10px;border:2px solid #0dbbc9;transform:rotate(45deg);opacity:0.3;pointer-events:none;">
+            </div>
+            <div
+                style="position:absolute;bottom:60px;left:12%;width:8px;height:8px;background:#f5c518;transform:rotate(45deg);opacity:0.4;pointer-events:none;">
+            </div>
+            <div
+                style="position:absolute;bottom:50px;right:12%;width:10px;height:10px;border:2px solid #6d16df;transform:rotate(45deg);opacity:0.25;pointer-events:none;">
+            </div>
+            <!-- Gradient lines -->
+            <div
+                style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#6d16df,#0dbbc9,transparent);opacity:0.4;pointer-events:none;">
+            </div>
+
+            <style>
+                @keyframes rvBlob1 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    50% {
+                        transform: translate(-30px, 20px) scale(1.05);
+                    }
+                }
+
+                @keyframes rvBlob2 {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    50% {
+                        transform: translate(25px, -20px) scale(1.04);
+                    }
+                }
+
+                /* Glassmorphism Testimonial Cards */
+                .testimonial-swiper {
+                    padding: 40px 10px 80px !important;
+                    overflow: hidden !important;
+                    min-height: 450px;
+                    /* Prevent layout shift */
+                }
+
+                .testimonial-swiper .swiper-wrapper {
+                    transition-timing-function: linear !important;
+                }
+
+                .testimonial-card {
+                    background: rgba(255, 255, 255, 0.45);
+                    backdrop-filter: blur(14px);
+                    -webkit-backdrop-filter: blur(14px);
+                    border: 1px solid rgba(255, 255, 255, 0.5);
+                    border-radius: 28px;
+                    padding: 35px;
+                    box-shadow: 0 20px 50px rgba(109, 22, 223, 0.08);
+                    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    position: relative;
+                    animation: cardFloat 6s ease-in-out infinite;
+                }
+
+                @keyframes cardFloat {
+
+                    0%,
+                    100% {
+                        transform: translateY(0);
+                    }
+
+                    50% {
+                        transform: translateY(-12px);
+                    }
+                }
+
+                /* Stagger floating for adjacent cards */
+                .swiper-slide:nth-child(even) .testimonial-card {
+                    animation-delay: -3s;
+                }
+
+                .testimonial-card:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 0 30px 60px rgba(13, 187, 201, 0.2);
+                    background: rgba(255, 255, 255, 0.7);
+                    border-color: rgba(109, 22, 223, 0.2);
+                }
+
+                .tm-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-bottom: 20px;
+                }
+
+                .tm-avatar {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #fff;
+                    box-shadow: 0 10px 20px rgba(109, 22, 223, 0.15);
+                    background: linear-gradient(135deg, #6d16df, #0dbbc9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                }
+
+                .tm-info h4 {
+                    margin: 0;
+                    font-size: 1.15rem;
+                    font-weight: 800;
+                    color: #322e2f;
+                }
+
+                .tm-info p {
+                    margin: 3px 0 0;
+                    font-size: 0.85rem;
+                    color: #6d16df;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+
+                .tm-stars {
+                    color: #f5c518;
+                    font-size: 1rem;
+                    letter-spacing: 2px;
+                }
+
+                .tm-text {
+                    font-size: 1.05rem;
+                    line-height: 1.8;
+                    color: #555;
+                    font-style: italic;
+                    margin: 0;
+                }
+
+                .tm-quote {
+                    position: absolute;
+                    top: 25px;
+                    right: 30px;
+                    font-size: 3rem;
+                    color: rgba(109, 22, 223, 0.06);
+                    font-family: serif;
+                    line-height: 1;
+                }
+
+                /* Pagination Dots Styling */
+                .swiper-pagination-bullet {
+                    width: 12px;
+                    height: 6px;
+                    border-radius: 4px;
+                    background: rgba(109, 22, 223, 0.2);
+                    opacity: 1;
+                    transition: all 0.3s ease;
+                }
+
+                .swiper-pagination-bullet-active {
+                    background: linear-gradient(90deg, #6d16df, #0dbbc9);
+                    width: 32px;
+                    box-shadow: 0 4px 12px rgba(109, 22, 223, 0.3);
+                }
+            </style>
+
+            <div class="container" style="position:relative;z-index:2;">
+
+                <!-- Section header -->
+                <div class="row mb-5">
+                    <div class="col-12 text-center" data-anim="blur-in">
+                        <div
+                            style="display:inline-flex;align-items:center;gap:8px;background:rgba(109,22,223,0.07);border:1px solid rgba(109,22,223,0.18);border-radius:50px;padding:7px 22px;margin-bottom:18px;">
+                            <span
+                                style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#6d16df,#0dbbc9);display:inline-block;box-shadow:0 0 8px rgba(109,22,223,0.4);"></span>
+                            <span
+                                style="color:#6d16df;font-size:0.78rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;">Client
+                                Reviews</span>
+                        </div>
+                        <h2 style="color:#322e2f;font-weight:800;margin-bottom:10px;display:inline-block;">What Our
+                            <span class="animated-gradient-text">Clients Say</span>
+                        </h2>
+                        <div class="section-title-line reveal"></div>
+                        <p style="color:#777;font-size:1rem;margin-top:14px;">Real results. Real clients. Verified
+                            Google reviews.</p>
+                        <!-- Stars summary -->
+                        <div style="display:inline-flex;align-items:center;gap:12px;background:white;border:1px solid rgba(109,22,223,0.1);border-radius:50px;padding:10px 24px;margin-top:16px;box-shadow:0 4px 20px rgba(109,22,223,0.08);"
+                            data-anim="zoom-in" data-delay="200">
+                            <span style="color:#f5c518;font-size:1.1rem;letter-spacing:2px;">★★★★★</span>
+                            <div style="width:1px;height:20px;background:rgba(109,22,223,0.15);"></div>
+                            <span style="font-weight:800;color:#322e2f;font-size:1.1rem;">5.0</span>
+                            <span style="color:#888;font-size:0.85rem;">/ 5.0 · Google Reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-column layout: slider left, info right -->
+                <!-- Horizontal Swiper Carousel -->
+                <div class="row" data-anim="fade-up" data-delay="300">
+                    <div class="col-12">
+                        <div class="swiper testimonial-swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Card 1: Chris -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar">C</div>
+                                            <div class="tm-info">
+                                                <h4>Chris Watkins</h4>
+                                                <p>Commercial Repaint</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"We hired J & H Painting for a full interior and exterior
+                                            repaint of our commercial facility, and they exceeded expectations. Clear
+                                            communication and top-tier workmanship."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 2: Anthony -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar">A</div>
+                                            <div class="tm-info">
+                                                <h4>Anthony Ricci</h4>
+                                                <p>Luxury Residential</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"The attention to detail was incredible. From drywall
+                                            preparation to final coat, everything was executed flawlessly. The finish
+                                            quality truly elevated our space."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 3: Peter -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar">P</div>
+                                            <div class="tm-info">
+                                                <h4>Peter Miller</h4>
+                                                <p>New Construction</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"As a builder, I value contractors who understand scheduling.
+                                            J & H Painting delivered exactly that. Efficient, structured, and results
+                                            are consistently clean."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 4: Mandy -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar">M</div>
+                                            <div class="tm-info">
+                                                <h4>Mandy Smith</h4>
+                                                <p>Multi-Location Rollout</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"Worked with them on multiple Florida locations. Their
+                                            ability to manage logistics across different sites was impressive. Quality
+                                            remained consistent throughout."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 5: Sarah -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar">S</div>
+                                            <div class="tm-info">
+                                                <h4>Sarah Johnson</h4>
+                                                <p>Interior Transformation</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"Professional from start to finish. They helped us pick the
+                                            perfect colors and the execution was perfect. Highly recommend for any home
+                                            project."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 6: David -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar"
+                                                style="background: linear-gradient(135deg, #0dbbc9, #6d16df);">D</div>
+                                            <div class="tm-info">
+                                                <h4>David Wilson</h4>
+                                                <p>Exterior Renovation</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"High quality exterior paint and professional execution. They
+                                            finished the job exactly on time and the clean-up was thorough. Definitely
+                                            hiring them again."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 7: Jessica -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar"
+                                                style="background: linear-gradient(135deg, #25d366, #128c7e);">J</div>
+                                            <div class="tm-info">
+                                                <h4>Jessica Brown</h4>
+                                                <p>Office Facility</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"Seamless process for our office facility. Minimized downtime
+                                            and delivered a fresh new look for our workspace. The team was respectful
+                                            and efficient."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 8: Michael -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar"
+                                                style="background: linear-gradient(135deg, #6d16df, #0dbbc9);">M</div>
+                                            <div class="tm-info">
+                                                <h4>Michael Thompson</h4>
+                                                <p>New Build Interior</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"Outstanding workmanship on our new construction project.
+                                            Their ability to handle large-scale drywall finishing and painting made all
+                                            the difference."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 9: Robert -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar"
+                                                style="background: linear-gradient(135deg, #ff9f43, #ff6b6b);">R</div>
+                                            <div class="tm-info">
+                                                <h4>Robert Davis</h4>
+                                                <p>Multi-Family Dev</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"Impressive speed and quality for our multi-family units. J &
+                                            H is reliable, well-equipped, and delivers consistent results across every
+                                            unit."</p>
+                                    </div>
+                                </div>
+                                <!-- Card 10: Linda -->
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="tm-quote">"</div>
+                                        <div class="tm-header">
+                                            <div class="tm-avatar"
+                                                style="background: linear-gradient(135deg, #6d16df, #a29bfe);">L</div>
+                                            <div class="tm-info">
+                                                <h4>Linda Garcia</h4>
+                                                <p>Retail Repaint</p>
+                                            </div>
+                                        </div>
+                                        <div class="tm-stars">★★★★★</div>
+                                        <p class="tm-text">"The retail space looks amazing. They captured the brand
+                                            colors perfectly. Efficient team that works hard to meet tight deadlines
+                                            without compromising quality."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination mt-5" style="position:relative; bottom:0;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Stats Row Integrated Below -->
+                <div class="row mt-4 g-4 justify-content-center">
+                    <div class="col-lg-3 col-md-6 col-12" data-anim="bounce-up" data-delay="300">
+                        <div
+                            style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(109,22,223,0.08);border:1px solid rgba(109,22,223,0.05);text-align:center;">
+                            <div
+                                style="font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#6d16df,#0dbbc9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+                                200+</div>
+                            <div
+                                style="color:#888;font-size:0.85rem;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
+                                Projects Done</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12" data-anim="bounce-up" data-delay="400">
+                        <div
+                            style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(13,187,201,0.08);border:1px solid rgba(13,187,201,0.05);text-align:center;">
+                            <div
+                                style="font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#0dbbc9,#6d16df);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+                                5.0★</div>
+                            <div
+                                style="color:#888;font-size:0.85rem;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
+                                Google Rating</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12" data-anim="bounce-up" data-delay="500">
+                        <div
+                            style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(109,22,223,0.08);border:1px solid rgba(109,22,223,0.05);text-align:center;">
+                            <div
+                                style="font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#6d16df,#0dbbc9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+                                FL+</div>
+                            <div
+                                style="color:#888;font-size:0.85rem;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
+                                Serving Nationwide</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="row mt-5 text-center">
+                    <div class="col-12" data-anim="fade-up" data-delay="600">
+                        <a href="#section_5" class="btn btn-ripple click-scroll"
+                            style="background:linear-gradient(135deg,#6d16df,#0dbbc9);border:none;color:white;padding:16px 45px;font-weight:800;border-radius:50px;display:inline-flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(109,22,223,0.4);transition:all 0.4s ease;text-decoration:none;"
+                            onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 15px 45px rgba(109,22,223,0.55)'"
+                            onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 10px 30px rgba(109,22,223,0.4)'">
+                            <i class="bi bi-chat-heart-fill"></i> Get a Free Quote & Transformation
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <!-- Swiper.js & Init -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const testimonialSwiper = new Swiper('.testimonial-swiper', {
+                        slidesPerView: 3,
+                        grid: {
+                            rows: 2,
+                            fill: 'row'
+                        },
+                        spaceBetween: 30,
+                        autoplay: {
+                            delay: 4500,
+                            disableOnInteraction: true,
+                        },
+                        speed: 800,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                        breakpoints: {
+                            0: {
+                                slidesPerView: 1,
+                                grid: { rows: 1 }
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                grid: { rows: 2 }
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                grid: { rows: 2 }
+                            }
+                        }
+                    });
+                });
+            </script>
+
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             CONTACT SECTION
+        ============================================= -->
+        <section class="contact-section section-padding" id="section_5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10 col-12">
+                        <div class="text-center mb-5" data-anim="fade-up">
+                            <h2 class="mb-3" style="color:#322e2f; font-weight: 800;">Get in <span
+                                    class="animated-gradient-text">Touch</span></h2>
+                            <p style="color:#777; font-size: 1.1rem;">Ready to transform your property? Fill in the form
+                                and our team will get back to you within 24 hours.</p>
+                        </div>
+
+                        <!-- Contact info row -->
+                        <div class="row justify-content-center g-4 mb-5" data-anim="fade-up" data-delay="100">
+                            <div class="col-md-5 col-12">
+                                <div class="d-flex align-items-center justify-content-center gap-3"
+                                    style="background: #f8f4ff; border-radius: 14px; padding: 18px 24px; border: 1px solid rgba(109,22,223,0.1);">
+                                    <div
+                                        style="width:45px; height:45px; background: linear-gradient(135deg, #6d16df, #0dbbc9); border-radius: 10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                        <i class="bi-telephone-fill" style="color:white; font-size:1.1rem;"></i>
+                                    </div>
+                                    <div>
+                                        <div
+                                            style="font-size:0.75rem; color:#999; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+                                            Call Us</div>
+                                        <a href="tel:+15619063823"
+                                            style="color:#322e2f; text-decoration:none; font-weight:700; font-size:1.05rem;">+1
+                                            (561) 906-3823</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-12">
+                                <div class="d-flex align-items-center justify-content-center gap-3"
+                                    style="background: #f8f4ff; border-radius: 14px; padding: 18px 24px; border: 1px solid rgba(109,22,223,0.1);">
+                                    <div
+                                        style="width:45px; height:45px; background: linear-gradient(135deg, #0dbbc9, #6d16df); border-radius: 10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                        <i class="bi-envelope-fill" style="color:white; font-size:1.1rem;"></i>
+                                    </div>
+                                    <div>
+                                        <div
+                                            style="font-size:0.75rem; color:#999; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+                                            Email Us</div>
+                                        <a href="mailto:jhpaintingincfl@gmail.com"
+                                            style="color:#322e2f; text-decoration:none; font-weight:700; font-size:0.95rem;">jhpaintingincfl@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="#" method="post" class="custom-form contact-form" role="form" data-anim="fade-up"
+                            data-delay="200">
+                            <div class="row g-3">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="full-name" id="full-name" class="form-control"
+                                            placeholder="Full Name" required="">
+                                        <label for="full-name">Full Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                            class="form-control" placeholder="Email address" required="">
+                                        <label for="email">Email address</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="tel" name="phone" id="phone" class="form-control"
+                                            placeholder="Phone Number">
+                                        <label for="phone">Phone Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Message"
+                                            style="height: 130px;"></textarea>
+                                        <label for="message">Your Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="form-control btn-ripple"
+                                        style="height: 58px; background: linear-gradient(135deg, #6d16df, #0dbbc9); border: none; color: white; font-weight: 800; font-size: 1.1rem; border-radius: 12px; letter-spacing: 1px;">REQUEST
+                                        A FREE QUOTE</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <section class="service-areas-section section-padding" style="background: #fff; padding-bottom: 0;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 col-12 mb-5 mb-lg-0" data-anim="slide-left">
+                            <div
+                                style="background: white; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(135deg, #6d16df, #0dbbc9); background-origin: border-box; background-clip: padding-box, border-box; padding: 40px; border-radius: 30px; box-shadow: 0 15px 45px rgba(109, 22, 223, 0.08);">
+                                <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
+                                    <div style="width:30px;height:2px;background:#0dbbc9;"></div>
+                                    <span
+                                        style="color:#0dbbc9;font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Local
+                                        Expertise</span>
+                                </div>
+                                <h2 class="mb-4" style="color: #322e2f; font-weight: 800;">Serving <span
+                                        class="animated-gradient-text">Florida & Nationwide</span></h2>
+                                <p class="fs-5 text-muted mb-4">Based in Florida, we coordinate large-scale painting
+                                    projects across the entire state and even nationwide for our commercial partners.
+                                </p>
+
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li class="mb-3 d-flex align-items-center gap-2">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#6d16df; font-size:1rem; flex-shrink:0;"></i>
+                                                <span style="font-size:0.95rem; font-weight:600; color:#322e2f;">Miami &
+                                                    SE Florida</span>
+                                            </li>
+                                            <li class="mb-3 d-flex align-items-center gap-2">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#6d16df; font-size:1rem; flex-shrink:0;"></i>
+                                                <span style="font-size:0.95rem; font-weight:600; color:#322e2f;">Orlando
+                                                    & Central FL</span>
+                                            </li>
+                                            <li class="mb-3 d-flex align-items-center gap-2">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#6d16df; font-size:1rem; flex-shrink:0;"></i>
+                                                <span style="font-size:0.95rem; font-weight:600; color:#322e2f;">Tampa
+                                                    Bay Area</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li class="mb-3 d-flex align-items-center gap-2">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#0dbbc9; font-size:1rem; flex-shrink:0;"></i>
+                                                <span
+                                                    style="font-size:0.95rem; font-weight:600; color:#322e2f;">Jacksonville
+                                                    & NE FL</span>
+                                            </li>
+                                            <li class="mb-3 d-flex align-items-center gap-2">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#0dbbc9; font-size:1rem; flex-shrink:0;"></i>
+                                                <span style="font-size:0.95rem; font-weight:600; color:#322e2f;">Naples
+                                                    & SW Florida</span>
+                                            </li>
+                                            <li class="mb-3 d-flex align-items-center gap-2">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#0dbbc9; font-size:1rem; flex-shrink:0;"></i>
+                                                <span
+                                                    style="font-size:0.95rem; font-weight:600; color:#322e2f;">Nationwide
+                                                    Rollouts</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-12" data-anim="zoom-in">
+                            <div
+                                style="border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 8px solid white;">
+                                <!-- Google Maps Placeholder/Embed -->
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.13532727142!2d-80.1917902!3d25.7616798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a1a0a1a0a1%3A0x0!2zTWlhbWksIEZMLCBVU0E!5e0!3m2!1sen!2sus!4v1709827200000!5m2!1sen!2sus"
+                                    width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+
+                            <!-- Fully Licensed Line with Logo Match Colors -->
+                            <div style="margin-top: 25px; background: white; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(90deg, #6d16df, #0dbbc9); background-origin: border-box; background-clip: padding-box, border-box; padding: 15px 30px; border-radius: 15px; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(109, 22, 223, 0.1); transition: transform 0.3s ease;"
+                                class="hover-lift">
+                                <p class="mb-0" style="font-weight: 700; color: #322e2f; font-size: 1.05rem;">
+                                    <i class="bi bi-shield-check-fill me-2"
+                                        style="color: #6d16df; font-size: 1.3rem;"></i>
+                                    Fully Licensed &amp; Insured to operate in all Florida municipalities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-divider"></div>
+            </section>
+
+            <footer class="site-footer" style="margin: 0; padding: 0; position: relative; overflow: hidden;">
+
+                <!-- Background Image with Dark Overlay to Fade Image -->
+                <div style="
+                    background: url('images/footer-bg.jpg') center center / cover no-repeat;
+                    position: relative;
+                ">
+                    <!-- Strong Dark Overlay -->
+                    <div style="
+                        background: rgba(18, 9, 32, 0.85); /* Darker overlay for a more subtle background fade */
+                        padding: 80px 0 50px;
+                    ">
+                        <div class="container">
+                            <div class="row g-5">
+
+                                <!-- Col 1: Logo + Description + Socials -->
+                                <div class="col-lg-4 col-md-6 col-12 pe-lg-5">
+                                    <a class="navbar-brand d-flex align-items-center mb-4" href="index.html"
+                                        style="gap: 12px; text-decoration: none;">
+                                        <img src="images/logo.png" class="img-fluid" alt="J & H Painting"
+                                            style="max-width: 48px; height: auto; filter: brightness(1.2);">
+                                        <span
+                                            style="color: #ffffff; font-weight: 800; font-size: 1.3rem; line-height: 1.2;">J
+                                            &amp; H <br><span style="color: #0dbbc9;">Painting</span></span>
+                                    </a>
+                                    <p
+                                        style="color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 25px; font-size: 1rem;">
+                                        Serving homeowners &amp; businesses throughout Florida with premium painting
+                                        services. Quality and satisfaction guaranteed.
+                                    </p>
+                                    <!-- Social Icons -->
+                                    <div class="d-flex gap-3">
+                                        <a href="#"
+                                            style="width:42px;height:42px;border-radius:50%;background:#6d16df;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
+                                            onmouseover="this.style.background='#0dbbc9'; this.style.transform='translateY(-3px)'"
+                                            onmouseout="this.style.background='#6d16df'; this.style.transform='translateY(0)'">
+                                            <i class="bi bi-facebook"></i>
+                                        </a>
+                                        <a href="#"
+                                            style="width:42px;height:42px;border-radius:50%;background:#6d16df;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
+                                            onmouseover="this.style.background='#0dbbc9'; this.style.transform='translateY(-3px)'"
+                                            onmouseout="this.style.background='#6d16df'; this.style.transform='translateY(0)'">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                        <a href="#"
+                                            style="width:42px;height:42px;border-radius:50%;background:#6d16df;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
+                                            onmouseover="this.style.background='#25d366'; this.style.transform='translateY(-3px)'"
+                                            onmouseout="this.style.background='#6d16df'; this.style.transform='translateY(0)'">
+                                            <i class="bi bi-whatsapp"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Col 2: Quick Menu -->
+                                <div class="col-lg-2 col-md-6 col-12">
+                                    <h5
+                                        style="color: #ffffff; font-weight: 700; margin-bottom: 25px; font-size: 1.2rem;">
+                                        Quick Menu</h5>
+                                    <ul
+                                        style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px;">
+                                        <li><a href="#" class="footer-nav-link"><i class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Home</a>
+                                        </li>
+                                        <li><a href="#section_2" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>About
+                                                Us</a></li>
+                                        <li><a href="#section_3" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Services</a>
+                                        </li>
+                                        <li><a href="#section_4" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Gallery</a>
+                                        </li>
+                                        <li><a href="#section_5" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Contact
+                                                Us</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Col 3: Our Services -->
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <h5
+                                        style="color: #ffffff; font-weight: 700; margin-bottom: 25px; font-size: 1.2rem;">
+                                        Our Services</h5>
+                                    <ul
+                                        style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px;">
+                                        <li><a href="services/interior-painting.html" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Interior
+                                                Painting</a></li>
+                                        <li><a href="services/exterior-painting.html" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Exterior
+                                                Painting</a></li>
+                                        <li><a href="services/commercial-painting.html" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Commercial
+                                                Painting</a></li>
+                                        <li><a href="services/new-construction.html" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>New
+                                                Construction</a></li>
+                                        <li><a href="services/specialty-coatings.html" class="footer-nav-link"><i
+                                                    class="bi bi-arrow-right-short me-2"
+                                                    style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Specialty
+                                                Coatings</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Col 4: Contact Info -->
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <h5
+                                        style="color: #ffffff; font-weight: 700; margin-bottom: 25px; font-size: 1.2rem;">
+                                        Contact Info</h5>
+                                    <ul
+                                        style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px;">
+                                        <li style="display:flex;align-items:center;gap:15px;">
+                                            <div
+                                                style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                                <i class="bi bi-telephone-fill"
+                                                    style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                            </div>
+                                            <a href="tel:+15619063823"
+                                                style="color:#ffffff;text-decoration:none;font-weight:600;font-size:1.05rem;transition:color 0.3s;"
+                                                onmouseover="this.style.color='#0dbbc9'"
+                                                onmouseout="this.style.color='#ffffff'">+1 (561) 906-3823</a>
+                                        </li>
+                                        <li style="display:flex;align-items:center;gap:15px;">
+                                            <div
+                                                style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                                <i class="bi bi-envelope-fill"
+                                                    style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                            </div>
+                                            <a href="mailto:jhpaintingincfl@gmail.com"
+                                                style="color:#ffffff;text-decoration:none;font-size:0.95rem;transition:color 0.3s;word-break:break-all;"
+                                                onmouseover="this.style.color='#0dbbc9'"
+                                                onmouseout="this.style.color='#ffffff'">jhpaintingincfl@gmail.com</a>
+                                        </li>
+                                        <li style="display:flex;align-items:center;gap:15px;">
+                                            <div
+                                                style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                                <i class="bi bi-geo-alt-fill"
+                                                    style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                            </div>
+                                            <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Florida,
+                                                USA</span>
+                                        </li>
+                                        <li style="display:flex;align-items:center;gap:15px;">
+                                            <div
+                                                style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                                <i class="bi bi-clock-fill" style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                            </div>
+                                            <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Mon – Sat: 07am
+                                                – 06pm</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright Bar -->
+                <div
+                    style="background-color: #6d16df; padding: 20px 0; text-align:center; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p class="mb-0" style="color: #ffffff; font-size: 0.95rem; font-weight: 500;">© 2026 J &amp; H
+                        Painting FL. All Rights Reserved.</p>
+                </div>
+
+                <style>
+                    .footer-nav-link {
+                        color: rgba(255, 255, 255, 0.85);
+                        text-decoration: none;
+                        font-size: 1rem;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+                        display: inline-block;
+                    }
+
+                    .footer-nav-link:hover {
+                        color: #0dbbc9;
+                        transform: translateX(5px);
+                    }
+
+                    @media (max-width: 767px) {
+
+                        .site-footer .col-12,
+                        .site-footer .col-md-6 {
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                            padding-bottom: 20px;
+                        }
+
+                        .site-footer .col-12:last-child {
+                            border-bottom: none;
+                        }
+
+                        .site-footer .row.g-5 {
+                            --bs-gutter-y: 1.5rem;
+                        }
+
+                        .site-footer [style*="padding: 80px"] {
+                            padding: 50px 0 30px !important;
+                        }
+                    }
+                </style>
+
+            </footer>
+
+    </main>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/animated-headline.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        // PAGE LOADER
+        function hideLoader() { var l = document.getElementById('page-loader'); if (l) l.classList.add('hidden'); }
+        window.addEventListener('load', function () { setTimeout(hideLoader, 500); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoader, 800); });
+        setTimeout(hideLoader, 1000);
+
+
+
+        // SCROLL PROGRESS
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            document.getElementById('scroll-progress').style.width = (scrollTop / docHeight * 100) + '%';
+        });
+
+        // NAVBAR SCROLL EFFECT
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 80) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // SCROLL ANIMATION ENGINE
+        const animObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    el.classList.add('anim-done');
+                    if (el.classList.contains('word-reveal')) {
+                        el.querySelectorAll('.word').forEach(function (w, i) { w.style.transitionDelay = (i * 0.07) + 's'; });
+                    }
+                    animObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('[data-anim]').forEach(function (el) { animObserver.observe(el); });
+
+        const sweepObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('sweep-done'); });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.section-sweep').forEach(function (el) { sweepObserver.observe(el); });
+
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) { if (entry.isIntersecting) entry.target.classList.add('revealed'); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .section-title-line, .about-text-block').forEach(function (el) { revealObserver.observe(el); });
+
+        document.querySelectorAll('.word-reveal').forEach(function (el) {
+            const text = el.textContent;
+            el.innerHTML = text.split(' ').map(w => `<span class="word">${w}&nbsp;</span>`).join('');
+            animObserver.observe(el);
+        });
+
+
+        // HERO CANVAS PARTICLES — REMOVED (heavy GPU drain: 60 particles × 60fps)
+
+
+        // RIPPLE EFFECT
+        document.querySelectorAll('.btn-ripple').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                ripple.style.left = x + 'px'; ripple.style.top = y + 'px';
+                ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+                ripple.style.marginLeft = ripple.style.marginTop = '-' + (Math.max(rect.width, rect.height) / 2) + 'px';
+                btn.appendChild(ripple);
+                setTimeout(function () { ripple.remove(); }, 600);
+            });
+        });
+
+        // COUNTER ANIMATION
+        const counterObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const suffix = el.textContent.replace(/[0-9]/g, '').trim();
+                    let current = 0; const increment = target / 60;
+                    const timer = setInterval(function () {
+                        current += increment;
+                        if (current >= target) { current = target; clearInterval(timer); }
+                        el.textContent = Math.floor(current) + (suffix || '+');
+                    }, 25);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-counter').forEach(function (el) { counterObserver.observe(el); });
+
+        // STAR RATING ANIMATION
+        const starObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.star-rating span').forEach(function (star, i) { star.style.animationDelay = (i * 0.1) + 's'; });
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.star-rating').forEach(function (el) { starObserver.observe(el); });
+
+        // CAROUSEL REMOVED FOR VERTICAL SLIDER
+
+        // GALLERY MODAL — populate images dynamically
+        (function () {
+            var allImages = [
+                { src: 'images/img1.jpeg', label: 'Commercial Project' },
+                { src: 'images/img2.jpeg', label: 'Restaurant Finish' },
+                { src: 'images/img3.jpeg', label: 'Retail Space' },
+                { src: 'images/img5.jpeg', label: 'Interior Coating' },
+                { src: 'images/interior-surface-prep.png', label: 'Supermarket Finish' },
+                { src: 'images/bg3.png', label: 'Specialty Work' },
+                { src: 'images/nationwide-1.jpeg', label: 'Premium Exterior' },
+                { src: 'images/nationwide-2.jpeg', label: 'Commercial Finish' },
+                { src: 'images/construction-hero.jpg', label: 'Modern Home' },
+                { src: 'images/exterior-preparation.jpg', label: 'Quality Craftsmanship' },
+                { src: 'images/interior-hero.jpg', label: 'Luxury Interior' },
+                { src: 'images/interior-foyer.jpg', label: 'Elegant Foyer' },
+                { src: 'images/interior-surface-prep.png', label: 'Pristine Finishes' },
+                { src: 'images/interior-wood-ceiling.jpg', label: 'Custom Ceiling' },
+            ];
+            var modalEl = document.getElementById('projectsModal');
+            if (modalEl) {
+                modalEl.addEventListener('show.bs.modal', function () {
+                    var grid = modalEl.querySelector('.row.g-4');
+                    if (grid && grid.children.length === 0) {
+                        allImages.forEach(function (img) {
+                            var col = document.createElement('div');
+                            col.className = 'col-lg-4 col-md-6 col-12';
+                            col.innerHTML = '<div class="gallery-img-wrap"><img src="' + img.src + '" alt="' + img.label + '" loading="lazy"><div class="overlay-text">' + img.label + '</div></div>';
+                            grid.appendChild(col);
+                        });
+                    }
+                });
+            }
+        })();
+
+    </script>
+
+</body>
+
+</html>

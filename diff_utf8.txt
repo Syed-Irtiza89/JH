@@ -1,0 +1,2590 @@
+﻿diff --git a/index.html b/index.html
+index 534b656..af733d8 100644
+--- a/index.html
++++ b/index.html
+@@ -15,49 +15,10 @@
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href="css/bootstrap-icons.css" rel="stylesheet">
+     <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
++    <!-- Swiper.js CSS -->
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+ 
+     <style>
+-        /* =============================================
+-           CUSTOM CURSOR
+-        ============================================= */
+-        * {
+-            cursor: none !important;
+-        }
+-
+-        .cursor-dot {
+-            width: 8px;
+-            height: 8px;
+-            background: #6d16df;
+-            border-radius: 50%;
+-            position: fixed;
+-            top: 0;
+-            left: 0;
+-            pointer-events: none;
+-            z-index: 99999;
+-            transition: transform 0.1s ease;
+-            mix-blend-mode: difference;
+-        }
+-
+-        .cursor-ring {
+-            width: 36px;
+-            height: 36px;
+-            border: 2px solid rgba(109, 22, 223, 0.5);
+-            border-radius: 50%;
+-            position: fixed;
+-            top: 0;
+-            left: 0;
+-            pointer-events: none;
+-            z-index: 99998;
+-            transition: width 0.3s, height 0.3s, border-color 0.3s;
+-        }
+-
+-        .cursor-ring.hover {
+-            width: 60px;
+-            height: 60px;
+-            border-color: #0dbbc9;
+-            background: rgba(13, 187, 201, 0.08);
+-        }
+-
+         /* =============================================
+            BASE RESET
+         ============================================= */
+@@ -207,14 +168,19 @@
+         }
+ 
+         .nav-link {
+-            color: #fff !important;
+-            font-weight: 500;
++            color: #0dbbc9 !important;
++            font-weight: 700;
+             padding: 8px 16px !important;
+             margin: 0 2px;
+             transition: all 0.3s ease;
+             border-radius: 30px;
+             position: relative;
+             overflow: hidden;
++            letter-spacing: 0.5px;
++        }
++
++        .nav-link:hover {
++            color: #6d16df !important;
+         }
+ 
+         .nav-link::after {
+@@ -235,8 +201,8 @@
+         }
+ 
+         .nav-link.active {
+-            background-color: rgba(0, 0, 0, 0.05) !important;
+-            color: #333333 !important;
++            background-color: rgba(109, 22, 223, 0.1) !important;
++            color: #6d16df !important;
+         }
+ 
+         @media (max-width: 991px) {
+@@ -1028,6 +994,12 @@
+             position: relative;
+             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+             mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
++            padding: 40px 0;
++            border-top: 2px solid rgba(109, 22, 223, 0.4);
++            border-bottom: 2px solid rgba(13, 187, 201, 0.4);
++            margin: 20px 0;
++            background: linear-gradient(90deg, rgba(109, 22, 223, 0.1) 0%, rgba(13, 187, 201, 0.1) 100%);
++            box-shadow: inset 0 0 20px rgba(109, 22, 223, 0.05);
+         }
+ 
+         .logo-track {
+@@ -1050,15 +1022,17 @@
+             align-items: center;
+             justify-content: center;
+             background: #ffffff;
+-            border-radius: 8px;
++            border-radius: 12px;
+             padding: 12px 16px;
+-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+-            transition: box-shadow 0.3s ease, transform 0.3s ease;
++            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
++            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
++            border: 1px solid rgba(109, 22, 223, 0.08);
+         }
+ 
+         .logo-item:hover {
+-            box-shadow: 0 8px 25px rgba(109, 22, 223, 0.2);
+-            transform: translateY(-4px) scale(1.05);
++            box-shadow: 0 15px 35px rgba(109, 22, 223, 0.15);
++            transform: translateY(-5px) scale(1.05);
++            border-color: rgba(109, 22, 223, 0.3);
+         }
+ 
+         .logo-item img {
+@@ -1314,14 +1288,7 @@
+                 text-align: center !important;
+             }
+ 
+-            * {
+-                cursor: auto !important;
+-            }
+ 
+-            .cursor-dot,
+-            .cursor-ring {
+-                display: none;
+-            }
+         }
+ 
+         /* =============================================
+@@ -1457,6 +1424,133 @@
+         }
+ 
+         /* Reviews slider styles are inline in section */
++
++        /* =============================================
++           HORIZONTAL 2-ROW GALLERY SLIDER
++        ============================================= */
++        .gallery-horizontal-outer {
++            position: relative;
++            width: 100%;
++            background: transparent;
++            overflow: hidden;
++            padding: 40px 0;
++        }
++
++        .gallery-horizontal-row {
++            display: flex;
++            width: max-content;
++            margin-bottom: 30px;
++        }
++
++        .gallery-horizontal-row:last-child {
++            margin-bottom: 0;
++        }
++
++        .gallery-track-h {
++            display: flex;
++            gap: 20px;
++            padding: 0 10px;
++        }
++
++        .gallery-track-h.left-to-right {
++            animation: scrollHorizontalLeftToRight 60s linear infinite;
++        }
++
++        .gallery-track-h.right-to-left {
++            animation: scrollHorizontalRightToLeft 70s linear infinite;
++        }
++
++        .gallery-horizontal-outer:hover .gallery-track-h {
++            animation-play-state: paused;
++        }
++
++        @keyframes scrollHorizontalLeftToRight {
++            0% {
++                transform: translateX(-50%);
++            }
++
++            100% {
++                transform: translateX(0);
++            }
++        }
++
++        @keyframes scrollHorizontalRightToLeft {
++            0% {
++                transform: translateX(0);
++            }
++
++            100% {
++                transform: translateX(-50%);
++            }
++        }
++
++        .gallery-h-item {
++            width: 350px;
++            height: 250px;
++            border-radius: 24px;
++            overflow: hidden;
++            position: relative;
++            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
++            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
++            cursor: pointer;
++            flex-shrink: 0;
++        }
++
++        .gallery-h-item:hover {
++            transform: scale(1.05) translateY(-10px);
++            box-shadow: 0 25px 60px rgba(109, 22, 223, 0.25);
++            z-index: 10;
++        }
++
++        .gallery-h-item img {
++            width: 100%;
++            height: 100%;
++            display: block;
++            object-fit: cover;
++            transition: transform 0.6s ease;
++        }
++
++        .gallery-h-item:hover img {
++            transform: scale(1.15);
++        }
++
++        .gallery-h-overlay {
++            position: absolute;
++            inset: 0;
++            background: linear-gradient(to top, rgba(10, 0, 16, 0.8) 0%, transparent 60%);
++            display: flex;
++            align-items: flex-end;
++            padding: 25px;
++            color: white;
++            opacity: 0;
++            transition: opacity 0.4s ease;
++        }
++
++        .gallery-h-item:hover .gallery-h-overlay {
++            opacity: 1;
++        }
++
++        .gallery-h-overlay span {
++            font-weight: 700;
++            font-size: 1.1rem;
++            transform: translateY(10px);
++            transition: transform 0.4s ease;
++        }
++
++        .gallery-h-item:hover .gallery-h-overlay span {
++            transform: translateY(0);
++        }
++
++        @media (max-width: 768px) {
++            .gallery-h-item {
++                width: 280px;
++                height: 200px;
++            }
++
++            .gallery-horizontal-row {
++                margin-bottom: 20px;
++            }
++        }
+     </style>
+ </head>
+ 
+@@ -1476,9 +1570,7 @@
+     <!-- Scroll Progress -->
+     <div id="scroll-progress"></div>
+ 
+-    <!-- Custom Cursor -->
+-    <div class="cursor-dot" id="cursorDot"></div>
+-    <div class="cursor-ring" id="cursorRing"></div>
++
+ 
+     <main>
+ 
+@@ -1566,13 +1658,7 @@
+             <div class="hero-slider-wrap"
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+                 <div class="hero-slide"
+-                    style="position: absolute; inset: 0; background: url('images/img7.png') center/cover no-repeat; animation: heroSlideLoop 18s infinite; opacity: 0;">
+-                </div>
+-                <div class="hero-slide"
+-                    style="position: absolute; inset: 0; background: url('images/hero-slide-2.jpg') center/cover no-repeat; animation: heroSlideLoop 18s infinite 6s; opacity: 0;">
+-                </div>
+-                <div class="hero-slide"
+-                    style="position: absolute; inset: 0; background: url('images/hero-slide-3.jpg') center/cover no-repeat; animation: heroSlideLoop 18s infinite 12s; opacity: 0;">
++                    style="position: absolute; inset: 0; background: url('images/painting-masterpiece.png') center/cover no-repeat; animation: heroSlideLoop 18s infinite; opacity: 1;">
+                 </div>
+             </div>
+             <style>
+@@ -1605,51 +1691,75 @@
+             </div>
+             <canvas id="heroCanvas"
+                 style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;"></canvas>
+-            <div class="container" style="position: relative; z-index: 3;">
++            <div class="container" style="position: relative; z-index: 3; padding-top: 180px;">
+                 <div class="row">
+                     <div class="col-lg-12 col-12 text-start hero-content">
+                         <h1 class="text-white"
+-                            style="font-size: 3.5rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 5px;">
+-                            <span class="hero-title-jh animated-gradient-text"
+-                                style="font-size: 4rem; font-weight: 900;">J&H</span>
+-                            <span style="color: white; font-size: 2.5rem; font-weight: 600; margin-left: 10px;">Painting
+-                                Services Inc.</span>
++                            style="font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px;">
++                            <span class="animated-gradient-text">J&H PAINTING</span>
+                         </h1>
+-                        <h2 class="text-white mb-3"
+-                            style="font-size: 1.8rem; font-weight: 500; letter-spacing: 1px; opacity: 0.95; animation: heroReveal 1.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0;">
+-                            Nationwide Commercial &amp; Residential Painting Contractor
++                        <h2 class="text-white mb-4"
++                            style="font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 500; line-height: 1.6; max-width: 650px; opacity: 0.9; animation: heroReveal 1.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0;">
++                            Commercial & Residential specialists delivering 5-star quality workmanship on schedule.
++                            Fully licensed, insured, and trusted nationwide.
+                         </h2>
+                         <div class="custom-btn-group mb-4"
+-                            style="animation: heroReveal 1.2s 0.6s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0;">
+-                            <a href="#section_2" class="btn-hero-primary btn-ripple me-3 smoothscroll"
+-                                style="display:inline-block; text-decoration:none; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white !important; font-weight: 700; padding: 14px 32px; border-radius: 50px; border: 2px solid transparent; box-shadow: 0 4px 20px rgba(109,22,223,0.3); transition: all 0.3s ease; position: relative; overflow: hidden; letter-spacing: 0.5px;">GET
+-                                A FREE QUOTE</a>
++                            style="animation: heroReveal 1.2s 0.6s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0; display: flex; gap: 20px; flex-wrap: wrap;">
++                            <a href="#section_5" class="btn-hero-primary btn-ripple smoothscroll"
++                                style="display:inline-flex; align-items: center; justify-content: center; text-decoration:none; background: linear-gradient(135deg, #6d16df, #0dbbc9); color: white !important; font-weight: 800; padding: 18px 42px; border-radius: 50px; border: none; box-shadow: 0 15px 35px rgba(109,22,223,0.45); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; letter-spacing: 1px; font-size: 1.1rem; text-transform: uppercase;">
++                                <i class="bi bi-calendar-check-fill me-2"></i>GET FREE ESTIMATE
++                            </a>
+                             <a href="tel:+15619063823" class="btn-hero-secondary btn-ripple smoothscroll"
+-                                style="display:inline-block; text-decoration:none; background: white; color: #6d16df !important; font-weight: 600; padding: 14px 32px; border-radius: 50px; border: 2px solid white; box-shadow: 0 4px 15px rgba(255,255,255,0.2); transition: all 0.3s ease; position: relative; overflow: hidden; letter-spacing: 0.5px;">CALL
+-                                NOW</a>
+-                        </div>
+-                        <div class="d-flex flex-wrap align-items-center gap-4 text-white mb-3"
+-                            style="animation: heroReveal 1.2s 0.9s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0;">
+-                            <div class="d-flex align-items-center"><i class="bi bi-check-circle-fill me-2"
+-                                    style="color: #0dbbc9; font-size: 1.1rem;"></i><span>Fully Licensed &amp;
+-                                    Insured</span></div>
+-                            <div class="d-flex align-items-center"><i class="bi bi-geo-alt-fill me-2"
+-                                    style="color: #6d16df; font-size: 1.1rem;"></i><span>Based in Florida</span></div>
+-                            <div class="d-flex align-items-center"><i class="bi bi-globe2 me-2"
+-                                    style="color: #0dbbc9; font-size: 1.1rem;"></i><span>Serving Projects
+-                                    Nationwide</span></div>
+-                        </div>
+-                        <div class="d-inline-flex align-items-center hero-badge"
+-                            style="background-color: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 50px; animation: heroReveal 1.2s 1.2s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0; backdrop-filter: blur(10px);">
+-                            <i class="bi bi-building me-2" style="color: #6d16df; font-size: 1rem;"></i>
+-                            <span class="text-white" style="font-size: 0.95rem;">In Business Since 2021</span>
++                                style="display:inline-flex; align-items: center; justify-content: center; text-decoration:none; background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); color: white !important; font-weight: 700; padding: 18px 42px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.25); transition: all 0.4s ease; position: relative; overflow: hidden; letter-spacing: 1px; font-size: 1.1rem; text-transform: uppercase;">
++                                <i class="bi bi-telephone-fill me-2"></i>CALL NOW
++                            </a>
+                         </div>
++
++                        <style>
++                            .btn-hero-primary {
++                                position: relative;
++                                overflow: hidden;
++                            }
++
++                            .btn-hero-primary::before {
++                                content: '';
++                                position: absolute;
++                                top: 0;
++                                left: -100%;
++                                width: 100%;
++                                height: 100%;
++                                background: linear-gradient(120deg,
++                                        transparent,
++                                        rgba(255, 255, 255, 0.3),
++                                        transparent);
++                                transition: all 0.6s;
++                            }
++
++                            .btn-hero-primary:hover::before {
++                                left: 100%;
++                            }
++
++                            .btn-hero-primary:hover {
++                                transform: translateY(-5px) scale(1.02);
++                                box-shadow: 0 20px 45px rgba(109, 22, 223, 0.6);
++                                filter: brightness(1.1);
++                            }
++
++                            .btn-hero-secondary:hover {
++                                background: rgba(255, 255, 255, 0.15) !important;
++                                border-color: #0dbbc9 !important;
++                                transform: translateY(-5px);
++                                box-shadow: 0 15px 30px rgba(13, 187, 201, 0.3);
++                            }
++                        </style>
+                     </div>
+                 </div>
+             </div>
+         </section>
+ 
+ 
++
++
+         <!-- =============================================
+              ABOUT SECTION
+         ============================================= -->
+@@ -1692,26 +1802,27 @@
+                         </div>
+                     </div>
+                     <div class="col-lg-5 col-12 offset-lg-1 text-center" data-anim="flip-y">
+-                        <div class="member-block d-inline-block" style="max-width: 320px; margin: 0 auto;">
+-                            <div class="member-block-image-wrap">
+-                                <img src="images/mike.jpeg" class="member-block-image img-fluid"
+-                                    alt="Mike Scollo - Founder & Operations Director"
+-                                    style="width: 100%; height: auto; border-radius: 0;">
+-                                <ul class="social-icon"
+-                                    style="justify-content: center; position: absolute; bottom: 10px; left: 0; right: 0; z-index: 5;">
+-                                    <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"
+-                                            style="color: #6d16df; background-color: white; border-radius: 50%; padding: 8px;"></a>
+-                                    </li>
+-                                    <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"
+-                                            style="color: #6d16df; background-color: white; border-radius: 50%; padding: 8px;"></a>
+-                                    </li>
+-                                </ul>
++                        <div class="member-block d-inline-block"
++                            style="max-width: 320px; margin: 0 auto; background: white; padding: 20px; border-radius: 30px; box-shadow: 0 20px 50px rgba(109,22,223,0.12); border: 1px solid rgba(109,22,223,0.1);">
++                            <div class="member-block-image-wrap"
++                                style="position: relative; border-radius: 50%; overflow: hidden; width: 220px; height: 220px; margin: 0 auto; border: 4px solid #6d16df;">
++                                <img src="images/founder-avatar.png" class="member-block-image img-fluid"
++                                    alt="CEO & Founder" style="width: 100%; height: 100%; object-fit: cover;">
+                             </div>
+-                            <div class="member-block-info text-center mt-3">
+-                                <h4 style="color: #322e2f; font-size: 1.8rem; font-weight: 700; margin-bottom: 5px;">
+-                                    Mike Scollo</h4>
+-                                <p style="color: #6d16df; font-size: 1.2rem; font-weight: 500;">Founder &amp; Operations
+-                                    Director</p>
++                            <div class="member-block-info text-center mt-4">
++                                <h4 style="color: #322e2f; font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">
++                                    J & H Founder</h4>
++                                <p
++                                    style="color: #6d16df; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
++                                    CEO &amp; Founder</p>
++                                <!-- Signature Mockup -->
++                                <div style="margin-top: 20px; opacity: 0.8;">
++                                    <svg width="120" height="60" viewBox="0 0 120 60" fill="none"
++                                        xmlns="http://www.w3.org/2000/svg">
++                                        <path d="M10 45C25 40 40 15 50 20C60 25 55 50 70 45C85 40 100 10 110 15"
++                                            stroke="#322e2f" stroke-width="2.5" stroke-linecap="round" />
++                                    </svg>
++                                </div>
+                             </div>
+                         </div>
+                     </div>
+@@ -1779,102 +1890,152 @@
+ 
+                 .srv-card {
+                     position: relative;
+-                    border-radius: 20px;
++                    border-radius: 24px;
+                     overflow: hidden;
+                     background: rgba(255, 255, 255, 0.03);
+-                    /* Glass base */
+-                    backdrop-filter: blur(12px);
+-                    -webkit-backdrop-filter: blur(12px);
++                    backdrop-filter: blur(15px);
++                    -webkit-backdrop-filter: blur(15px);
+                     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+-                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
++                    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                     text-decoration: none !important;
+-                    display: block;
+-                    cursor: pointer;
++                    display: flex;
++                    flex-direction: column;
++                    height: 100%;
++                    cursor: default;
+                     border: 1px solid rgba(255, 255, 255, 0.1);
+                 }
+ 
+                 .srv-card:hover {
+-                    transform: translateY(-12px) scale(1.02);
+-                    background: rgba(255, 255, 255, 0.08);
+-                    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(109, 22, 223, 0.3);
+-                    border-color: rgba(109, 22, 223, 0.4);
++                    transform: translateY(-12px);
++                    background: rgba(255, 255, 255, 0.06);
++                    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(109, 22, 223, 0.2);
++                    border-color: rgba(109, 22, 223, 0.3);
+                 }
+ 
+-                .srv-label {
+-                    background: rgba(255, 255, 255, 0.05);
+-                    /* Match glass theme */
+-                    text-align: center;
+-                    padding: 20px 15px;
++                .srv-card-img-wrap {
+                     position: relative;
+-                    border-top: 1px solid rgba(255, 255, 255, 0.05);
+-                }
+-
+-                .srv-label h5 {
+-                    color: white;
+-                    /* Contrast for dark bg */
+-                    font-weight: 700;
+-                    font-size: 1.1rem;
+-                    margin: 0 0 6px;
++                    overflow: hidden;
++                    height: 200px;
+                 }
+ 
+                 .srv-card-img {
+                     width: 100%;
+-                    height: 230px;
++                    height: 100%;
+                     object-fit: cover;
+-                    display: block;
+                     transition: transform 0.6s ease;
+                 }
+ 
+                 .srv-card:hover .srv-card-img {
+-                    transform: scale(1.08);
++                    transform: scale(1.1);
+                 }
+ 
+-                .srv-icon-box {
+-                    position: absolute;
+-                    bottom: 85px;
+-                    left: 50%;
+-                    transform: translateX(-50%);
+-                    width: 62px;
+-                    height: 62px;
+-                    border-radius: 14px;
++                .srv-content {
++                    padding: 30px;
++                    flex-grow: 1;
+                     display: flex;
+-                    align-items: center;
+-                    justify-content: center;
+-                    font-size: 1.4rem;
+-                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+-                    z-index: 5;
++                    flex-direction: column;
+                 }
+ 
+-                .srv-card:hover .srv-icon-box {
+-                    transform: translateX(-50%) translateY(-5px) scale(1.1);
+-                    box-shadow: 0 15px 40px rgba(109, 22, 223, 0.4);
++                .srv-content h5 {
++                    color: white;
++                    font-weight: 800;
++                    font-size: 1.35rem;
++                    margin-bottom: 12px;
+                 }
+ 
+-                .srv-label span {
+-                    font-size: 0.78rem;
+-                    font-weight: 600;
+-                    letter-spacing: 1px;
++                .srv-benefit {
++                    color: #0dbbc9;
++                    font-size: 0.9rem;
++                    font-weight: 700;
+                     text-transform: uppercase;
+-                    opacity: 0.7;
++                    letter-spacing: 1px;
++                    margin-bottom: 15px;
++                    display: block;
+                 }
+ 
+-                .srv-card-img-wrap {
+-                    position: relative;
+-                    overflow: hidden;
++                .srv-text {
++                    color: rgba(255, 255, 255, 0.7);
++                    font-size: 0.95rem;
++                    line-height: 1.6;
++                    margin-bottom: 20px;
+                 }
+ 
+-                .srv-card-img-wrap::after {
+-                    content: '';
+-                    position: absolute;
+-                    inset: 0;
+-                    background: linear-gradient(to bottom, transparent 30%, rgba(109, 22, 223, 0.6) 100%);
+-                    opacity: 0;
+-                    transition: opacity 0.4s ease;
++                .srv-list {
++                    list-style: none;
++                    padding: 0;
++                    margin: 0 0 25px 0;
+                 }
+ 
+-                .srv-card:hover .srv-card-img-wrap::after {
+-                    opacity: 1;
++                .srv-list li {
++                    color: rgba(255, 255, 255, 0.8);
++                    font-size: 0.9rem;
++                    margin-bottom: 8px;
++                    display: flex;
++                    align-items: center;
++                }
++
++                .srv-list li i {
++                    color: #6d16df;
++                    margin-right: 10px;
++                    font-size: 1rem;
++                }
++
++                .srv-cta-group {
++                    margin-top: auto;
++                    display: flex;
++                    gap: 12px;
++                }
++
++                .btn-srv-primary {
++                    background: linear-gradient(135deg, #6d16df, #0dbbc9);
++                    color: white !important;
++                    padding: 10px 20px;
++                    border-radius: 50px;
++                    font-weight: 700;
++                    font-size: 0.85rem;
++                    text-decoration: none;
++                    transition: all 0.3s ease;
++                    text-align: center;
++                    flex-grow: 1;
++                }
++
++                .btn-srv-primary:hover {
++                    box-shadow: 0 5px 15px rgba(109, 22, 223, 0.4);
++                    transform: translateY(-2px);
++                }
++
++                .btn-srv-secondary {
++                    border: 1px solid rgba(255, 255, 255, 0.2);
++                    color: white !important;
++                    padding: 10px 20px;
++                    border-radius: 50px;
++                    font-weight: 600;
++                    font-size: 0.85rem;
++                    text-decoration: none;
++                    transition: all 0.3s ease;
++                    text-align: center;
++                }
++
++                .btn-srv-secondary:hover {
++                    background: rgba(255, 255, 255, 0.1);
++                }
++
++                .srv-icon-badge {
++                    position: absolute;
++                    top: 20px;
++                    right: 20px;
++                    width: 45px;
++                    height: 45px;
++                    background: rgba(10, 0, 16, 0.6);
++                    backdrop-filter: blur(10px);
++                    border-radius: 12px;
++                    display: flex;
++                    align-items: center;
++                    justify-content: center;
++                    color: white;
++                    font-size: 1.2rem;
++                    z-index: 5;
++                    border: 1px solid rgba(255, 255, 255, 0.1);
+                 }
+             </style>
+ 
+@@ -1901,138 +2062,211 @@
+                 <div class="row g-4 justify-content-center">
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="0">
+-                        <a href="services/commercial-painting.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/img1.jpeg" alt="Commercial Painting" class="srv-card-img">
+-                            </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#6d16df,#9b4dea);">
+-                                <i class="bi bi-building" style="color:white;"></i>
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge"><i class="bi bi-building"></i></div>
+                             </div>
+-                            <div class="srv-label">
++                            <div class="srv-content">
++                                <span class="srv-benefit">Efficiency & Durability</span>
+                                 <h5>Commercial Painting</h5>
+-                                <span style="color:#6d16df;">Explore Service ÔåÆ</span>
++                                <p class="srv-text">Minimal business disruption with maximum curb appeal.
++                                    High-durability coatings designed for high-traffic assets.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Office Repaints</li>
++                                    <li><i class="bi bi-check2-circle"></i>Retail & Shopping Centers</li>
++                                    <li><i class="bi bi-check2-circle"></i>Industrial Coatings</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/commercial-painting.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="150">
+-                        <a href="services/interior-painting.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/img2.jpeg" alt="Interior Painting" class="srv-card-img">
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
++                                        class="bi bi-house-door"></i></div>
+                             </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#0dbbc9,#09a0ae);">
+-                                <i class="bi bi-house-door" style="color:white;"></i>
+-                            </div>
+-                            <div class="srv-label">
++                            <div class="srv-content">
++                                <span class="srv-benefit" style="color: #6d16df;">Precision & Style</span>
+                                 <h5>Interior Painting</h5>
+-                                <span style="color:#0dbbc9;">Explore Service ÔåÆ</span>
++                                <p class="srv-text">Expert color matching and a precision finish. We treat your home or
++                                    office with the care it deserves.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Custom Color Schemes</li>
++                                    <li><i class="bi bi-check2-circle"></i>Trim & Molding Finish</li>
++                                    <li><i class="bi bi-check2-circle"></i>Cabinet Refinishing</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/interior-painting.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="300">
+-                        <a href="services/exterior-painting.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/img3.jpeg" alt="Exterior Painting" class="srv-card-img">
+-                            </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#6d16df,#0dbbc9);">
+-                                <i class="bi bi-tree" style="color:white;"></i>
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge"><i class="bi bi-tree"></i></div>
+                             </div>
+-                            <div class="srv-label">
++                            <div class="srv-content">
++                                <span class="srv-benefit">Weather Protection</span>
+                                 <h5>Exterior Painting</h5>
+-                                <span style="color:#6d16df;">Explore Service ÔåÆ</span>
++                                <p class="srv-text">Advanced weather-resistant coatings to protect your property from
++                                    the harsh Florida elements.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Stucco & Brick Paint</li>
++                                    <li><i class="bi bi-check2-circle"></i>Wood & Deck Stain</li>
++                                    <li><i class="bi bi-check2-circle"></i>Protective Sealants</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/exterior-painting.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                 </div>
+ 
+-                <!-- Row 2: 3 more cards (slightly smaller delay offset) -->
++                <!-- Row 2: 3 more cards -->
+                 <div class="row g-4 justify-content-center mt-2">
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="100">
+-                        <a href="services/new-construction.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/img5.jpeg" alt="New Construction" class="srv-card-img">
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
++                                        class="bi bi-house-gear"></i></div>
+                             </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#0dbbc9,#6d16df);">
+-                                <i class="bi bi-house-gear" style="color:white;"></i>
+-                            </div>
+-                            <div class="srv-label">
+-                                <h5>New Construction &amp; Builder Projects</h5>
+-                                <span style="color:#0dbbc9;">Explore Service ÔåÆ</span>
++                            <div class="srv-content">
++                                <span class="srv-benefit" style="color: #6d16df;">Scale & Schedule</span>
++                                <h5>New Construction</h5>
++                                <p class="srv-text">Professional project management for builders. Scalable crews that
++                                    keep your timelines on track.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Builder Partnerships</li>
++                                    <li><i class="bi bi-check2-circle"></i>Unified Finishes</li>
++                                    <li><i class="bi bi-check2-circle"></i>Fast Turnarounds</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/new-construction.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="250">
+-                        <a href="services/surface-preparation.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/img6.jpeg" alt="Surface Preparation" class="srv-card-img">
+-                            </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#9b4dea,#6d16df);">
+-                                <i class="bi bi-tools" style="color:white;"></i>
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge"><i class="bi bi-tools"></i></div>
+                             </div>
+-                            <div class="srv-label">
+-                                <h5>Surface Preparation &amp; Drywall</h5>
+-                                <span style="color:#6d16df;">Explore Service ÔåÆ</span>
++                            <div class="srv-content">
++                                <span class="srv-benefit">Flawless Foundation</span>
++                                <h5>Surface Preparation</h5>
++                                <p class="srv-text">The secret to a lasting finish is the prep. Professional drywall
++                                    repair and surface cleaning.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Drywall Patch & Texture</li>
++                                    <li><i class="bi bi-check2-circle"></i>Pressure Washing</li>
++                                    <li><i class="bi bi-check2-circle"></i>Epoxy Prep</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/surface-preparation.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="400">
+-                        <a href="services/specialty-coatings.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/bg3.png" alt="Specialty Coatings" class="srv-card-img">
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
++                                        class="bi bi-droplet"></i></div>
+                             </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#6d16df,#0dbbc9);">
+-                                <i class="bi bi-droplet" style="color:white;"></i>
+-                            </div>
+-                            <div class="srv-label">
+-                                <h5>Specialty Coatings &amp; Finishes</h5>
+-                                <span style="color:#6d16df;">Explore Service ÔåÆ</span>
++                            <div class="srv-content">
++                                <span class="srv-benefit" style="color: #6d16df;">Technical Experts</span>
++                                <h5>Specialty Coatings</h5>
++                                <p class="srv-text">Specialized solutions for unique challenges, from anti-microbial to
++                                    high-heat resistant coatings.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Epoxy Flooring</li>
++                                    <li><i class="bi bi-check2-circle"></i>Industrial Sealers</li>
++                                    <li><i class="bi bi-check2-circle"></i>Fire-Retardant Paint</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/specialty-coatings.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                 </div>
+ 
+-                <!-- Row 3: 2 remaining + quote form -->
++                <!-- Row 3: 2 remaining -->
+                 <div class="row g-4 justify-content-center mt-2">
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="100">
+-                        <a href="services/wallcovering.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/WhatsApp Image 2026-02-19 at 9.45.02 PM.jpeg" alt="Wallcovering"
+-                                    class="srv-card-img">
+-                            </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#0dbbc9,#09a0ae);">
+-                                <i class="bi bi-wallpaper" style="color:white;"></i>
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge"><i class="bi bi-wallpaper"></i></div>
+                             </div>
+-                            <div class="srv-label">
+-                                <h5>Wallcovering Installation &amp; Removal</h5>
+-                                <span style="color:#0dbbc9;">Explore Service ÔåÆ</span>
++                            <div class="srv-content">
++                                <span class="srv-benefit">Textured Elegance</span>
++                                <h5>Wallcoverings</h5>
++                                <p class="srv-text">Professional installation and removal. Flawless application of
++                                    high-end wallpaper and murals.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Commercial Vinyl</li>
++                                    <li><i class="bi bi-check2-circle"></i>Luxury Fabrics</li>
++                                    <li><i class="bi bi-check2-circle"></i>Mural Application</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/wallcovering.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+                     <div class="col-lg-4 col-md-6 col-12" data-anim="zoom-in" data-delay="250">
+-                        <a href="services/nationwide-services.html" target="_blank" class="srv-card">
++                        <div class="srv-card">
+                             <div class="srv-card-img-wrap">
+-                                <img src="images/WhatsApp Image 2026-02-19 at 9.45.03 PM.jpeg" alt="Nationwide Services"
+-                                    class="srv-card-img">
++                                <img src="images/painting-masterpiece.png" alt="Painting Service" class="srv-card-img">
++                                <div class="srv-icon-badge" style="background: rgba(13, 187, 201, 0.6);"><i
++                                        class="bi bi-globe2"></i></div>
+                             </div>
+-                            <div class="srv-icon-box" style="background:linear-gradient(135deg,#6d16df,#9b4dea);">
+-                                <i class="bi bi-globe2" style="color:white;"></i>
+-                            </div>
+-                            <div class="srv-label">
+-                                <h5>Nationwide Project Services</h5>
+-                                <span style="color:#6d16df;">Explore Service ÔåÆ</span>
++                            <div class="srv-content">
++                                <span class="srv-benefit" style="color: #6d16df;">National Reach</span>
++                                <h5>Nationwide Projects</h5>
++                                <p class="srv-text">Coordinating large-scale rollouts across Florida and nationwide.
++                                    Consistent quality, everywhere.</p>
++                                <ul class="srv-list">
++                                    <li><i class="bi bi-check2-circle"></i>Multi-Site Rollouts</li>
++                                    <li><i class="bi bi-check2-circle"></i>Franchise Management</li>
++                                    <li><i class="bi bi-check2-circle"></i>Centralized Operations</li>
++                                </ul>
++                                <div class="srv-cta-group">
++                                    <a href="#section_5" class="btn-srv-primary smoothscroll">Get Quote</a>
++                                    <a href="services/nationwide-services.html" class="btn-srv-secondary">Learn More</a>
++                                </div>
+                             </div>
+-                        </a>
++                        </div>
+                     </div>
+ 
+-
+                 </div>
+ 
+             </div>
+@@ -2044,178 +2278,134 @@
+         <!-- =============================================
+              GALLERY SECTION
+         ============================================= -->
+-        <section class="gallery-section section-padding" id="section_4">
++        <section class="gallery-section section-padding" id="section_4" style="background: #fdfdfd;">
+             <div class="container">
+-                <div class="row" data-anim="fade-down">
++                <div class="row mb-5" data-anim="fade-down">
+                     <div class="col-lg-12 col-12 text-center">
+-                        <h2 class="mb-3" style="color: #322e2f; display:inline-block;">Gallery / <span
+-                                class="animated-gradient-text">Featured Projects</span></h2>
+-                        <div class="section-title-line reveal"></div>
+-                        <p class="fs-5 mt-3" style="color: #322e2f;">See Our Work in Action</p>
+-                        <p class="mt-3 mb-5" style="color: #322e2f;">Explore our gallery to see stunning before &amp;
+-                            after transformations from real J &amp; H Painting projects.<br>Professional results. Real
+-                            clients. Beautiful spaces.</p>
++                        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;">
++                            <div style="width:35px;height:2px;background:#6d16df;border-radius:1px;"></div>
++                            <span
++                                style="color:#666;font-size:0.82rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;">Visual
++                                Proof</span>
++                            <div style="width:35px;height:2px;background:#6d16df;border-radius:1px;"></div>
++                        </div>
++                        <h2 class="mb-3" style="color: #322e2f; font-weight: 900; font-size: 3rem;">Recent <span
++                                class="animated-gradient-text">Transformations</span></h2>
++                        <p class="fs-5 text-muted">Don't just take our word for itÔÇösee the J&H difference in action.</p>
+                     </div>
+                 </div>
++
+                 <div data-anim="zoom-in">
+-                    <div id="clientCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"
+-                        data-bs-pause="false">
+-                        <div class="carousel-inner rounded-4 shadow">
+-                            <div class="carousel-item active">
+-                                <div class="row g-3 p-3">
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img src="images/img1.jpeg" alt="Project">
+-                                            <div class="overlay-text">Commercial Project</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img src="images/img2.jpeg" alt="Project">
+-                                            <div class="overlay-text">Restaurant Finish</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img src="images/img3.jpeg" alt="Project">
+-                                            <div class="overlay-text">Retail Space</div>
+-                                        </div>
+-                                    </div>
++                    <div class="gallery-horizontal-outer">
++                        <!-- Row 1: Left to Right -->
++                        <div class="gallery-horizontal-row">
++                            <div class="gallery-track-h left-to-right">
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Commercial Project</span></div>
+                                 </div>
+-                            </div>
+-                            <div class="carousel-item">
+-                                <div class="row g-3 p-3">
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img src="images/img5.jpeg" alt="Project">
+-                                            <div class="overlay-text">Interior Coating</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img src="images/img6.jpeg" alt="Project">
+-                                            <div class="overlay-text">Supermarket Finish</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img src="images/bg3.png" alt="Project">
+-                                            <div class="overlay-text">Specialty Work</div>
+-                                        </div>
+-                                    </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Restaurant Finish</span></div>
+                                 </div>
+-                            </div>
+-                            <div class="carousel-item">
+-                                <div class="row g-3 p-3">
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.02 PM (1).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Commercial Build</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.02 PM (2).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Surface Prep</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.02 PM (3).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Exterior Work</div>
+-                                        </div>
+-                                    </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Retail Space</span></div>
+                                 </div>
+-                            </div>
+-                            <div class="carousel-item">
+-                                <div class="row g-3 p-3">
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.02 PM (4).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">New Construction</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.02 PM.jpeg" alt="Project">
+-                                            <div class="overlay-text">Premium Finish</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.03 PM (1).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Quality Coating</div>
+-                                        </div>
+-                                    </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Interior Coating</span></div>
+                                 </div>
+-                            </div>
+-                            <div class="carousel-item">
+-                                <div class="row g-3 p-3">
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.03 PM (2).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Builder Project</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.03 PM.jpeg" alt="Project">
+-                                            <div class="overlay-text">Professional Paint</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.04 PM.jpeg" alt="Project">
+-                                            <div class="overlay-text">Drywall Finish</div>
+-                                        </div>
+-                                    </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Supermarket Finish</span></div>
+                                 </div>
+-                            </div>
+-                            <div class="carousel-item">
+-                                <div class="row g-3 p-3">
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.05 PM (1).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Specialty Coat</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.05 PM (2).jpeg"
+-                                                alt="Project">
+-                                            <div class="overlay-text">Interior Design</div>
+-                                        </div>
+-                                    </div>
+-                                    <div class="col-lg-4 col-md-6 col-12">
+-                                        <div class="gallery-img-wrap"><img
+-                                                src="images/WhatsApp Image 2026-02-19 at 9.45.05 PM.jpeg" alt="Project">
+-                                            <div class="overlay-text">Final Finish</div>
+-                                        </div>
+-                                    </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Commercial Build</span></div>
++                                </div>
++                                <!-- Duplicate for loop -->
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Commercial Project</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Restaurant Finish</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Retail Space</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Interior Coating</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Supermarket Finish</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Commercial Build</span></div>
+                                 </div>
+                             </div>
+                         </div>
+-                        <div class="carousel-indicators">
+-                            <button type="button" data-bs-target="#clientCarousel" data-bs-slide-to="0" class="active"
+-                                aria-current="true" aria-label="Slide 1"></button>
+-                            <button type="button" data-bs-target="#clientCarousel" data-bs-slide-to="1"
+-                                aria-label="Slide 2"></button>
+-                            <button type="button" data-bs-target="#clientCarousel" data-bs-slide-to="2"
+-                                aria-label="Slide 3"></button>
+-                            <button type="button" data-bs-target="#clientCarousel" data-bs-slide-to="3"
+-                                aria-label="Slide 4"></button>
+-                            <button type="button" data-bs-target="#clientCarousel" data-bs-slide-to="4"
+-                                aria-label="Slide 5"></button>
+-                            <button type="button" data-bs-target="#clientCarousel" data-bs-slide-to="5"
+-                                aria-label="Slide 6"></button>
++
++                        <!-- Row 2: Right to Left -->
++                        <div class="gallery-horizontal-row">
++                            <div class="gallery-track-h right-to-left">
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Premium Finish</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Commercial Build</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Surface Prep</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Exterior Work</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>New Construction</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Professional Paint</span></div>
++                                </div>
++                                <!-- Duplicate for loop -->
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Premium Finish</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Commercial Build</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Surface Prep</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Exterior Work</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>New Construction</span></div>
++                                </div>
++                                <div class="gallery-h-item"><img src="images/painting-masterpiece.png"
++                                        alt="Painting Transformation">
++                                    <div class="gallery-h-overlay"><span>Professional Paint</span></div>
++                                </div>
++                            </div>
+                         </div>
+-                        <button class="carousel-control-prev" type="button" data-bs-target="#clientCarousel"
+-                            data-bs-slide="prev"><span class="carousel-control-prev-icon"
+-                                aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+-                        <button class="carousel-control-next" type="button" data-bs-target="#clientCarousel"
+-                            data-bs-slide="next"><span class="carousel-control-next-icon"
+-                                aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+                     </div>
+                 </div>
+                 <div class="text-center mt-4" data-anim="bounce-up" data-delay="200">
+@@ -2255,8 +2445,8 @@
+         <section class="cta-quote-section"
+             style="position: relative; overflow: hidden; padding: 120px 0; background: #000;">
+             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+-                <img src="images/cta-bg.png" alt="Luxury Interior"
+-                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
++                <img src="images/painting-masterpiece.png" alt="Painting Transformation"
++                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.35;">
+             </div>
+             <div
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); z-index: 1;">
+@@ -2351,7 +2541,8 @@
+         <!-- =============================================
+              LOGO SLIDER
+         ============================================= -->
+-        <section class="clients-section section-padding" style="background-color: #f8f9fa; padding: 60px 0;">
++        <section class="clients-section section-padding"
++            style="background: linear-gradient(135deg, rgba(109, 22, 223, 0.03) 0%, rgba(13, 187, 201, 0.03) 100%); padding: 60px 0;">
+             <div class="container">
+                 <div class="row" data-anim="fade-up">
+                     <div class="col-lg-12 col-12 text-center">
+@@ -2587,263 +2778,140 @@
+                     }
+                 }
+ 
+-                /* Card */
+-                .sb-card {
+-                    display: none;
++                /* Glassmorphism Testimonial Cards */
++                .testimonial-swiper {
++                    padding: 40px 10px 80px !important;
++                    overflow: hidden !important;
++                    min-height: 450px;
++                    /* Prevent layout shift */
+                 }
+ 
+-                .sb-card.active {
+-                    display: block;
+-                    animation: sbSlideIn 0.5s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
++                .testimonial-swiper .swiper-wrapper {
++                    transition-timing-function: linear !important;
+                 }
+ 
+-                @keyframes sbSlideIn {
+-                    from {
+-                        opacity: 0;
+-                        transform: translateY(24px) scale(0.97);
+-                    }
+-
+-                    to {
+-                        opacity: 1;
+-                        transform: translateY(0) scale(1);
+-                    }
++                .testimonial-swiper {
++                    padding: 20px 10px 50px !important;
+                 }
+ 
+-                /* Speech bubble */
+-                .sb-bubble {
+-                    background: #ffffff;
+-                    border-radius: 24px;
+-                    padding: 0 0 32px 0;
++                .testimonial-card {
++                    background: rgba(255, 255, 255, 0.45);
++                    backdrop-filter: blur(14px);
++                    -webkit-backdrop-filter: blur(14px);
++                    border: 1px solid rgba(255, 255, 255, 0.5);
++                    border-radius: 28px;
++                    padding: 35px;
++                    box-shadow: 0 20px 50px rgba(109, 22, 223, 0.08);
++                    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
++                    height: calc(100% - 15px);
++                    display: flex;
++                    flex-direction: column;
++                    gap: 15px;
+                     position: relative;
+-                    box-shadow: 0 20px 60px rgba(109, 22, 223, 0.12), 0 4px 20px rgba(0, 0, 0, 0.06);
+-                    overflow: visible;
+-                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+-                    border: 1px solid rgba(109, 22, 223, 0.08);
++                    animation: cardFloat 6s ease-in-out infinite;
+                 }
+ 
+-                .sb-bubble:hover {
+-                    transform: translateY(-6px);
+-                    box-shadow: 0 30px 70px rgba(109, 22, 223, 0.18), 0 6px 30px rgba(0, 0, 0, 0.08);
+-                }
++                @keyframes cardFloat {
+ 
+-                /* Tail */
+-                .sb-bubble::after {
+-                    content: '';
+-                    position: absolute;
+-                    bottom: -22px;
+-                    left: 62px;
+-                    width: 0;
+-                    height: 0;
+-                    border-left: 13px solid transparent;
+-                    border-right: 24px solid transparent;
+-                    border-top: 22px solid #ffffff;
+-                    filter: drop-shadow(0 5px 3px rgba(109, 22, 223, 0.08));
++                    0%,
++                    100% {
++                        transform: translateY(0);
++                    }
++
++                    50% {
++                        transform: translateY(-12px);
++                    }
+                 }
+ 
+-                /* Header */
+-                .sb-header {
+-                    background: linear-gradient(135deg, #6d16df 0%, #9b4dea 60%, #0dbbc9 100%);
+-                    border-radius: 24px 24px 0 0;
+-                    padding: 22px 28px;
+-                    display: flex;
+-                    align-items: center;
+-                    gap: 16px;
+-                    position: relative;
+-                    overflow: hidden;
++                /* Stagger floating for adjacent cards */
++                .swiper-slide:nth-child(even) .testimonial-card {
++                    animation-delay: -3s;
+                 }
+ 
+-                .sb-header::before {
+-                    content: '';
+-                    position: absolute;
+-                    top: -40%;
+-                    right: -20%;
+-                    width: 180px;
+-                    height: 180px;
+-                    background: rgba(255, 255, 255, 0.08);
+-                    border-radius: 50%;
+-                    pointer-events: none;
++                .testimonial-card:hover {
++                    transform: translateY(-8px) scale(1.02);
++                    box-shadow: 0 30px 60px rgba(13, 187, 201, 0.2);
++                    background: rgba(255, 255, 255, 0.7);
++                    border-color: rgba(109, 22, 223, 0.2);
+                 }
+ 
+-                .sb-header::after {
+-                    content: '';
+-                    position: absolute;
+-                    bottom: -50%;
+-                    left: -10%;
+-                    width: 130px;
+-                    height: 130px;
+-                    background: rgba(255, 255, 255, 0.05);
+-                    border-radius: 50%;
+-                    pointer-events: none;
++                .tm-header {
++                    display: flex;
++                    align-items: center;
++                    gap: 15px;
++                    margin-bottom: 20px;
+                 }
+ 
+-                .sb-avatar {
+-                    width: 64px;
+-                    height: 64px;
++                .tm-avatar {
++                    width: 70px;
++                    height: 70px;
+                     border-radius: 50%;
+-                    background: rgba(255, 255, 255, 0.22);
+-                    border: 3px solid rgba(255, 255, 255, 0.5);
++                    object-fit: cover;
++                    border: 3px solid #fff;
++                    box-shadow: 0 10px 20px rgba(109, 22, 223, 0.15);
++                    background: linear-gradient(135deg, #6d16df, #0dbbc9);
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+-                    font-size: 1.5rem;
+-                    font-weight: 900;
+                     color: white;
+-                    flex-shrink: 0;
+-                    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+-                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+-                    position: relative;
+-                    z-index: 1;
+-                }
+-
+-                .sb-name {
++                    font-size: 1.5rem;
+                     font-weight: 800;
+-                    font-size: 1.15rem;
+-                    color: white;
+-                    margin: 0;
+-                    line-height: 1.2;
+-                    position: relative;
+-                    z-index: 1;
+                 }
+ 
+-                .sb-role {
+-                    font-size: 0.82rem;
+-                    color: rgba(255, 255, 255, 0.75);
+-                    margin: 4px 0 0;
+-                    font-weight: 500;
+-                    position: relative;
+-                    z-index: 1;
+-                }
+-
+-                /* Quote icon top-right */
+-                .sb-quote-icon {
+-                    margin-left: auto;
+-                    position: relative;
+-                    z-index: 1;
+-                }
+-
+-                .sb-quote-icon svg {
+-                    width: 38px;
+-                    height: 38px;
+-                    fill: rgba(255, 255, 255, 0.25);
+-                }
+-
+-                /* Body */
+-                .sb-body {
+-                    padding: 28px 30px 0;
+-                    position: relative;
+-                }
+-
+-                .sb-body::before {
+-                    content: 'ÔÇ£';
+-                    position: absolute;
+-                    top: 14px;
+-                    left: 22px;
+-                    font-size: 5rem;
+-                    line-height: 1;
+-                    color: rgba(109, 22, 223, 0.08);
+-                    font-family: Georgia, serif;
+-                    font-weight: 900;
+-                    pointer-events: none;
++                .tm-info h4 {
++                    margin: 0;
++                    font-size: 1.15rem;
++                    font-weight: 800;
++                    color: #322e2f;
+                 }
+ 
+-                .sb-text {
+-                    color: #4a4a5a;
+-                    font-size: 0.97rem;
+-                    line-height: 1.9;
+-                    font-style: italic;
+-                    margin-bottom: 20px;
+-                    position: relative;
+-                    z-index: 1;
++                .tm-info p {
++                    margin: 3px 0 0;
++                    font-size: 0.85rem;
++                    color: #6d16df;
++                    font-weight: 600;
++                    text-transform: uppercase;
++                    letter-spacing: 0.5px;
+                 }
+ 
+-                .sb-stars {
++                .tm-stars {
+                     color: #f5c518;
+-                    font-size: 1.2rem;
+-                    letter-spacing: 3px;
+-                    text-shadow: 0 2px 8px rgba(245, 197, 24, 0.3);
+-                }
+-
+-                /* Rating badge beside stars */
+-                .sb-rating-badge {
+-                    display: inline-flex;
+-                    align-items: center;
+-                    gap: 8px;
+-                    background: linear-gradient(135deg, rgba(109, 22, 223, 0.07), rgba(13, 187, 201, 0.07));
+-                    border: 1px solid rgba(109, 22, 223, 0.12);
+-                    border-radius: 50px;
+-                    padding: 5px 14px;
+-                    margin-top: 10px;
+-                    font-size: 0.8rem;
+-                    color: #6d16df;
+-                    font-weight: 700;
++                    font-size: 1rem;
++                    letter-spacing: 2px;
+                 }
+ 
+-                /* Arrow buttons */
+-                .sb-arrow {
+-                    width: 52px;
+-                    height: 52px;
+-                    border-radius: 50%;
+-                    border: 2px solid rgba(109, 22, 223, 0.2);
+-                    background: white;
+-                    color: #6d16df;
+-                    font-size: 1.3rem;
+-                    display: flex;
+-                    align-items: center;
+-                    justify-content: center;
+-                    cursor: pointer;
+-                    transition: all 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+-                    flex-shrink: 0;
+-                    box-shadow: 0 6px 20px rgba(109, 22, 223, 0.1);
+-                    position: relative;
+-                    overflow: hidden;
++                .tm-text {
++                    font-size: 1.05rem;
++                    line-height: 1.8;
++                    color: #555;
++                    font-style: italic;
++                    margin: 0;
+                 }
+ 
+-                .sb-arrow::before {
+-                    content: '';
++                .tm-quote {
+                     position: absolute;
+-                    top: 50%;
+-                    left: 50%;
+-                    width: 0;
+-                    height: 0;
+-                    background: rgba(109, 22, 223, 0.08);
+-                    border-radius: 50%;
+-                    transform: translate(-50%, -50%);
+-                    transition: width 0.4s, height 0.4s;
+-                }
+-
+-                .sb-arrow:hover::before {
+-                    width: 200px;
+-                    height: 200px;
+-                }
+-
+-                .sb-arrow:hover {
+-                    background: linear-gradient(135deg, #6d16df, #0dbbc9);
+-                    border-color: transparent;
+-                    color: white;
+-                    transform: scale(1.12);
+-                    box-shadow: 0 10px 30px rgba(109, 22, 223, 0.35);
+-                }
+-
+-                /* Dots */
+-                .sb-dot {
+-                    width: 8px;
+-                    height: 8px;
+-                    border-radius: 50%;
+-                    background: rgba(109, 22, 223, 0.15);
+-                    cursor: pointer;
+-                    transition: all 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
++                    top: 25px;
++                    right: 30px;
++                    font-size: 3rem;
++                    color: rgba(109, 22, 223, 0.06);
++                    font-family: serif;
++                    line-height: 1;
+                 }
+ 
+-                .sb-dot.active {
+-                    background: linear-gradient(135deg, #6d16df, #0dbbc9);
+-                    width: 30px;
++                /* Pagination Dots Styling */
++                .swiper-pagination-bullet {
++                    width: 12px;
++                    height: 6px;
+                     border-radius: 4px;
+-                    box-shadow: 0 0 12px rgba(109, 22, 223, 0.4);
++                    background: rgba(109, 22, 223, 0.2);
++                    opacity: 1;
++                    transition: all 0.3s ease;
+                 }
+ 
+-                .sb-dot:hover {
+-                    background: rgba(109, 22, 223, 0.4);
+-                    transform: scale(1.3);
++                .swiper-pagination-bullet-active {
++                    background: linear-gradient(90deg, #6d16df, #0dbbc9);
++                    width: 32px;
++                    box-shadow: 0 4px 12px rgba(109, 22, 223, 0.3);
+                 }
+             </style>
+ 
+@@ -2878,273 +2946,278 @@
+                 </div>
+ 
+                 <!-- Two-column layout: slider left, info right -->
+-                <div class="row align-items-center justify-content-center g-5">
+-
+-                    <!-- LEFT: Slider -->
+-                    <div class="col-lg-6 col-md-10 col-12" data-anim="slide-left">
+-                        <div style="padding-bottom:30px;">
+-
+-                            <!-- Card 1: Chris -->
+-                            <div class="sb-card active" data-index="0">
+-                                <div class="sb-bubble">
+-                                    <div class="sb-header">
+-                                        <div class="sb-avatar">C</div>
+-                                        <div>
+-                                            <p class="sb-name">Chris</p>
+-                                            <p class="sb-role">Commercial Facility Repaint</p>
+-                                        </div>
+-                                        <div class="sb-quote-icon">
+-                                            <svg viewBox="0 0 50 38" xmlns="http://www.w3.org/2000/svg">
+-                                                <path
+-                                                    d="M0 38V23.75C0 16.5417 2.34375 10.5208 7.03125 5.6875C11.7188 0.854167 18.0208 -0.729167 25.9375 0.229167L27.0833 4.58333C23.0208 5.20833 19.6875 7.10417 17.0833 10.2708C14.4792 13.4375 13.1771 17.0833 13.1771 21.2083H20.5208V38H0ZM27.5 38V23.75C27.5 16.5417 29.8438 10.5208 34.5312 5.6875C39.2188 0.854167 45.5208 -0.729167 53.4375 0.229167L54.5833 4.58333C50.5208 5.20833 47.1875 7.10417 44.5833 10.2708C41.9792 13.4375 40.6771 17.0833 40.6771 21.2083H48.0208V38H27.5Z" />
+-                                            </svg>
++                <!-- Horizontal Swiper Carousel -->
++                <div class="row" data-anim="fade-up" data-delay="300">
++                    <div class="col-12">
++                        <div class="swiper testimonial-swiper">
++                            <div class="swiper-wrapper">
++                                <!-- Card 1: Chris -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar">C</div>
++                                            <div class="tm-info">
++                                                <h4>Chris Watkins</h4>
++                                                <p>Commercial Repaint</p>
++                                            </div>
+                                         </div>
+-                                    </div>
+-                                    <div class="sb-body">
+-                                        <p class="sb-text">"We hired J &amp; H Painting for a full interior and exterior
+-                                            repaint of our commercial facility, and they exceeded expectations.
+-                                            Communication was clear, timelines were met, and the workmanship was
+-                                            top-tier. Their surface prep alone made a noticeable difference. Highly
+-                                            dependable team."</p>
+-                                        <div class="sb-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
+-                                        <div class="sb-rating-badge"><i class="bi bi-patch-check-fill"
+-                                                style="color:#0dbbc9;"></i> Verified Google Review</div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"We hired J & H Painting for a full interior and exterior
++                                            repaint of our commercial facility, and they exceeded expectations. Clear
++                                            communication and top-tier workmanship."</p>
+                                     </div>
+                                 </div>
+-                            </div>
+-
+-                            <!-- Card 2: Anthony -->
+-                            <div class="sb-card" data-index="1">
+-                                <div class="sb-bubble">
+-                                    <div class="sb-header"
+-                                        style="background: linear-gradient(135deg, #0dbbc9 0%, #09a0ae 60%, #6d16df 100%);">
+-                                        <div class="sb-avatar">A</div>
+-                                        <div>
+-                                            <p class="sb-name">Anthony</p>
+-                                            <p class="sb-role">High-End Residential Project</p>
+-                                        </div>
+-                                        <div class="sb-quote-icon">
+-                                            <svg viewBox="0 0 50 38" xmlns="http://www.w3.org/2000/svg">
+-                                                <path
+-                                                    d="M0 38V23.75C0 16.5417 2.34375 10.5208 7.03125 5.6875C11.7188 0.854167 18.0208 -0.729167 25.9375 0.229167L27.0833 4.58333C23.0208 5.20833 19.6875 7.10417 17.0833 10.2708C14.4792 13.4375 13.1771 17.0833 13.1771 21.2083H20.5208V38H0ZM27.5 38V23.75C27.5 16.5417 29.8438 10.5208 34.5312 5.6875C39.2188 0.854167 45.5208 -0.729167 53.4375 0.229167L54.5833 4.58333C50.5208 5.20833 47.1875 7.10417 44.5833 10.2708C41.9792 13.4375 40.6771 17.0833 40.6771 21.2083H48.0208V38H27.5Z" />
+-                                            </svg>
++                                <!-- Card 2: Anthony -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar">A</div>
++                                            <div class="tm-info">
++                                                <h4>Anthony Ricci</h4>
++                                                <p>Luxury Residential</p>
++                                            </div>
+                                         </div>
+-                                    </div>
+-                                    <div class="sb-body">
+-                                        <p class="sb-text">"The attention to detail was incredible. From drywall
+-                                            preparation to final coat, everything was executed flawlessly. The team was
+-                                            respectful of our home, organized, and extremely professional. The finish
+-                                            quality truly elevated the space. You can tell they take pride in their
+-                                            work."</p>
+-                                        <div class="sb-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
+-                                        <div class="sb-rating-badge"><i class="bi bi-patch-check-fill"
+-                                                style="color:#0dbbc9;"></i> Verified Google Review</div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"The attention to detail was incredible. From drywall
++                                            preparation to final coat, everything was executed flawlessly. The finish
++                                            quality truly elevated our space."</p>
+                                     </div>
+                                 </div>
+-                            </div>
+-
+-                            <!-- Card 3: Peter -->
+-                            <div class="sb-card" data-index="2">
+-                                <div class="sb-bubble">
+-                                    <div class="sb-header"
+-                                        style="background: linear-gradient(135deg, #9b4dea 0%, #6d16df 60%, #0dbbc9 100%);">
+-                                        <div class="sb-avatar">P</div>
+-                                        <div>
+-                                            <p class="sb-name">Peter</p>
+-                                            <p class="sb-role">New Construction Partnership</p>
+-                                        </div>
+-                                        <div class="sb-quote-icon">
+-                                            <svg viewBox="0 0 50 38" xmlns="http://www.w3.org/2000/svg">
+-                                                <path
+-                                                    d="M0 38V23.75C0 16.5417 2.34375 10.5208 7.03125 5.6875C11.7188 0.854167 18.0208 -0.729167 25.9375 0.229167L27.0833 4.58333C23.0208 5.20833 19.6875 7.10417 17.0833 10.2708C14.4792 13.4375 13.1771 17.0833 13.1771 21.2083H20.5208V38H0ZM27.5 38V23.75C27.5 16.5417 29.8438 10.5208 34.5312 5.6875C39.2188 0.854167 45.5208 -0.729167 53.4375 0.229167L54.5833 4.58333C50.5208 5.20833 47.1875 7.10417 44.5833 10.2708C41.9792 13.4375 40.6771 17.0833 40.6771 21.2083H48.0208V38H27.5Z" />
+-                                            </svg>
++                                <!-- Card 3: Peter -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar">P</div>
++                                            <div class="tm-info">
++                                                <h4>Peter Miller</h4>
++                                                <p>New Construction</p>
++                                            </div>
+                                         </div>
+-                                    </div>
+-                                    <div class="sb-body">
+-                                        <p class="sb-text">"As a builder, I value contractors who understand scheduling
+-                                            and coordination. J &amp; H Painting delivered exactly that. They were
+-                                            structured, responsive, and proactive in solving minor issues before they
+-                                            became problems. Crews are efficient and results consistently clean."</p>
+-                                        <div class="sb-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
+-                                        <div class="sb-rating-badge"><i class="bi bi-patch-check-fill"
+-                                                style="color:#0dbbc9;"></i> Verified Google Review</div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"As a builder, I value contractors who understand scheduling.
++                                            J & H Painting delivered exactly that. Efficient, structured, and results
++                                            are consistently clean."</p>
+                                     </div>
+                                 </div>
+-                            </div>
+-
+-                            <!-- Card 4: Mandy -->
+-                            <div class="sb-card" data-index="3">
+-                                <div class="sb-bubble">
+-                                    <div class="sb-header"
+-                                        style="background: linear-gradient(135deg, #6d16df 0%, #0dbbc9 100%);">
+-                                        <div class="sb-avatar">M</div>
+-                                        <div>
+-                                            <p class="sb-name">Mandy</p>
+-                                            <p class="sb-role">Multi-Location Rollout</p>
+-                                        </div>
+-                                        <div class="sb-quote-icon">
+-                                            <svg viewBox="0 0 50 38" xmlns="http://www.w3.org/2000/svg">
+-                                                <path
+-                                                    d="M0 38V23.75C0 16.5417 2.34375 10.5208 7.03125 5.6875C11.7188 0.854167 18.0208 -0.729167 25.9375 0.229167L27.0833 4.58333C23.0208 5.20833 19.6875 7.10417 17.0833 10.2708C14.4792 13.4375 13.1771 17.0833 13.1771 21.2083H20.5208V38H0ZM27.5 38V23.75C27.5 16.5417 29.8438 10.5208 34.5312 5.6875C39.2188 0.854167 45.5208 -0.729167 53.4375 0.229167L54.5833 4.58333C50.5208 5.20833 47.1875 7.10417 44.5833 10.2708C41.9792 13.4375 40.6771 17.0833 40.6771 21.2083H48.0208V38H27.5Z" />
+-                                            </svg>
++                                <!-- Card 4: Mandy -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar">M</div>
++                                            <div class="tm-info">
++                                                <h4>Mandy Smith</h4>
++                                                <p>Multi-Location Rollout</p>
++                                            </div>
+                                         </div>
+-                                    </div>
+-                                    <div class="sb-body">
+-                                        <p class="sb-text">"We worked with J &amp; H Painting on multiple locations
+-                                            across Florida. Their ability to manage logistics, crews, and timelines
+-                                            across different sites was impressive. Quality remained consistent at every
+-                                            property throughout the entire process."</p>
+-                                        <div class="sb-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
+-                                        <div class="sb-rating-badge"><i class="bi bi-patch-check-fill"
+-                                                style="color:#0dbbc9;"></i> Verified Google Review</div>
+-                                    </div>
+-                                </div>
+-                            </div>
+-
+-                        </div>
+-
+-                        <!-- Controls -->
+-                        <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:8px;">
+-                            <button class="sb-arrow" id="sbPrev" aria-label="Previous">&#8592;</button>
+-                            <div style="display:flex;align-items:center;gap:8px;" id="sbDots">
+-                                <div class="sb-dot active" data-dot="0"></div>
+-                                <div class="sb-dot" data-dot="1"></div>
+-                                <div class="sb-dot" data-dot="2"></div>
+-                                <div class="sb-dot" data-dot="3"></div>
+-                            </div>
+-                            <button class="sb-arrow" id="sbNext" aria-label="Next">&#8594;</button>
+-                        </div>
+-                    </div>
+-
+-                    <!-- RIGHT: Trust info panel -->
+-                    <div class="col-lg-5 col-12" data-anim="slide-right" data-delay="200">
+-                        <div style="padding-left: clamp(0px, 2vw, 20px);">
+-
+-                            <h3 style="color:#322e2f;font-weight:800;font-size:1.9rem;margin-bottom:16px;">
+-                                Trusted by <span class="animated-gradient-text">100+ Clients</span><br>Across Florida
+-                            </h3>
+-                            <p style="color:#666;line-height:1.8;margin-bottom:28px;">From commercial facilities to
+-                                luxury residences ÔÇö our clients trust J &amp; H Painting for quality, precision, and
+-                                dependable results every time.</p>
+-
+-                            <!-- Trust stats -->
+-                            <div class="row g-3 mb-4">
+-                                <div class="col-6" data-anim="bounce-up" data-delay="300">
+-                                    <div style="background:white;border-radius:16px;padding:20px 18px;box-shadow:0 8px 30px rgba(109,22,223,0.08);border:1px solid rgba(109,22,223,0.07);text-align:center;transition:transform 0.3s ease,box-shadow 0.3s ease;"
+-                                        onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(109,22,223,0.15)'"
+-                                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(109,22,223,0.08)'">
+-                                        <div
+-                                            style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#6d16df,#0dbbc9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+-                                            200+</div>
+-                                        <div
+-                                            style="color:#888;font-size:0.82rem;font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:1px;">
+-                                            Projects Done</div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"Worked with them on multiple Florida locations. Their
++                                            ability to manage logistics across different sites was impressive. Quality
++                                            remained consistent throughout."</p>
+                                     </div>
+                                 </div>
+-                                <div class="col-6" data-anim="bounce-up" data-delay="400">
+-                                    <div style="background:white;border-radius:16px;padding:20px 18px;box-shadow:0 8px 30px rgba(13,187,201,0.08);border:1px solid rgba(13,187,201,0.07);text-align:center;transition:transform 0.3s ease,box-shadow 0.3s ease;"
+-                                        onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(13,187,201,0.15)'"
+-                                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(13,187,201,0.08)'">
+-                                        <div
+-                                            style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#0dbbc9,#6d16df);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+-                                            5.0Ôÿà</div>
+-                                        <div
+-                                            style="color:#888;font-size:0.82rem;font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:1px;">
+-                                            Google Rating</div>
++                                <!-- Card 5: Sarah -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar">S</div>
++                                            <div class="tm-info">
++                                                <h4>Sarah Johnson</h4>
++                                                <p>Interior Transformation</p>
++                                            </div>
++                                        </div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"Professional from start to finish. They helped us pick the
++                                            perfect colors and the execution was perfect. Highly recommend for any home
++                                            project."</p>
+                                     </div>
+                                 </div>
+-                                <div class="col-6" data-anim="bounce-up" data-delay="500">
+-                                    <div style="background:white;border-radius:16px;padding:20px 18px;box-shadow:0 8px 30px rgba(109,22,223,0.08);border:1px solid rgba(109,22,223,0.07);text-align:center;transition:transform 0.3s ease,box-shadow 0.3s ease;"
+-                                        onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(109,22,223,0.15)'"
+-                                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(109,22,223,0.08)'">
+-                                        <div
+-                                            style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#6d16df,#0dbbc9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+-                                            50+</div>
+-                                        <div
+-                                            style="color:#888;font-size:0.82rem;font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:1px;">
+-                                            Brand Partners</div>
++                                <!-- Card 6: David -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar"
++                                                style="background: linear-gradient(135deg, #0dbbc9, #6d16df);">D</div>
++                                            <div class="tm-info">
++                                                <h4>David Wilson</h4>
++                                                <p>Exterior Renovation</p>
++                                            </div>
++                                        </div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"High quality exterior paint and professional execution. They
++                                            finished the job exactly on time and the clean-up was thorough. Definitely
++                                            hiring them again."</p>
+                                     </div>
+                                 </div>
+-                                <div class="col-6" data-anim="bounce-up" data-delay="600">
+-                                    <div style="background:white;border-radius:16px;padding:20px 18px;box-shadow:0 8px 30px rgba(13,187,201,0.08);border:1px solid rgba(13,187,201,0.07);text-align:center;transition:transform 0.3s ease,box-shadow 0.3s ease;"
+-                                        onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(13,187,201,0.15)'"
+-                                        onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(13,187,201,0.08)'">
+-                                        <div
+-                                            style="font-size:2rem;font-weight:900;background:linear-gradient(135deg,#0dbbc9,#6d16df);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
+-                                            FL+</div>
+-                                        <div
+-                                            style="color:#888;font-size:0.82rem;font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:1px;">
+-                                            Nationwide</div>
++                                <!-- Card 7: Jessica -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar"
++                                                style="background: linear-gradient(135deg, #25d366, #128c7e);">J</div>
++                                            <div class="tm-info">
++                                                <h4>Jessica Brown</h4>
++                                                <p>Office Facility</p>
++                                            </div>
++                                        </div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"Seamless process for our office facility. Minimized downtime
++                                            and delivered a fresh new look for our workspace. The team was respectful
++                                            and efficient."</p>
+                                     </div>
+                                 </div>
+-                            </div>
+-
+-                            <!-- Feature list -->
+-                            <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;"
+-                                data-anim="fade-up" data-delay="400">
+-                                <div style="display:flex;align-items:center;gap:12px;">
+-                                    <div
+-                                        style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#6d16df,#9b4dea);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(109,22,223,0.3);">
+-                                        <i class="bi bi-shield-check-fill" style="color:white;font-size:0.9rem;"></i>
++                                <!-- Card 8: Michael -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar"
++                                                style="background: linear-gradient(135deg, #6d16df, #0dbbc9);">M</div>
++                                            <div class="tm-info">
++                                                <h4>Michael Thompson</h4>
++                                                <p>New Build Interior</p>
++                                            </div>
++                                        </div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"Outstanding workmanship on our new construction project.
++                                            Their ability to handle large-scale drywall finishing and painting made all
++                                            the difference."</p>
+                                     </div>
+-                                    <span style="color:#444;font-weight:500;font-size:0.95rem;">Fully Licensed &amp;
+-                                        Insured ÔÇö Every Project</span>
+                                 </div>
+-                                <div style="display:flex;align-items:center;gap:12px;">
+-                                    <div
+-                                        style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0dbbc9,#09a0ae);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(13,187,201,0.3);">
+-                                        <i class="bi bi-clock-fill" style="color:white;font-size:0.9rem;"></i>
++                                <!-- Card 9: Robert -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar"
++                                                style="background: linear-gradient(135deg, #ff9f43, #ff6b6b);">R</div>
++                                            <div class="tm-info">
++                                                <h4>Robert Davis</h4>
++                                                <p>Multi-Family Dev</p>
++                                            </div>
++                                        </div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"Impressive speed and quality for our multi-family units. J &
++                                            H is reliable, well-equipped, and delivers consistent results across every
++                                            unit."</p>
+                                     </div>
+-                                    <span style="color:#444;font-weight:500;font-size:0.95rem;">On-Time Delivery ÔÇö
+-                                        Always On Schedule</span>
+                                 </div>
+-                                <div style="display:flex;align-items:center;gap:12px;">
+-                                    <div
+-                                        style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#6d16df,#0dbbc9);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(109,22,223,0.25);">
+-                                        <i class="bi bi-star-fill" style="color:white;font-size:0.9rem;"></i>
++                                <!-- Card 10: Linda -->
++                                <div class="swiper-slide">
++                                    <div class="testimonial-card">
++                                        <div class="tm-quote">"</div>
++                                        <div class="tm-header">
++                                            <div class="tm-avatar"
++                                                style="background: linear-gradient(135deg, #6d16df, #a29bfe);">L</div>
++                                            <div class="tm-info">
++                                                <h4>Linda Garcia</h4>
++                                                <p>Retail Repaint</p>
++                                            </div>
++                                        </div>
++                                        <div class="tm-stars">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
++                                        <p class="tm-text">"The retail space looks amazing. They captured the brand
++                                            colors perfectly. Efficient team that works hard to meet tight deadlines
++                                            without compromising quality."</p>
+                                     </div>
+-                                    <span style="color:#444;font-weight:500;font-size:0.95rem;">5-Star Rated by Real
+-                                        Clients on Google</span>
+                                 </div>
+                             </div>
++                            <div class="swiper-pagination mt-5" style="position:relative; bottom:0;"></div>
++                        </div>
++                    </div>
++                </div>
+ 
+-                            <!-- CTA -->
+-                            <a href="#section_5" class="btn btn-ripple click-scroll"
+-                                style="background:linear-gradient(135deg,#6d16df,#9b4dea);border:none;color:white;padding:14px 36px;font-weight:700;border-radius:50px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 8px 25px rgba(109,22,223,0.4);transition:all 0.4s ease;text-decoration:none;"
+-                                onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 15px 40px rgba(109,22,223,0.55)'"
+-                                onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 25px rgba(109,22,223,0.4)'">
+-                                <i class="bi bi-chat-dots-fill"></i> Get a Free Quote
+-                            </a>
+-
++                <!-- Trust Stats Row Integrated Below -->
++                <div class="row mt-4 g-4 justify-content-center">
++                    <div class="col-lg-3 col-md-6 col-12" data-anim="bounce-up" data-delay="300">
++                        <div
++                            style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(109,22,223,0.08);border:1px solid rgba(109,22,223,0.05);text-align:center;">
++                            <div
++                                style="font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#6d16df,#0dbbc9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
++                                200+</div>
++                            <div
++                                style="color:#888;font-size:0.85rem;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
++                                Projects Done</div>
++                        </div>
++                    </div>
++                    <div class="col-lg-3 col-md-6 col-12" data-anim="bounce-up" data-delay="400">
++                        <div
++                            style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(13,187,201,0.08);border:1px solid rgba(13,187,201,0.05);text-align:center;">
++                            <div
++                                style="font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#0dbbc9,#6d16df);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
++                                5.0Ôÿà</div>
++                            <div
++                                style="color:#888;font-size:0.85rem;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
++                                Google Rating</div>
++                        </div>
++                    </div>
++                    <div class="col-lg-3 col-md-6 col-12" data-anim="bounce-up" data-delay="500">
++                        <div
++                            style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(109,22,223,0.08);border:1px solid rgba(109,22,223,0.05);text-align:center;">
++                            <div
++                                style="font-size:2.4rem;font-weight:900;background:linear-gradient(135deg,#6d16df,#0dbbc9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">
++                                FL+</div>
++                            <div
++                                style="color:#888;font-size:0.85rem;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
++                                Serving Nationwide</div>
+                         </div>
+                     </div>
++                </div>
+ 
++                <!-- CTA Button -->
++                <div class="row mt-5 text-center">
++                    <div class="col-12" data-anim="fade-up" data-delay="600">
++                        <a href="#section_5" class="btn btn-ripple click-scroll"
++                            style="background:linear-gradient(135deg,#6d16df,#0dbbc9);border:none;color:white;padding:16px 45px;font-weight:800;border-radius:50px;display:inline-flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(109,22,223,0.4);transition:all 0.4s ease;text-decoration:none;"
++                            onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 15px 45px rgba(109,22,223,0.55)'"
++                            onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 10px 30px rgba(109,22,223,0.4)'">
++                            <i class="bi bi-chat-heart-fill"></i> Get a Free Quote & Transformation
++                        </a>
++                    </div>
+                 </div>
++
++            </div>
+             </div>
+ 
++            <!-- Swiper.js & Init -->
++            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+             <script>
+-                (function () {
+-                    const cards = document.querySelectorAll('.sb-card');
+-                    const dots = document.querySelectorAll('.sb-dot');
+-                    let cur = 0, total = cards.length, timer = null;
+-                    function goTo(n) {
+-                        cards[cur].classList.remove('active');
+-                        dots[cur].classList.remove('active');
+-                        cur = (n + total) % total;
+-                        cards[cur].classList.add('active');
+-                        dots[cur].classList.add('active');
+-                    }
+-                    function startAuto() { timer = setInterval(() => goTo(cur + 1), 5000); }
+-                    function stopAuto() { clearInterval(timer); }
+-                    document.getElementById('sbPrev').addEventListener('click', () => { stopAuto(); goTo(cur - 1); startAuto(); });
+-                    document.getElementById('sbNext').addEventListener('click', () => { stopAuto(); goTo(cur + 1); startAuto(); });
+-                    dots.forEach(d => d.addEventListener('click', () => { stopAuto(); goTo(+d.dataset.dot); startAuto(); }));
+-                    document.addEventListener('keydown', e => {
+-                        if (e.key === 'ArrowLeft') { stopAuto(); goTo(cur - 1); startAuto(); }
+-                        if (e.key === 'ArrowRight') { stopAuto(); goTo(cur + 1); startAuto(); }
++                document.addEventListener('DOMContentLoaded', function () {
++                    const testimonialSwiper = new Swiper('.testimonial-swiper', {
++                        slidesPerView: 3,
++                        grid: {
++                            rows: 2,
++                            fill: 'row'
++                        },
++                        spaceBetween: 30,
++                        speed: 4000,
++                        loop: true,
++                        autoplay: {
++                            delay: 0,
++                            disableOnInteraction: false,
++                        },
++                        allowTouchMove: false,
++                        breakpoints: {
++                            0: {
++                                slidesPerView: 1,
++                                grid: { rows: 1 }
++                            },
++                            768: {
++                                slidesPerView: 2,
++                                grid: { rows: 2 }
++                            },
++                            1024: {
++                                slidesPerView: 3,
++                                grid: { rows: 2 }
++                            }
++                        }
+                     });
+-                    startAuto();
+-                })();
++                });
+             </script>
+ 
+         </section>
+@@ -3167,15 +3240,17 @@
+                                 <div class="col-lg-12 col-12 mb-3">
+                                     <div class="d-flex align-items-center">
+                                         <i class="bi-telephone-fill me-3 fs-4"></i>
+-                                        <p class="mb-0"> Call: +1 (561) 906-3823</p>
++                                        <p class="mb-0"> Call: <a href="tel:+15619063823"
++                                                style="color:#322e2f; text-decoration:none; font-weight:600;">+1 (561)
++                                                906-3823</a></p>
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-12 col-12 mb-4">
+                                     <div class="d-flex align-items-center">
+                                         <i class="bi-envelope-fill me-3 fs-4"></i>
+-                                        <p class="mb-0"> Email: <a href="/cdn-cgi/l/email-protection"
+-                                                class="__cf_email__"
+-                                                data-cfemail="42212d2c3623213602282a32232b2c362b2c25242e6c212d2f">[email&#160;protected]</a>
++                                        <p class="mb-0"> Email: <a href="mailto:jhpaintingincfl@gmail.com"
++                                                class="contact-link"
++                                                style="color:#322e2f; text-decoration:none; font-weight:600;">jhpaintingincfl@gmail.com</a>
+                                         </p>
+                                     </div>
+                                 </div>
+@@ -3235,8 +3310,14 @@
+                                     </p>
+                                 </div>
+                             </div>
+-                            <img src="images/painting-brush-contact.png" class="img-fluid mt-4" alt="Painting Brush"
+-                                style="border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.4); opacity: 0.95;">
++                            <div class="mt-4 overflow-hidden"
++                                style="border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.1);">
++                                <img src="images/painting-transformation.png" class="img-fluid"
++                                    alt="Luxury Painting Transformation"
++                                    style="width: 100%; height: 260px; object-fit: cover; transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);"
++                                    onmouseover="this.style.transform='scale(1.1)'"
++                                    onmouseout="this.style.transform='scale(1)'">
++                            </div>
+                         </div>
+                     </div>
+                     <style>
+@@ -3253,107 +3334,279 @@
+                     </style>
+                 </div>
+             </div>
+-        </section>
++            <section class="service-areas-section section-padding" style="background: #fff; padding-bottom: 0;">
++                <div class="container">
++                    <div class="row align-items-center">
++                        <div class="col-lg-7 col-12 mb-5 mb-lg-0" data-anim="slide-left">
++                            <div style="padding-right: 40px;">
++                                <!-- Top Accent -->
++                                <div style="display:flex; align-items:center; gap:15px; margin-bottom: 25px;">
++                                    <div style="width: 35px; height: 2px; background: #e07a5f;"></div>
++                                    <span
++                                        style="color: #e07a5f; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">About
++                                        Us</span>
++                                </div>
+ 
+-        <!-- =============================================
+-             FOOTER
+-        ============================================= -->
+-        <footer class="site-footer"
+-            style="margin-top: 0; padding-top: 0; margin-bottom: 0 !important; padding-bottom: 0 !important; position: relative; overflow: hidden;">
+-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"
+-                style="position: absolute; top: 0; left: 0; width: 100%; z-index: 1; display: block;">
+-                <path fill="#6d16df" fill-opacity="0.12"
+-                    d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+-                </path>
+-            </svg>
+-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80"
+-                style="position: absolute; top: 0; left: 0; width: 100%; z-index: 2; display: block;">
+-                <path fill="#0dbbc9" fill-opacity="1"
+-                    d="M0,40L34.3,34.7C68.6,29,137,19,206,21.3C274.3,24,343,40,411,42.7C480,45,549,35,617,29.3C685.7,24,754,24,823,29.3C891.4,35,960,45,1029,45.3C1097.1,45,1166,35,1234,29.3C1302.9,24,1371,24,1406,24L1440,24L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
+-                </path>
+-            </svg>
+-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60"
+-                style="position: absolute; top: 0; left: 0; width: 100%; z-index: 3; display: block;">
+-                <path fill="#6d16df" fill-opacity="1"
+-                    d="M0,0L34.3,5.3C68.6,11,137,21,206,18.7C274.3,16,343,0,411,0C480,0,549,16,617,18.7C685.7,21,754,11,823,5.3C891.4,0,960,0,1029,5.3C1097.1,11,1166,21,1234,18.7C1302.9,16,1371,5,1406,2.7L1440,0L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z">
+-                </path>
+-            </svg>
++                                <!-- Main Headers -->
++                                <h1
++                                    style="color: #322e2f; font-weight: 800; font-size: 3rem; line-height: 1.2; margin-bottom: 15px;">
++                                    Nationwide Painting Contractor</h1>
++                                <h2 style="color: #0dbbc9; font-weight: 700; font-size: 2rem; margin-bottom: 40px;">
++                                    Based in Florida</h2>
++
++                                <!-- Description Text -->
++                                <div style="color: #555; line-height: 1.8; font-size: 1.1rem;">
++                                    <p class="mb-4">
++                                        <strong style="color: #6d16df;">J</strong> & <strong
++                                            style="color: #0dbbc9;">H</strong> Painting, we deliver high-quality
++                                        commercial and residential painting services for projects across Florida and
++                                        nationwide. With experienced crews, structured project management, and a
++                                        commitment to precision, we support builders, general contractors, and property
++                                        owners on projects of all sizes.
++                                    </p>
++                                    <p class="mb-5">
++                                        We specialize in large-scale painting, surface preparation, and coatings,
++                                        focusing on durability, clean workmanship, and dependable timelines. From
++                                        commercial facilities and new construction to high-end residential projects, our
++                                        team is equipped to execute efficiently and professionally.
++                                    </p>
++                                </div>
+ 
+-            <div class="container" style="position: relative; z-index: 5; padding-top: 65px;">
+-                <div class="row justify-content-center text-center text-lg-start">
+-                    <div class="col-lg-4 col-12 mb-5 mb-lg-0" data-anim="slide-left" data-delay="100">
+-                        <a class="navbar-brand d-flex align-items-center mb-3" href="index.html"
+-                            style="gap: 8px; justify-content: center;">
+-                            <img src="images/logo.png" class="img-fluid" alt="J & H Painting"
+-                                style="max-width: 42px; height: auto; flex-shrink: 0;">
+-                            <span style="color: #322e2f; font-weight: 700; font-size: 1.05rem; line-height: 1.3;">J
+-                                &amp; H <br>Painting</span>
+-                        </a>
+-                        <p style="color: #322e2f; line-height: 1.6; margin-bottom: 15px;">Serving homeowners &amp;
+-                            businesses throughout Florida with premium painting services.</p>
+-                        <div class="d-flex justify-content-center justify-content-lg-start gap-2 flex-wrap">
+-                            <span class="badge px-3 py-2"
+-                                style="background-color: #0dbbc9; color: white; font-weight: 500;">Licensed</span>
+-                            <span class="badge px-3 py-2"
+-                                style="background-color: #0dbbc9; color: white; font-weight: 500;">Insured</span>
+-                            <span class="badge px-3 py-2"
+-                                style="background-color: #0dbbc9; color: white; font-weight: 500;">Since 2021</span>
++                                <!-- Founder Section -->
++                                <div style="display: flex; align-items: center; gap: 20px;">
++                                    <!-- Circular Profile Placeholder -->
++                                    <div
++                                        style="width: 80px; height: 80px; border-radius: 50%; background: #f8f9fa; border: 3px solid #6d16df; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
++                                        <!-- User will add image later -->
++                                        <i class="bi bi-person-fill" style="font-size: 2.5rem; color: #ddd;"></i>
++                                    </div>
++
++                                    <div>
++                                        <h4 style="margin: 0; color: #322e2f; font-weight: 800; font-size: 1.3rem;">
++                                            Founder Name</h4>
++                                        <p style="margin: 0; color: #6d16df; font-weight: 600; font-size: 0.95rem;">CEO
++                                            & Founder</p>
++                                    </div>
++                                </div>
++                            </div>
+                         </div>
+-                    </div>
+-                    <div class="col-lg-4 col-12 mb-5 mb-lg-0" data-anim="fade-up" data-delay="300">
+-                        <h5 style="color: #322e2f; font-weight: 600; margin-bottom: 20px;">Contact Us</h5>
+-                        <div class="d-flex flex-column align-items-center align-items-lg-start">
+-                            <p class="d-flex align-items-center mb-3" style="color: #322e2f; gap: 10px;"><span
+-                                    style="color: #6d16df; font-size: 1.1rem;">­ƒô×</span><span
+-                                    style="font-weight: 500;">+1 (561) 906-3823</span></p>
+-                            <p class="d-flex align-items-center mb-3" style="color: #322e2f; gap: 10px;"><span
+-                                    style="color: #6d16df; font-size: 1.1rem;">Ô£ë´©Å</span><span><a
+-                                        href="/cdn-cgi/l/email-protection" class="__cf_email__"
+-                                        data-cfemail="690a06071d080a1d290301190800071d00070e0f05470a0604">[email&#160;protected]</a></span>
+-                            </p>
+-                            <p class="d-flex align-items-center" style="color: #322e2f; gap: 10px;"><span
+-                                    style="color: #6d16df; font-size: 1.1rem;">­ƒôì</span><span>Florida, USA</span></p>
++
++                        <div class="col-lg-5 col-12" data-anim="zoom-in">
++                            <div
++                                style="border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 8px solid white;">
++                                <!-- Google Maps Placeholder/Embed -->
++                                <iframe
++                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.13532727142!2d-80.1917902!3d25.7616798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a1a0a1a0a1%3A0x0!2zTWlhbWksIEZMLCBVU0E!5e0!3m2!1sen!2sus!4v1709827200000!5m2!1sen!2sus"
++                                    width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"
++                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
++                            </div>
++
++                            <!-- Fully Licensed Line with Logo Match Colors -->
++                            <div style="margin-top: 25px; background: white; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(90deg, #6d16df, #0dbbc9); background-origin: border-box; background-clip: padding-box, border-box; padding: 15px 30px; border-radius: 15px; display: flex; align-items: center; box-shadow: 0 10px 30px rgba(109, 22, 223, 0.1); transition: transform 0.3s ease;"
++                                class="hover-lift">
++                                <p class="mb-0" style="font-weight: 700; color: #322e2f; font-size: 1.05rem;">
++                                    <i class="bi bi-shield-check-fill me-2"
++                                        style="color: #6d16df; font-size: 1.3rem;"></i>
++                                    Fully Licensed &amp; Insured to operate in all Florida municipalities.
++                                </p>
++                            </div>
+                         </div>
+                     </div>
+-                    <div class="col-lg-3 col-12" data-anim="slide-right" data-delay="500">
+-                        <h5 style="color: #322e2f; font-weight: 600; margin-bottom: 20px;">Follow Us</h5>
+-                        <div class="d-flex justify-content-center justify-content-lg-start gap-3 mb-4">
+-                            <a href="#" class="bi-instagram footer-social-icon"></a>
+-                            <a href="#" class="bi-facebook footer-social-icon"></a>
+-                            <a href="#" class="bi-whatsapp footer-social-icon"></a>
+-                        </div>
+-                        <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+-                            <a href="#section_2" class="footer-link"
+-                                style="color: #322e2f; text-decoration: none;">About</a>
+-                            <a href="#section_3" class="footer-link"
+-                                style="color: #322e2f; text-decoration: none;">Services</a>
+-                            <a href="#section_5" class="footer-link"
+-                                style="color: #322e2f; text-decoration: none;">Contact</a>
++                </div>
++                <div class="section-divider"></div>
++            </section>
++
++            <!-- =============================================
++                 FOOTER
++            ============================================= -->
++            <footer class="site-footer" style="margin: 0; padding: 0; position: relative; overflow: hidden;">
++
++                <!-- Background Image with Dark Overlay -->
++                <div style="
++                    background: url('images/footer-bg.jpg') center center / cover no-repeat;
++                    position: relative;
++                ">
++                    <div style="
++                        background: linear-gradient(135deg, rgba(10, 5, 20, 0.98) 0%, rgba(35, 10, 60, 0.92) 50%, rgba(10, 5, 20, 0.98) 100%);
++                        padding: 90px 0 60px;
++                    ">
++                        <div class="container">
++                            <div class="row g-5">
++
++                                <!-- Col 1: Logo + Description + Socials -->
++                                <div class="col-lg-3 col-md-6 col-12">
++                                    <a class="navbar-brand d-flex align-items-center mb-3" href="index.html"
++                                        style="gap: 10px;">
++                                        <img src="images/logo.png" class="img-fluid" alt="J & H Painting"
++                                            style="max-width: 42px; height: auto; filter: brightness(1.2);">
++                                        <span
++                                            style="color: #ffffff; font-weight: 800; font-size: 1.1rem; line-height: 1.3;">J
++                                            &amp; H <span style="color: #0dbbc9;">Painting</span></span>
++                                    </a>
++                                    <p
++                                        style="color: #0dbbc9; line-height: 1.8; margin-bottom: 25px; font-size: 1rem; font-weight: 500; opacity: 0.9;">
++                                        Serving homeowners &amp; businesses throughout Florida with premium painting
++                                        services.
++                                    </p>
++                                    <!-- Social Icons -->
++                                    <div class="d-flex gap-3">
++                                        <a href="#"
++                                            style="width:40px;height:40px;border-radius:50%;background:rgba(109,22,223,0.2);border:1px solid #6d16df;display:flex;align-items:center;justify-content:center;color:#0dbbc9;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
++                                            onmouseover="this.style.background='#6d16df';this.style.color='white'"
++                                            onmouseout="this.style.background='rgba(109,22,223,0.2)';this.style.color='#0dbbc9'">
++                                            <i class="bi bi-facebook"></i>
++                                        </a>
++                                        <a href="#"
++                                            style="width:40px;height:40px;border-radius:50%;background:rgba(109,22,223,0.2);border:1px solid #6d16df;display:flex;align-items:center;justify-content:center;color:#0dbbc9;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
++                                            onmouseover="this.style.background='#6d16df';this.style.color='white'"
++                                            onmouseout="this.style.background='rgba(109,22,223,0.2)';this.style.color='#0dbbc9'">
++                                            <i class="bi bi-instagram"></i>
++                                        </a>
++                                        <a href="#"
++                                            style="width:40px;height:40px;border-radius:50%;background:rgba(13,187,201,0.2);border:1px solid #0dbbc9;display:flex;align-items:center;justify-content:center;color:#0dbbc9;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
++                                            onmouseover="this.style.background='#25d366';this.style.color='white'"
++                                            onmouseout="this.style.background='rgba(13,187,201,0.2)';this.style.color='#0dbbc9'">
++                                            <i class="bi bi-whatsapp"></i>
++                                        </a>
++                                    </div>
++                                </div>
++
++                                <!-- Col 2: Quick Menu -->
++                                <div class="col-lg-2 col-md-6 col-6">
++                                    <h5
++                                        style="color: #0dbbc9; font-weight: 800; margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
++                                        Quick Menu</h5>
++                                    <ul
++                                        style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
++                                        <li><a href="#" class="footer-nav-link"><i class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Home</a></li>
++                                        <li><a href="#section_2" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>About Us</a></li>
++                                        <li><a href="#section_3" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Services</a></li>
++                                        <li><a href="#section_4" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Gallery</a></li>
++                                        <li><a href="#section_5" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Contact Us</a></li>
++                                    </ul>
++                                </div>
++
++                                <!-- Col 3: Our Services -->
++                                <div class="col-lg-3 col-md-6 col-6">
++                                    <h5
++                                        style="color: #0dbbc9; font-weight: 800; margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
++                                        Our Services</h5>
++                                    <ul
++                                        style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
++                                        <li><a href="services/interior-painting.html" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Interior Painting</a>
++                                        </li>
++                                        <li><a href="services/exterior-painting.html" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Exterior Painting</a>
++                                        </li>
++                                        <li><a href="services/commercial-painting.html" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Commercial Painting</a>
++                                        </li>
++                                        <li><a href="services/new-construction.html" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>New Construction</a>
++                                        </li>
++                                        <li><a href="services/specialty-coatings.html" class="footer-nav-link"><i
++                                                    class="bi bi-arrow-up-right me-2"
++                                                    style="color:#0dbbc9;font-size:0.75rem;"></i>Specialty Coatings</a>
++                                        </li>
++                                    </ul>
++                                </div>
++
++                                <!-- Col 4: Contact Info -->
++                                <div class="col-lg-4 col-md-6 col-12">
++                                    <h5
++                                        style="color: #0dbbc9; font-weight: 800; margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">
++                                        Contact Info</h5>
++                                    <ul
++                                        style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
++                                        <li style="display:flex;align-items:center;gap:12px;">
++                                            <div
++                                                style="width:36px;height:36px;border-radius:50%;background:rgba(109,22,223,0.3);border:1px solid rgba(109,22,223,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
++                                                <i class="bi bi-telephone-fill"
++                                                    style="color:#0dbbc9;font-size:0.85rem;"></i>
++                                            </div>
++                                            <a href="tel:+15619063823"
++                                                style="color:#0dbbc9;text-decoration:none;font-weight:600; font-size: 1.05rem;">+1
++                                                (561) 906-3823</a>
++                                        </li>
++                                        <li style="display:flex;align-items:center;gap:12px;">
++                                            <div
++                                                style="width:36px;height:36px;border-radius:50%;background:rgba(109,22,223,0.3);border:1px solid rgba(13,187,201,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
++                                                <i class="bi bi-envelope-fill"
++                                                    style="color:#0dbbc9;font-size:0.85rem;"></i>
++                                            </div>
++                                            <a href="mailto:jhpaintingincfl@gmail.com" class="footer-nav-link"
++                                                style="color:#0dbbc9; font-weight: 600;">jhpaintingincfl@gmail.com</a>
++                                        </li>
++                                        <li style="display:flex;align-items:center;gap:12px;">
++                                            <div
++                                                style="width:36px;height:36px;border-radius:50%;background:rgba(109,22,223,0.3);border:1px solid rgba(13,187,201,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
++                                                <i class="bi bi-geo-alt-fill"
++                                                    style="color:#0dbbc9;font-size:0.85rem;"></i>
++                                            </div>
++                                            <span style="color:#0dbbc9; font-weight: 600;">Florida, USA</span>
++                                        </li>
++                                        <li style="display:flex;align-items:center;gap:12px;">
++                                            <div
++                                                style="width:36px;height:36px;border-radius:50%;background:rgba(109,22,223,0.3);border:1px solid rgba(13,187,201,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
++                                                <i class="bi bi-clock-fill"
++                                                    style="color:#0dbbc9;font-size:0.85rem;"></i>
++                                            </div>
++                                            <span style="color:#0dbbc9; font-weight: 600;">Mon ÔÇô Sat: 07am ÔÇô 06pm</span>
++                                        </li>
++                                    </ul>
++                                </div>
++
++                            </div><!-- /row -->
++
++                            <!-- Divider -->
++                            <hr style="border-color:rgba(255,255,255,0.1);margin:40px 0 0;">
+                         </div>
+                     </div>
+                 </div>
+-                <hr style="border-top: 1px solid rgba(50, 46, 47, 0.2); margin: 30px 0 0;">
+-            </div>
+ 
+-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90"
+-                style="display: block; margin-top: 20px; position: relative; z-index: 4;">
+-                <path fill="#6d16df" fill-opacity="1"
+-                    d="M0,32L34.3,37.3C68.6,43,137,53,206,53.3C274.3,53,343,43,411,37.3C480,32,549,32,617,37.3C685.7,43,754,53,823,53.3C891.4,53,960,43,1029,37.3C1097.1,32,1166,32,1234,37.3C1302.9,43,1371,53,1406,58.7L1440,64L1440,90L1405.7,90C1371.4,90,1303,90,1234,90C1165.7,90,1097,90,1029,90C960,90,891,90,823,90C754.3,90,686,90,617,90C548.6,90,480,90,411,90C342.9,90,274,90,206,90C137.1,90,69,90,34,90L0,90Z">
+-                </path>
+-            </svg>
+-            <div
+-                style="background-color: #6d16df; position: relative; z-index: 3; margin-top: -2px; margin-bottom: 0 !important; padding-bottom: 0 !important;">
+-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" style="display: block; margin-top: -1px;">
+-                    <path fill="#0dbbc9" fill-opacity="0.4"
+-                        d="M0,0L34.3,5.3C68.6,11,137,21,206,21.3C274.3,21,343,11,411,5.3C480,0,549,0,617,5.3C685.7,11,754,21,823,21.3C891.4,21,960,11,1029,5.3C1097.1,0,1166,0,1234,5.3C1302.9,11,1371,21,1406,26.7L1440,32L1440,40L1405.7,40C1371.4,40,1303,40,1234,40C1165.7,40,1097,40,1029,40C960,40,891,40,823,40C754.3,40,686,40,617,40C548.6,40,480,40,411,40C342.9,40,274,40,206,40C137.1,40,69,40,34,40L0,40Z">
+-                    </path>
+-                </svg>
+-                <div class="text-center py-3" style="position: relative; z-index: 5; margin-bottom: 0 !important;">
+-                    <p class="small mb-0" style="color: white; opacity: 0.9;">┬®´©Å 2026 J &amp; H Painting FL. All Rights
++                <!-- Copyright Bar -->
++                <div style="background-color: #6d16df; padding: 16px 0; text-align:center;">
++                    <p class="mb-0 small" style="color: rgba(255,255,255,0.9);">┬® 2026 J &amp; H Painting FL. All Rights
+                         Reserved.</p>
+                 </div>
+-            </div>
+-        </footer>
++
++
++
++
++
++                <style>
++                    .footer-nav-link {
++                        color: #0dbbc9;
++                        text-decoration: none;
++                        font-size: 1rem;
++                        font-weight: 500;
++                        transition: all 0.3s ease;
++                        opacity: 0.9;
++                    }
++
++                    .footer-nav-link:hover {
++                        color: #ffffff;
++                        text-shadow: 0 0 10px rgba(13, 187, 201, 0.5);
++                        opacity: 1;
++                        padding-left: 5px;
++                    }
++                </style>
++
++            </footer>
+ 
+     </main>
+ 
+@@ -3373,24 +3626,7 @@
+         document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoader, 2200); });
+         setTimeout(hideLoader, 3000);
+ 
+-        // CUSTOM CURSOR
+-        const cursorDot = document.getElementById('cursorDot');
+-        const cursorRing = document.getElementById('cursorRing');
+-        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+-        document.addEventListener('mousemove', function (e) {
+-            mouseX = e.clientX; mouseY = e.clientY;
+-            cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+-        });
+-        function animateRing() {
+-            ringX += (mouseX - ringX) * 0.12; ringY += (mouseY - ringY) * 0.12;
+-            cursorRing.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+-            requestAnimationFrame(animateRing);
+-        }
+-        animateRing();
+-        document.querySelectorAll('a, button, .logo-item, .service-row, .gallery-img-wrap').forEach(el => {
+-            el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
+-            el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
+-        });
++
+ 
+         // SCROLL PROGRESS
+         window.addEventListener('scroll', function () {
+@@ -3513,15 +3749,7 @@
+         }, { threshold: 0.5 });
+         document.querySelectorAll('.star-rating').forEach(function (el) { starObserver.observe(el); });
+ 
+-        // CAROUSEL
+-        document.addEventListener('DOMContentLoaded', function () {
+-            var galleryCarousel = document.getElementById('clientCarousel');
+-            if (galleryCarousel) {
+-                var galleryInstance = bootstrap.Carousel.getInstance(galleryCarousel);
+-                if (galleryInstance) galleryInstance.dispose();
+-                new bootstrap.Carousel(galleryCarousel, { interval: 3000, ride: 'carousel', pause: false, wrap: true });
+-            }
+-        });
++        // CAROUSEL REMOVED FOR VERTICAL SLIDER
+ 
+         // GALLERY MODAL ÔÇö populate images dynamically
+         (function () {

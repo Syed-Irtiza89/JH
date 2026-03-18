@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exterior Painting | J&H Painting</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/templatemo-tiya-golf-club.css" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           BASE RESET — exact from index.html
+        ============================================= */
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+
+        body {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            padding-top: 80px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        main {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .site-footer {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* =============================================
+           PAGE LOADER — exact from index.html
+        ============================================= */
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0010;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-logo {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 4px;
+            animation: loaderPulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-logo span:first-child {
+            color: #6d16df;
+        }
+
+        .loader-logo span:last-child {
+            color: #0dbbc9;
+        }
+
+        .loader-bar-wrap {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loader-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 2px;
+            animation: loadBar 1.8s ease-in-out forwards;
+        }
+
+        @keyframes loadBar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes loaderPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(0.97);
+            }
+        }
+
+        /* =============================================
+           SCROLL PROGRESS — exact from index.html
+        ============================================= */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            z-index: 99997;
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(109, 22, 223, 0.6);
+        }
+
+        /* =============================================
+           NAVBAR — exact from index.html
+        ============================================= */
+        .navbar {
+            background-color: rgba(47, 39, 39, 0.4) !important;
+            backdrop-filter: blur(5px) saturate(120%) !important;
+            -webkit-backdrop-filter: blur(5px) saturate(120%) !important;
+            border-bottom: 1px solid rgba(26, 13, 13, 0.3);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(10, 0, 16, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            box-shadow: 0 4px 30px rgba(109, 22, 223, 0.3);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            padding: 8px 16px !important;
+            margin: 0 2px;
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 1px;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+            left: 20%;
+        }
+
+        .nav-link.active {
+            background-color: rgba(0, 0, 0, 0.05) !important;
+            color: #333333 !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: rgba(255, 255, 255, 0.6);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                border-radius: 20px;
+                padding: 20px;
+                margin-top: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .nav-link {
+                padding: 12px !important;
+            }
+
+            .navbar-toggler-icon {
+                width: 30px;
+                height: 30px;
+                background-size: 100% 100%;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+
+            .navbar-brand img {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-brand img {
+                margin-left: 0;
+            }
+        }
+
+        /* NAVBAR GET QUOTE BUTTON — exact from index.html */
+        .navbar-get-quote {
+            background-color: white;
+            border-color: white;
+            color: #6d16df !important;
+            font-weight: 800;
+            padding: 10px 25px;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-get-quote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(109, 22, 223, 0.1), transparent);
+            transition: left 0.4s ease;
+        }
+
+        .navbar-get-quote:hover::before {
+            left: 100%;
+        }
+
+        .navbar-get-quote:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* =============================================
+           SCROLL ANIMATIONS — exact from index.html
+        ============================================= */
+        [data-anim] {
+            will-change: opacity, transform, filter;
+        }
+
+        [data-anim="fade-up"] {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="fade-up"].anim-done {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-anim="fade-down"] {
+            opacity: 0;
+            transform: translateY(-60px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="fade-down"].anim-done {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-anim="slide-left"] {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="slide-left"].anim-done {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-anim="slide-right"] {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="slide-right"].anim-done {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-anim="zoom-in"] {
+            opacity: 0;
+            transform: scale(0.75);
+            transition: opacity 0.85s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-anim="zoom-in"].anim-done {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-anim="zoom-out"] {
+            opacity: 0;
+            transform: scale(1.2);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="zoom-out"].anim-done {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        [data-anim="flip-y"] {
+            opacity: 0;
+            transform: rotateY(60deg) translateX(30px);
+            transform-origin: left center;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="flip-y"].anim-done {
+            opacity: 1;
+            transform: rotateY(0deg) translateX(0);
+        }
+
+        [data-anim="flip-x"] {
+            opacity: 0;
+            transform: perspective(600px) rotateX(30deg) translateY(20px);
+            transform-origin: center bottom;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="flip-x"].anim-done {
+            opacity: 1;
+            transform: perspective(600px) rotateX(0deg) translateY(0);
+        }
+
+        [data-anim="blur-in"] {
+            opacity: 0;
+            filter: blur(18px);
+            transform: scale(1.04);
+            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), filter 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-anim="blur-in"].anim-done {
+            opacity: 1;
+            filter: blur(0);
+            transform: scale(1);
+        }
+
+        [data-anim="bounce-up"] {
+            opacity: 0;
+            transform: translateY(80px) scale(0.9);
+            transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-anim="bounce-up"].anim-done {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        [data-anim="rotate-in"] {
+            opacity: 0;
+            transform: rotate(-12deg) scale(0.85);
+            transform-origin: bottom left;
+            transition: opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-anim="rotate-in"].anim-done {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        [data-anim="swing"] {
+            opacity: 0;
+            transform: rotate(-20deg) translateY(30px);
+            transform-origin: top center;
+            transition: opacity 0.8s cubic-bezier(0.34, 1.2, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        [data-anim="swing"].anim-done {
+            opacity: 1;
+            transform: rotate(0deg) translateY(0);
+        }
+
+        [data-delay="100"] {
+            transition-delay: 0.1s;
+        }
+
+        [data-delay="200"] {
+            transition-delay: 0.2s;
+        }
+
+        [data-delay="300"] {
+            transition-delay: 0.3s;
+        }
+
+        [data-delay="400"] {
+            transition-delay: 0.4s;
+        }
+
+        [data-delay="500"] {
+            transition-delay: 0.5s;
+        }
+
+        [data-delay="600"] {
+            transition-delay: 0.6s;
+        }
+
+        [data-delay="700"] {
+            transition-delay: 0.7s;
+        }
+
+        [data-delay="800"] {
+            transition-delay: 0.8s;
+        }
+
+        [data-speed="fast"] {
+            transition-duration: 0.5s !important;
+        }
+
+        [data-speed="slow"] {
+            transition-duration: 1.3s !important;
+        }
+
+        .section-sweep {
+            position: relative;
+        }
+
+        .section-sweep::before {
+            display: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title-line {
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6d16df, #0dbbc9);
+            border-radius: 2px;
+            margin: 12px auto 0;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+        }
+
+        .section-title-line.revealed {
+            width: 80px;
+        }
+
+        /* =============================================
+           RIPPLE — exact from index.html
+        ============================================= */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-ripple .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* =============================================
+           ANIMATED GRADIENT TEXT — exact from index.html
+        ============================================= */
+        .animated-gradient-text {
+            background: linear-gradient(270deg, #6d16df, #0dbbc9, #6d16df);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* =============================================
+           FOOTER — exact from index.html
+        ============================================= */
+        .site-footer {
+            margin-top: 0;
+            padding-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-link {
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: #6d16df !important;
+            transform: translateX(4px);
+        }
+
+        .footer-social-icon {
+            color: white;
+            background-color: #6d16df;
+            padding: 10px 13px;
+            border-radius: 50%;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-icon:hover {
+            background-color: #0dbbc9;
+            transform: translateY(-4px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(13, 187, 201, 0.4);
+        }
+
+        /* =============================================
+           SECTION DIVIDER — exact from index.html
+        ============================================= */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6d16df, #0dbbc9, transparent);
+            margin: 0;
+            opacity: 0.3;
+        }
+
+        /* =============================================
+           OFFCANVAS — exact from index.html
+        ============================================= */
+        .offcanvas .form-control {
+            transition: all 0.3s ease;
+        }
+
+        .offcanvas .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(109, 22, 223, 0.2);
+            border-color: #6d16df;
+        }
+
+        /* =============================================
+           MOBILE — exact from index.html
+        ============================================= */
+        @media (max-width: 991px) {
+            .navbar .navbar-brand {
+                position: relative !important;
+                left: 0 !important;
+                transform: none !important;
+                margin-right: auto !important;
+                z-index: 10;
+            }
+
+            .navbar .d-lg-none.ms-auto.me-3 {
+                position: relative !important;
+                z-index: 11;
+                margin-left: auto !important;
+            }
+
+            .navbar-toggler {
+                position: relative !important;
+                z-index: 11;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            h2 {
+                font-size: 1.8rem !important;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+            }
+
+            .btn {
+                padding: 8px 16px !important;
+                font-size: 0.9rem !important;
+            }
+
+            .site-footer .col-lg-4,
+            .site-footer .col-md-6:first-child {
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+
+            .site-footer .col-lg-2,
+            .site-footer .col-lg-3,
+            .site-footer .col-md-6:not(:first-child),
+            .site-footer .col-12:not(:first-child) {
+                text-align: left !important;
+            }
+
+            .site-footer .navbar-brand {
+                position: relative !important;
+                left: 0 !important;
+                transform: none !important;
+                justify-content: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                margin: 0 0 25px 0 !important;
+                width: 100%;
+                gap: 10px !important;
+            }
+
+            .site-footer .navbar-brand span {
+                text-align: center !important;
+            }
+
+            .site-footer .d-flex.gap-3 {
+                justify-content: center !important;
+            }
+
+            .site-footer h5 {
+                text-align: left !important;
+            }
+
+            .site-footer ul {
+                align-items: flex-start !important;
+                text-align: left !important;
+            }
+
+            .site-footer li {
+                text-align: left !important;
+            }
+        }
+
+        /* =============================================
+           PAGE-SPECIFIC STYLES
+        ============================================= */
+        /* Hero */
+        .page-hero {
+            position: relative;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .page-hero img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transform-origin: center;
+            animation: heroImgZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroImgZoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 3;
+            padding-left: 5%;
+        }
+
+        .page-hero-content h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            animation: heroReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .page-hero-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.2rem;
+            max-width: 600px;
+            animation: heroReveal 1.2s 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content */
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .back-link {
+            margin-bottom: 30px;
+        }
+
+        .back-link a {
+            color: #6d16df;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #0dbbc9;
+            transform: translateX(-4px);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .image-block {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .image-block:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(109, 22, 223, 0.2);
+        }
+
+        .image-block img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .image-block:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            padding: 15px;
+            background: white;
+            font-weight: 500;
+            color: #6d16df;
+            border-bottom: 3px solid #0dbbc9;
+        }
+
+        .text-block {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .text-block:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(109, 22, 223, 0.1);
+        }
+
+        h2.content-h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #322e2f;
+            margin: 40px 0 20px;
+        }
+
+        h3.content-h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6d16df;
+            margin: 30px 0 15px;
+        }
+
+        .content-p {
+            font-size: 1rem;
+            color: #322e2f;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .content-ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .content-ul li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            transition: transform 0.2s ease;
+            color: #322e2f;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .content-ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .content-ul li::before {
+            content: "•";
+            color: #0dbbc9;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .divider {
+            margin: 40px 0;
+            border: 0;
+            border-top: 2px dashed #6d16df;
+            opacity: 0.3;
+        }
+
+        .credibility-badge {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(109, 22, 223, 0.06), rgba(13, 187, 201, 0.06));
+            border-radius: 15px;
+            text-align: center;
+            border-left: 5px solid #6d16df;
+            border-right: 5px solid #0dbbc9;
+            transition: transform 0.3s ease;
+        }
+
+        .credibility-badge:hover {
+            transform: scale(1.01);
+        }
+
+        .credibility-badge p {
+            margin: 0;
+            font-weight: 600;
+            color: #6d16df;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero img {
+                height: 280px;
+            }
+
+            .page-hero-content h1 {
+                font-size: 2rem !important;
+            }
+
+            .page-hero-content p {
+                font-size: 1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .image-block img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <div class="loader-logo"><span>J</span>&amp;<span>H</span></div>
+        <div
+            style="color:rgba(255,255,255,0.5);font-size:0.85rem;letter-spacing:3px;margin-top:10px;text-transform:uppercase;">
+            Painting Services</div>
+        <div class="loader-bar-wrap">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+
+
+    <main>
+
+        <!-- =============================================
+             NAVBAR — exact match to index.html
+        ============================================= -->
+                <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                    <img src="../images/logo.png" class="navbar-brand-image img-fluid me-2" alt="J & H Painting"
+                        style="max-width: 100px; height: auto; width: auto; filter: none !important;">
+                </a>
+                <div class="d-lg-none ms-auto me-3">
+                    <a class="btn custom-btn custom-border-btn btn-ripple" data-bs-toggle="offcanvas"
+                        href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
+                        style="background-color: white; border-color: white; color: #6d16df; backdrop-filter: blur(5px); font-weight: 600; padding: 8px 20px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">Free
+                        Quote</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    style="background: transparent; border: none; padding: 6px 8px; outline: none; box-shadow: none;">
+                    <span style="display: flex; flex-direction: column; gap: 5px; width: 26px;">
+                        <span
+                            style="display:block; height:2.5px; background: linear-gradient(90deg,#6d16df,#0dbbc9); border-radius:2px; transition: all 0.3s;"></span>
+                        <span
+                            style="display:block; height:2.5px; background: linear-gradient(90deg,#6d16df,#0dbbc9); border-radius:2px; width:70%; transition: all 0.3s;"></span>
+                        <span
+                            style="display:block; height:2.5px; background: linear-gradient(90deg,#6d16df,#0dbbc9); border-radius:2px; transition: all 0.3s;"></span>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html#section_1">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#section_2">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#section_3">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#section_4">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#section_5">Contact Us</a></li>
+                    </ul>
+                    <div class="d-none d-lg-block ms-lg-3">
+                        <a class="btn navbar-get-quote btn-ripple" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                            role="button" aria-controls="offcanvasExample">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Offcanvas Quote Form — exact from index.html -->
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="color:#322e2f;">Get a Free Quote</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column">
+                <form class="custom-form member-login-form" action="#" method="post" role="form">
+                    <div class="member-login-form-body">
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="full-name-oc" style="color:#322e2f;">Full Name</label>
+                            <input type="text" name="full-name" id="full-name-oc" class="form-control"
+                                placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="email-oc" style="color:#322e2f;">Email</label>
+                            <input type="email" name="email" id="email-oc" pattern="[^ @]*@[^ @]*" class="form-control"
+                                placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label mb-2" for="phone-oc" style="color:#322e2f;">Phone</label>
+                            <input type="tel" name="phone" id="phone-oc" class="form-control"
+                                placeholder="Your Phone Number">
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-10 mx-auto">
+                            <button type="submit" class="form-control btn-ripple"
+                                style="background-color:#6d16df;border-color:#6d16df;color:white;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-auto mb-5">
+                    <p><strong class="me-3" style="color:#322e2f;">Any Questions?</strong>
+                        <a href="tel:+15619063823" class="contact-link" style="color:#6d16df;">+1 (561) 906-3823</a>
+                    </p>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#dcb78a" fill-opacity="1"
+                    d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+
+        <!-- =============================================
+             HERO — structure matches index.html exactly
+        ============================================= -->
+        <section class="page-hero" id="section_1">
+            <div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;">
+                <img src="../images/exterior-hero.jpg" alt="Exterior Painting" id="heroImg"
+                    style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform-origin:center;animation:heroImgZoom 20s ease-in-out infinite alternate;">
+            </div>
+
+            <!-- Dark overlay — same as index -->
+            <div
+                style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0.7) 80%,rgba(0,0,0,0.5) 100%);z-index:1;">
+            </div>
+
+            <!-- Particles canvas — same as index -->
+            <canvas id="heroCanvas"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;"></canvas>
+
+            <div class="container" style="position:relative;z-index:3;padding-top:90px;">
+                <div class="row">
+                    <div class="col-lg-12 col-12 text-start">
+                        <div style="animation:heroReveal 1.2s cubic-bezier(0.4,0,0.2,1) forwards;opacity:0;">
+                            <h1 class="text-white"
+                                style="font-size:3.5rem;font-weight:800;letter-spacing:2px;margin-bottom:5px;">
+                                Exterior Painting<br>
+                                <span class="animated-gradient-text">Services</span>
+                            </h1>
+                            <p class="text-white mt-3"
+                                style="font-size:1.2rem;opacity:0.85;max-width:600px;animation:heroReveal 1.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards;opacity:0;">
+                                Durable, professional finishes for properties of all sizes
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             PAGE CONTENT
+        ============================================= -->
+        <div class="page-container section-sweep">
+
+            <div class="back-link" data-anim="fade-up">
+                <a href="../index.html#section_3"><i class="bi bi-arrow-left"></i> Back to Services</a>
+            </div>
+
+            <div class="text-block" data-anim="fade-up" data-delay="100">
+                <p class="content-p">J&H Painting provides professional exterior painting services for residential,
+                    commercial, and new construction properties across Florida and nationwide. Our team is equipped to
+                    handle projects of all sizes, from single buildings to large-scale developments, with a focus on
+                    durability, proper surface preparation, and long-lasting finishes.</p>
+                <p class="content-p mb-0">We utilize high-quality coatings, professional spray equipment, and structured
+                    project coordination to ensure efficient execution and consistent results in active construction and
+                    occupied environments.</p>
+            </div>
+
+            <hr class="divider">
+
+            <h2 class="content-h2" data-anim="blur-in">Scope <span class="animated-gradient-text">Includes:</span></h2>
+            <div class="content-grid">
+                <div data-anim="slide-left">
+                    <ul class="content-ul">
+                        <li>Exterior painting for residential and commercial properties</li>
+                        <li>New construction exterior painting</li>
+                        <li>Multi-unit and large-scale developments</li>
+                        <li>High-production spray applications for uniform coverage</li>
+                        <li>Surface preparation including cleaning, sanding, patching, and priming</li>
+                        <li>Repaints, renovations, and exterior refresh projects</li>
+                        <li>Coordination with builders, property managers, and general contractors</li>
+                        <li>Final detailing and punch list completion</li>
+                    </ul>
+                </div>
+                <div class="image-block" data-anim="flip-y">
+                    <img src="../images/exterior-scope.jpg" alt="Exterior Painting Scope">
+                    <div class="image-caption">Large-Scale Exterior Projects</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <h3 class="content-h3" data-anim="fade-up">Surface Preparation & Coating Process</h3>
+            <div class="content-grid">
+                <div class="image-block" data-anim="slide-left">
+                    <img src="../images/exterior-preparation.jpg" alt="Surface Preparation">
+                    <div class="image-caption">Proper Surface Prep for Durability</div>
+                </div>
+                <div data-anim="slide-right">
+                    <p class="content-p">Proper preparation is essential for long-term exterior performance. J&H
+                        Painting follows a structured preparation process that may include pressure cleaning, surface
+                        repairs, sanding, caulking, priming, and coating application to ensure proper adhesion and a
+                        durable finish suitable for exterior conditions.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <h3 class="content-h3" data-anim="fade-up">Equipment & Capabilities</h3>
+            <div class="content-grid">
+                <div data-anim="slide-left">
+                    <p class="content-p">Our team utilizes professional spray systems and lift equipment when required
+                        to safely and efficiently complete exterior painting on multi-story buildings, large structures,
+                        and high-access areas. This allows for consistent coverage, faster production timelines, and
+                        professional-grade finishes on projects of any scale.</p>
+                </div>
+                <div class="image-block" data-anim="slide-right">
+                    <img src="../images/img3.jpeg" alt="Equipment">
+                    <div class="image-caption">Professional Spray & Lift Equipment</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <h3 class="content-h3" data-anim="fade-up">Types of Exterior Projects We Serve</h3>
+            <div class="content-grid">
+                <div data-anim="slide-left">
+                    <ul class="content-ul">
+                        <li>Commercial Buildings & Retail Centers</li>
+                        <li>New Construction Developments</li>
+                        <li>Multi-Unit Residential Properties</li>
+                        <li>Office Buildings & Facilities</li>
+                        <li>Exterior Repaints & Renovations</li>
+                        <li>Builder Communities & Production Projects</li>
+                    </ul>
+                </div>
+                <div class="image-block" data-anim="zoom-in">
+                    <img src="../images/construction-hero.jpg" alt="Exterior Project Types">
+                    <div class="image-caption">Diverse Exterior Projects</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="text-block" data-anim="fade-up">
+                <p class="content-p" style="font-size:1.1rem;font-style:italic;">J&H Painting delivers durable exterior
+                    finishes, reliable scheduling, and scalable crews capable of supporting both large-scale commercial
+                    exteriors and residential projects nationwide.</p>
+            </div>
+
+            <hr class="divider">
+
+            <h3 class="content-h3" data-anim="fade-up">Recent Exterior Transformations</h3>
+            <div class="content-grid">
+                <div class="image-block" data-anim="slide-left">
+                    <img src="../images/nationwide-1.jpeg" alt="Exterior Project 1">
+                    <div class="image-caption">Premium Protection</div>
+                </div>
+                <div class="image-block" data-anim="slide-right">
+                    <img src="../images/nationwide-2.jpeg" alt="Exterior Project 2">
+                    <div class="image-caption">Finished Elegance</div>
+                </div>
+            </div>
+
+            <div class="credibility-badge" data-anim="bounce-up" data-delay="200">
+                <p>Fully Licensed &amp; Insured &nbsp;•&nbsp; Commercial &amp; Residential &nbsp;•&nbsp; Serving
+                    Projects Nationwide</p>
+            </div>
+
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             FOOTER — exact match to index.html
+        ============================================= -->
+        <footer class="site-footer" style="margin: 0; padding: 0; position: relative; overflow: hidden;">
+
+            <!-- Background Image with Dark Overlay to Fade Image -->
+            <div style="
+                background: url('../images/footer-bg.jpg') center center / cover no-repeat;
+                position: relative;
+            ">
+                <!-- Strong Dark Overlay -->
+                <div style="
+                    background: rgba(18, 9, 32, 0.85); /* Darker overlay for a more subtle background fade */
+                    padding: 80px 0 50px;
+                ">
+                    <div class="container">
+                        <div class="row g-5">
+
+                            <!-- Col 1: Logo + Description + Socials -->
+                            <div class="col-lg-4 col-md-6 col-12 pe-lg-5 text-start">
+                                <a class="navbar-brand d-flex align-items-center mb-4" href="../index.html"
+                                    style="gap: 12px; text-decoration: none;">
+                                    <img src="../images/logo.png" class="img-fluid" alt="J & H Painting"
+                                        style="max-width: 48px; height: auto; filter: brightness(1.2);">
+                                    <span
+                                        style="color: #ffffff; font-weight: 800; font-size: 1.3rem; line-height: 1.2;">J
+                                        &amp; H <br><span style="color: #0dbbc9;">Painting</span></span>
+                                </a>
+                                <p
+                                    style="color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 25px; font-size: 1rem;">
+                                    Serving homeowners &amp; businesses throughout Florida with premium painting
+                                    services. Quality and satisfaction guaranteed.
+                                </p>
+                                <!-- Social Icons -->
+                                <div class="d-flex gap-3">
+                                    <a href="#"
+                                        style="width:42px;height:42px;border-radius:50%;background:#6d16df;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
+                                        onmouseover="this.style.background='#0dbbc9'; this.style.transform='translateY(-3px)'"
+                                        onmouseout="this.style.background='#6d16df'; this.style.transform='translateY(0)'">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="width:42px;height:42px;border-radius:50%;background:#6d16df;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
+                                        onmouseover="this.style.background='#0dbbc9'; this.style.transform='translateY(-3px)'"
+                                        onmouseout="this.style.background='#6d16df'; this.style.transform='translateY(0)'">
+                                        <i class="bi bi-instagram"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="width:42px;height:42px;border-radius:50%;background:#6d16df;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;text-decoration:none;transition:all 0.3s;"
+                                        onmouseover="this.style.background='#25d366'; this.style.transform='translateY(-3px)'"
+                                        onmouseout="this.style.background='#6d16df'; this.style.transform='translateY(0)'">
+                                        <i class="bi bi-whatsapp"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Col 2: Quick Menu -->
+                            <div class="col-lg-2 col-md-6 col-12 text-start">
+                                <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 25px; font-size: 1.2rem;">
+                                    Quick Menu</h5>
+                                <ul
+                                    style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px;">
+                                    <li><a href="../index.html#" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Home</a>
+                                    </li>
+                                    <li><a href="../index.html#section_2" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>About
+                                            Us</a></li>
+                                    <li><a href="../index.html#section_3" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Services</a>
+                                    </li>
+                                    <li><a href="../index.html#section_4" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Gallery</a>
+                                    </li>
+                                    <li><a href="../index.html#section_5" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Contact
+                                            Us</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Col 3: Our Services -->
+                            <div class="col-lg-3 col-md-6 col-12 text-start">
+                                <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 25px; font-size: 1.2rem;">
+                                    Our Services</h5>
+                                <ul
+                                    style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:15px;">
+                                    <li><a href="interior-painting.html" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Interior
+                                            Painting</a></li>
+                                    <li><a href="exterior-painting.html" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Exterior
+                                            Painting</a></li>
+                                    <li><a href="commercial-painting.html" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Commercial
+                                            Painting</a></li>
+                                    <li><a href="new-construction.html" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>New
+                                            Construction</a></li>
+                                    <li><a href="specialty-coatings.html" class="footer-nav-link"><i
+                                                class="bi bi-arrow-right-short me-2"
+                                                style="color:#0dbbc9;font-size:1.2rem;vertical-align:middle;"></i>Specialty
+                                            Coatings</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Col 4: Contact Info -->
+                            <div class="col-lg-3 col-md-6 col-12 text-start">
+                                <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 25px; font-size: 1.2rem;">
+                                    Contact Info</h5>
+                                <ul
+                                    style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px;">
+                                    <li style="display:flex;align-items:center;gap:15px;">
+                                        <div
+                                            style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <i class="bi bi-telephone-fill" style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                        </div>
+                                        <a href="tel:+15619063823"
+                                            style="color:#ffffff;text-decoration:none;font-weight:600;font-size:1.05rem;transition:color 0.3s;"
+                                            onmouseover="this.style.color='#0dbbc9'"
+                                            onmouseout="this.style.color='#ffffff'">+1 (561) 906-3823</a>
+                                    </li>
+                                    <li style="display:flex;align-items:center;gap:15px;">
+                                        <div
+                                            style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <i class="bi bi-envelope-fill" style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                        </div>
+                                        <a href="mailto:jhpaintingincfl@gmail.com"
+                                            style="color:#ffffff;text-decoration:none;font-size:0.95rem;transition:color 0.3s;word-break:break-all;"
+                                            onmouseover="this.style.color='#0dbbc9'"
+                                            onmouseout="this.style.color='#ffffff'">jhpaintingincfl@gmail.com</a>
+                                    </li>
+                                    <li style="display:flex;align-items:center;gap:15px;">
+                                        <div
+                                            style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <i class="bi bi-geo-alt-fill" style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                        </div>
+                                        <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Florida,
+                                            USA</span>
+                                    </li>
+                                    <li style="display:flex;align-items:center;gap:15px;">
+                                        <div
+                                            style="width:40px;height:40px;border-radius:10px;background:rgba(109,22,223,0.25);border:1px solid rgba(13,187,201,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <i class="bi bi-clock-fill" style="color:#0dbbc9;font-size:1.1rem;"></i>
+                                        </div>
+                                        <span style="color:rgba(255,255,255,0.9);font-size:0.95rem;">Mon – Sat: 07am
+                                            – 06pm</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div
+                style="background-color: #6d16df; padding: 20px 0; text-align:center; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="mb-0" style="color: #ffffff; font-size: 0.95rem; font-weight: 500;">© 2026 J &amp; H
+                    Painting FL. All Rights Reserved.</p>
+            </div>
+
+            <style>
+                .footer-nav-link {
+                    color: rgba(255, 255, 255, 0.85);
+                    text-decoration: none;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    display: inline-block;
+                }
+
+                .footer-nav-link:hover {
+                    color: #0dbbc9;
+                    transform: translateX(5px);
+                }
+
+                @media (max-width: 767px) {
+
+                    .site-footer .col-12,
+                    .site-footer .col-md-6 {
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                        padding-bottom: 20px;
+                    }
+
+                    .site-footer .col-12:last-child {
+                        border-bottom: none;
+                    }
+
+                    .site-footer .row.g-5 {
+                        --bs-gutter-y: 1.5rem;
+                    }
+
+                    .site-footer [style*="padding: 80px"] {
+                        padding: 50px 0 30px !important;
+                    }
+                }
+            </style>
+
+        </footer>
+
+    </main>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+    <script src="../js/click-scroll.js"></script>
+    <script src="../js/animated-headline.js"></script>
+    <script src="../js/modernizr.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <script>
+        // =============================================
+        // PAGE LOADER — exact from index.html
+        // =============================================
+        function hideLoader() {
+            var loader = document.getElementById('page-loader');
+            if (loader) loader.classList.add('hidden');
+        }
+        window.addEventListener('load', function () { setTimeout(hideLoader, 1800); });
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoader, 2200); });
+        setTimeout(hideLoader, 3000);
+
+
+
+        // =============================================
+        // SCROLL PROGRESS BAR — exact from index.html
+        // =============================================
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('scroll-progress').style.width = progress + '%';
+        });
+
+        // =============================================
+        // NAVBAR SCROLL EFFECT — exact from index.html
+        // =============================================
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 80) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // =============================================
+        // SCROLL ANIMATION ENGINE — exact from index.html
+        // =============================================
+        const animObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('anim-done');
+                    animObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('[data-anim]').forEach(function (el) { animObserver.observe(el); });
+
+        const sweepObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) entry.target.classList.add('sweep-done');
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.section-sweep').forEach(function (el) { sweepObserver.observe(el); });
+
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) entry.target.classList.add('revealed');
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal, .section-title-line').forEach(function (el) { revealObserver.observe(el); });
+
+        // =============================================
+        // HERO CANVAS PARTICLES — exact from index.html
+        // =============================================
+        const canvas = document.getElementById('heroCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = canvas.height + 20;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedY = -(Math.random() * 1.5 + 0.5);
+                    this.speedX = (Math.random() - 0.5) * 0.8;
+                    this.opacity = 0;
+                    this.maxOpacity = Math.random() * 0.5 + 0.2;
+                    this.life = 0;
+                    this.maxLife = Math.random() * 200 + 100;
+                    this.color = Math.random() > 0.5 ? '109,22,223' : '13,187,201';
+                }
+                update() {
+                    this.life++;
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.life < 20) this.opacity = (this.life / 20) * this.maxOpacity;
+                    else if (this.life > this.maxLife - 20) this.opacity = ((this.maxLife - this.life) / 20) * this.maxOpacity;
+                    else this.opacity = this.maxOpacity;
+                    if (this.life >= this.maxLife || this.y < -20) this.reset();
+                }
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.opacity;
+                    ctx.fillStyle = `rgba(${this.color}, 1)`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            for (let i = 0; i < 60; i++) {
+                const p = new Particle();
+                p.life = Math.floor(Math.random() * p.maxLife);
+                p.y = Math.random() * canvas.height;
+                particles.push(p);
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        }
+
+        // =============================================
+        // RIPPLE EFFECT — exact from index.html
+        // =============================================
+        document.querySelectorAll('.btn-ripple').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+                ripple.style.marginLeft = ripple.style.marginTop = '-' + (Math.max(rect.width, rect.height) / 2) + 'px';
+                btn.appendChild(ripple);
+                setTimeout(function () { ripple.remove(); }, 600);
+            });
+        });
+
+        // =============================================
+        // PARALLAX ON SCROLL — exact from index.html
+        // =============================================
+        window.addEventListener('scroll', function () {
+            const heroImg = document.getElementById('heroImg');
+            if (heroImg) {
+                heroImg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.3}px)`;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
